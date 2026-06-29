@@ -13,10 +13,10 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Hacknet 요약/Node 카드 라벨
 - Options 라벨/버튼/주요 툴팁
 - Active Scripts 라벨/설명문/생산 통계 텍스트
+- Dark Net 화면 라벨/상태/툴팁
 
 진행 후보:
 
-- Dark Web 단발 툴팁
 - Monaco 에디터 폰트 예외 처리
 - Faction work 라벨
 
@@ -40,6 +40,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Options 라벨/버튼/툴팁 | `options_remaining_texts.json`, `options_sidebar_buttons.json`, `options_keybinding_texts.json`, `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`, `options_final_visual_fixes.json` | 화면 검증 완료 | `screenshot/options_interface_final_success.png` | 없음 |
 | Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert CLI + 스크린샷 검증 완료 | `screenshot/patcher_01_clean_dry_run.png` ... `screenshot/patcher_06_revert_count_check.png` | 없음 |
 | Active Scripts 라벨/텍스트 | `patches/active_scripts_labels.json`, `patches/active_scripts_texts.json` | 1차 잔여 후 2차 보정, 화면 검증 완료 | `screenshot/active_scripts_success.png` | 공용 시간 단위 formatter 별도 후보 |
+| Dark Net 화면 라벨/툴팁 | `patches/darknet_tooltips.json` | dev-only 오판 후 revert, 실제 화면 manifest 재작성 및 화면 검증 완료 | `screenshot/darknet_success.png` | `Logs scraped via`, `Hint:` 2회 출현 문구 별도 후보 |
 
 ### Phase 1 패처 로컬 CLI 검증
 
@@ -762,4 +763,52 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Active Scripts 라벨/설명문/생산 통계 텍스트 묶음은 화면 확인 기준으로 완료했다.
 - `4 hours 23 minutes 16 seconds` 같은 시간 단위는 공용 formatter 출력으로 보이며, 별도 통제 실험 후보로 남긴다.
-- 다음 후보는 Dark Web 단발 툴팁 또는 Faction work 라벨이다.
+- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+
+## Dark Net 화면 라벨/툴팁 패치
+
+목표:
+
+- Options 범위 밖 후보로 남겨둔 Dark Net 화면의 실제 표시 문자열을 처리한다.
+- 개발용 `DarknetDev` 패널과 실제 `Dark Net` 화면을 구분한다.
+- 화면에 보이는 라벨, 상태 문구, 검색 UI, 서버 상태 툴팁을 우선 처리한다.
+
+오판과 보정:
+
+- 1차로 `src/DevMenu/ui/DarknetDev.tsx` 문맥의 `Show Full Network`, `Generate New Dark Network` 등을 잡았으나 실제 화면에는 반영되지 않았다.
+- 해당 dev-only 적용분은 `revert-patch.ps1`로 되돌렸다.
+- 이후 `src/DarkWeb/ui/DarkWeb.tsx`, `DarkWebServer.tsx`, `DarkWebStatus.tsx`, `DarkWebServerModal.tsx` 문맥의 실제 화면 문자열로 manifest를 재작성했다.
+
+적용한 manifest:
+
+- `patches/darknet_tooltips.json`
+
+적용한 내용:
+
+- 제목 `Dark Net`을 `다크넷`으로 번역했다.
+- 카드 상태 `[ auth required ]`, `(no connection)`을 각각 `[ 인증 필요 ]`, `(연결 없음)`으로 번역했다.
+- 서버 카드의 `cha:`를 `매력:`으로 번역했다.
+- 하단 검색 라벨 `Search:`와 placeholder `Search for server`를 `검색:`, `서버 검색`으로 번역했다.
+- `Darknet Docs` 버튼을 `Darknet 문서`로 번역했다.
+- 데이터 파일/실행 스크립트/보상 캐시/백도어/StormSeed/불안정성 관련 툴팁을 번역했다.
+- 비밀번호 입력/제출/응답 상태와 서버 상세 일부 라벨을 번역했다.
+
+검증:
+
+- dev-only manifest 적용분은 revert dry-run 후 `-Apply`로 복구했다.
+- 실제 화면 manifest는 dry-run에서 `Search:` 추가 전 29개 operation이 expected count로 통과했다.
+- `Search:` 라벨을 추가해 최종 30개 operation으로 정리했다.
+- 최종 apply 후 재 dry-run에서 30개 operation 모두 `already-applied`로 확인했다.
+- `const C="Search:"`, `[ auth required ]`, `(no connection)`, `Search for server`는 source 0회, target 1회로 확인했다.
+- `Dark Net`, `Darknet Docs`, `cha:`는 다른 문맥에도 남아 있어 전체 번들 count가 0이 되지 않으므로 이번 manifest의 scoped expected count로 판단한다.
+
+스크린샷:
+
+![Dark Net 성공](../screenshot/darknet_success.png)
+
+판단:
+
+- Dark Net 화면의 주요 라벨, 상태 문구, 검색 UI, 1회짜리 툴팁 묶음은 화면 확인 기준 완료했다.
+- `Logs scraped via`, `Hint:`는 각각 2회 출현해 이번 범위에서 제외했고, 인증/상세 모달 보강 후보로 남긴다.
+- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+

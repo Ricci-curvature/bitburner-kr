@@ -505,7 +505,8 @@
 
 다음 단계:
 
-- Active Scripts 라벨을 별도 scope로 처리한 뒤, Dark Web 단발 툴팁 후보를 남긴다.
+- Active Scripts 라벨과 Dark Net 화면 라벨/툴팁은 후속 Phase 6/7에서 처리했다.
+
 ## Phase 6 완료 메모 - Active Scripts
 
 구현된 것:
@@ -524,4 +525,27 @@
 남은 것:
 
 - `hours`, `minutes`, `seconds` 같은 시간 단위는 공용 formatter 출력으로 보이므로 별도 통제 실험으로 분리한다.
-- 다음 후보는 Dark Web 단발 툴팁 또는 Faction work 라벨이다.
+- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+
+## Phase 7 완료 메모 - Dark Net 화면
+
+구현된 것:
+
+- `patches/darknet_tooltips.json`
+- Dark Net 제목, 서버 카드 상태, 매력 라벨, 검색 UI, 문서 버튼
+- 데이터 파일/실행 스크립트/보상 캐시/불안정성/백도어 관련 주요 툴팁
+- 비밀번호 인증 모달과 서버 상세 모달 일부 라벨
+
+검증한 것:
+
+- 처음 잡은 `DarknetDev` 문맥은 실제 화면이 아니어서 revert 후 폐기했다.
+- 실제 `DarkWeb` UI 문맥으로 manifest를 재작성했다.
+- 최종 30개 operation이 dry-run, apply, 재 dry-run already-applied 확인을 통과했다.
+- `darknet_success.png`에서 제목, 카드 상태, `매력`, 검색 placeholder, 문서 버튼 한글 렌더링을 확인했다.
+
+남은 것:
+
+- `Logs scraped via`, `Hint:`는 2회 출현 문구라 별도 보강 후보로 둔다.
+- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+
+

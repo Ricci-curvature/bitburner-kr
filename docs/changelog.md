@@ -193,3 +193,11 @@
 - 소개문, 총 생산, 페이지당 표시 수, 표시 범위, 생산 통계 라벨을 2차로 보정했다.
 - `active_scripts_partial_residual.png`와 `active_scripts_success.png`를 추가했다.
 - 시간 단위 formatter는 전역 영향 가능성이 있어 별도 후보로 남겼다.
+
+## Dark Net 화면 라벨/툴팁 패치 적용
+
+- `patches/darknet_tooltips.json`을 추가했다.
+- 처음 잡은 `DarknetDev` 개발 패널 문맥은 실제 화면이 아니어서 revert 후 실제 `DarkWeb` UI 문맥으로 재작성했다.
+- Dark Net 제목, 서버 카드 상태, 매력 라벨, 검색 UI, 문서 버튼, 주요 상태 툴팁을 번역했다.
+- `darknet_success.png`를 추가하고 화면 검증 완료로 기록했다.
+- `Logs scraped via`, `Hint:`는 2회 출현 문구라 별도 보강 후보로 남겼다.

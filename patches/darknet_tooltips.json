@@ -1,0 +1,331 @@
+{
+  "patchId": "darknet_tooltips",
+  "description": "Translate visible Dark Net page labels, status text, search controls, and single-occurrence tooltips.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/DarkWeb/ui/DarkWeb.tsx",
+    "webpack:///./src/DarkWeb/ui/DarkWebServer.tsx",
+    "webpack:///./src/DarkWeb/ui/DarkWebStatus.tsx",
+    "webpack:///./src/DarkWeb/ui/DarkWebServerModal.tsx"
+  ],
+  "scope": "Visible Dark Net page text and single-occurrence tooltips",
+  "preserveTerms": [
+    "Dark Net",
+    "Darknet",
+    "darknet",
+    "WEBSTORM",
+    "IP",
+    "RAM",
+    "408 Request Timeout",
+    "heartbleed"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_page_title",
+      "source": "r.createElement(a.A,{variant:\"h5\",sx:{fontWeight:\"bold\"}},\"Dark Net\")",
+      "target": "r.createElement(a.A,{variant:\"h5\",sx:{fontWeight:\"bold\"}},\"다크넷\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_webstorm_warning",
+      "source": "\"[WEBSTORM WARNING]\"",
+      "target": "\"[WEBSTORM 경고]\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_instability_label",
+      "source": "\" \",\"Instability: \",G",
+      "target": "\" \",\"불안정성: \",G",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_instability_tooltip_1",
+      "source": "\"If too many darknet servers are backdoored, it will increase the chance that authentication \"",
+      "target": "\"백도어가 설치된 darknet 서버가 너무 많으면 인증 시도에서 \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_instability_tooltip_2",
+      "source": "\"attempts will return a 408 Request Timeout error (even if the password is correct). \"",
+      "target": "\"비밀번호가 맞더라도 408 Request Timeout 오류가 반환될 확률이 증가합니다. \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_instability_tooltip_3",
+      "source": "\"Most servers will eventually restart or go offline, which removes backdoors over time.\"",
+      "target": "\"대부분의 서버는 결국 재시작되거나 오프라인이 되며, 시간이 지나면 백도어가 제거됩니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_card_charisma_label",
+      "source": "e.ip,\" cha:\",e.requiredCharismaSkill",
+      "target": "e.ip,\" 매력:\",e.requiredCharismaSkill",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_auth_required_status",
+      "source": "\"[ auth required ]\"",
+      "target": "\"[ 인증 필요 ]\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_no_connection_status",
+      "source": "\"(no connection)\"",
+      "target": "\"(연결 없음)\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_search_label",
+      "source": "const C=\"Search:\"",
+      "target": "const C=\"검색:\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_search_placeholder",
+      "source": "\"Search for server\"",
+      "target": "\"서버 검색\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_search_no_results",
+      "source": "\"(No results)\"",
+      "target": "\"(결과 없음)\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_docs_button",
+      "source": "\"Darknet Docs\"",
+      "target": "\"Darknet 문서\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_data_files_tooltip",
+      "source": "`Data files on server: ${w.slice(0,3).join(\", \")}${w.length>3?\" +\"+(w.length-3):\"\"}`",
+      "target": "`서버 데이터 파일: ${w.slice(0,3).join(\", \")}${w.length>3?\" +\"+(w.length-3):\"\"}`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_no_data_files_tooltip",
+      "source": "\"No data files on server\"",
+      "target": "\"서버 데이터 파일 없음\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_running_scripts_tooltip",
+      "source": "`Running scripts on server: ${S.slice(0,3).join(\", \")}${S.length>3?\" +\"+(S.length-3):\"\"}`",
+      "target": "`서버 실행 스크립트: ${S.slice(0,3).join(\", \")}${S.length>3?\" +\"+(S.length-3):\"\"}`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_no_running_scripts_tooltip",
+      "source": "\"No running scripts on server\"",
+      "target": "\"실행 중인 스크립트 없음\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_reward_caches_tooltip",
+      "source": "`Reward caches on server: ${e.caches.slice(0,3).join(\", \")}${e.caches.length>3?\" +\"+(e.caches.length-3):\"\"}`",
+      "target": "`서버 보상 캐시: ${e.caches.slice(0,3).join(\", \")}${e.caches.length>3?\" +\"+(e.caches.length-3):\"\"}`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_stormseed_tooltip",
+      "source": "\"A mysterious executable has been found here...\"",
+      "target": "\"수상한 실행 파일이 여기에서 발견되었습니다...\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_backdoor_warning_tooltip",
+      "source": "\"Backdoor installed. Warning: this increases darknet instability.\"",
+      "target": "\"백도어가 설치되었습니다. 경고: darknet 불안정성이 증가합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_server_model_tooltip",
+      "source": "`Server Model: ${e.modelId}`",
+      "target": "`서버 모델: ${e.modelId}`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_deep_net_locked_message",
+      "source": "\"The weight of the deep net presses down on you. It seems this place will challenge you to make your own tools...\"",
+      "target": "\"딥넷의 무게가 당신을 짓누릅니다. 이곳은 직접 도구를 만들어야만 도전할 수 있을 것 같습니다...\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_password_input_label",
+      "source": "\"Password\"",
+      "target": "\"비밀번호\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_checking_password_status",
+      "source": "\"Checking password...\"",
+      "target": "\"비밀번호 확인 중...\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_no_response_status",
+      "source": "\"(no response yet)\"",
+      "target": "\"(아직 응답 없음)\"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_submit_password_button",
+      "source": "\"Submit Password\"",
+      "target": "\"비밀번호 제출\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_details_required_charisma_label",
+      "source": "\"Required charisma: \"",
+      "target": "\"필요 매력: \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_details_model_label",
+      "source": "\"Model: \"",
+      "target": "\"모델: \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_details_ram_tooltip",
+      "source": "`Ram blocked by server owner: ${S} GB. Ram in use by scripts: ${n.ramUsed-S} GB.`",
+      "target": "`서버 소유자가 차단한 RAM: ${S} GB. 스크립트가 사용 중인 RAM: ${n.ramUsed-S} GB.`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "darknet_labyrinth_success_message",
+      "source": "\"You have successfully navigated the labyrinth! Congratulations!\"",
+      "target": "\"labyrinth 탐색에 성공했습니다! 축하합니다!\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "knownRemaining": [
+      "Logs scraped via and Hint are intentionally skipped because each source appears twice in adjacent auth/detail contexts.",
+      "Broader Dark Web terminal help, TOR purchase text, and BitNode lore are intentionally out of scope."
+    ]
+  }
+}

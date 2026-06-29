@@ -2,6 +2,22 @@
 
 Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검증하기 위한 작업 루트입니다.
 
+## Bitburner란?
+
+Bitburner는 해킹을 소재로 한 프로그래밍 idle/RPG 게임입니다. 플레이어는 JavaScript 기반 스크립트를 작성해 서버를 해킹하고, 자금을 벌고, 장비와 Augmentation을 확장하며 더 깊은 네트워크와 BitNode를 공략합니다. 이 패치 랩은 게임의 명령어, API, 고유명사는 최대한 보존하면서 플레이 중 읽게 되는 설명문과 UI 라벨을 한국어로 바꾸는 것을 목표로 합니다.
+
+## 플레이 화면 예시
+
+![Ricci simulate 터미널](screenshot/bitburner_ricci_simulate_terminal.png)
+
+![Ricci 자동 실행 로그](screenshot/bitburner_ricci_auto_log.png)
+
+![Ricci 컨트롤 대시보드](screenshot/bitburner_ricci_dashboard.png)
+
+![Contracts 대시보드](screenshot/bitburner_contracts_dashboard.png)
+
+![Contract solver 로그](screenshot/bitburner_contract_solver_log.png)
+
 ## 목표
 
 - 게임 고유명사, API 이름, 명령어, 내부 식별자는 유지한다.
@@ -30,6 +46,7 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 - Hacknet Node 카드 라벨/최대치 버튼 패치 적용 및 화면 검증 완료
 - Options 창 라벨/작업 버튼/주요 툴팁 설명문 패치 적용 및 잔여 4곳 화면 확인 보정 완료
 - Active Scripts 라벨/설명문/생산 통계 텍스트 패치 적용 및 화면 검증 완료
+- Dark Net 화면 라벨/상태/주요 툴팁 패치 적용 및 화면 검증 완료
 
 자세한 실험 진행 상황과 스크린샷은 [`docs/08_experiment_log.md`](docs/08_experiment_log.md)를 본다.
 
@@ -46,13 +63,9 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 
 ## 다음 실험 후보
 
-1. Dark Web 단발 툴팁 후보 분리.
+1. Faction work 라벨 소형 패치.
 2. Monaco 코드 에디터에서 NeoDunggeunmo 전체 UI 적용의 실사용 확인.
 3. Hacknet 관련 나머지 설명/툴팁 확장.
-4. Faction work 라벨 소형 패치.
+4. Dark Net 인증/상세 모달 잔여(`Logs scraped via`, `Hint:`) 별도 보강.
 5. 새 화면 잔여 발견 시 보정 manifest 추가.
-
-
-
-
 
