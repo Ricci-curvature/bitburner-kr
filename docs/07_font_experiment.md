@@ -85,7 +85,7 @@ Phase 1 패처에서는 폰트 적용을 문자열 번역 패치와 별도 patch
 
 force CSS 실험은 성공했지만, `NeoDunggeunmo`를 font stack 맨 앞에 두면 한글뿐 아니라 영문/숫자/기존 UI 전체가 네오둥근모로 렌더링된다.
 
-![폰트 변경](../screenshot/%ED%8F%B0%ED%8A%B8%EB%B3%80%EA%B2%BD.png)
+![폰트 변경](../screenshot/font_neodgm_success.png)
 
 패치 목적이 "한글 표시 품질 개선"이라면 전체 UI 폰트 교체보다 다음 순서가 더 현실적이다.
 

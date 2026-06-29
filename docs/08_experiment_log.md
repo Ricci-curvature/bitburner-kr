@@ -28,16 +28,16 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 | 영역 | Manifest | 검증 상태 | 스크린샷 | 남은 것 |
 | --- | --- | --- | --- | --- |
-| Hacknet Nodes 소개문 | `patches/hacknet_nodes_intro_small.json` | 화면 검증 완료 | `screenshot/첫 출력.png` | 없음 |
-| NeoDunggeunmo 폰트 | `patches/font_neodgm_experiment.json` | force CSS 화면 검증 완료 | `screenshot/폰트변경.png` | Monaco 에디터 예외 처리 후보 |
-| Augmentation 효과 라벨 1차 | `patches/augmentation_effects_small.json` | 부분 성공 후 2차로 보정 | `augmentation_crtx42_success.png`, `augmentation_neurotrainer_success.png` | 2차에서 처리 완료 |
-| Augmentation 효과 라벨 2차 | `patches/augmentation_effects_individual.json` | 화면 검증 완료 | `augmentation_synaptic_success.png`, `augmentation_synthetic_nerve_success.png`, `augmentation_cranial_signal_processors_success.png` | 없음 |
-| Terminal `analyze` 라벨 | `patches/terminal_analyze_labels.json` | 화면 검증 완료 | `terminal_analyze_home_success.png` | 다른 서버 상태 케이스 추가 후보 |
-| Hacknet 요약 라벨 | `patches/hacknet_summary_labels.json` | 화면 검증 완료 | `hacknet_summary_success.png` | 없음 |
-| Hacknet Node 카드 라벨 | `patches/hacknet_node_card_labels.json` | 화면 검증 완료 | `hacknet_node_card_success.png` | 없음 |
-| Options System 라벨 | `patches/options_system_labels.json` | 후속 Options sweep으로 완료 | `options_system_success.png` | 없음 |
-| Options 라벨/버튼/툴팁 | `options_remaining_texts.json`, `options_sidebar_buttons.json`, `options_keybinding_texts.json`, `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`, `options_final_visual_fixes.json` | 화면 검증 완료 | `options_interface_final_success.png` | 없음 |
-| Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert CLI + 스크린샷 검증 완료 | `patcher_01_clean_dry_run.png` ... `patcher_06_revert_count_check.png` | 없음 |
+| Hacknet Nodes 소개문 | `patches/hacknet_nodes_intro_small.json` | 화면 검증 완료 | `screenshot/hacknet_nodes_intro_success.png` | 없음 |
+| NeoDunggeunmo 폰트 | `patches/font_neodgm_experiment.json` | force CSS 화면 검증 완료 | `screenshot/font_neodgm_success.png` | Monaco 에디터 예외 처리 후보 |
+| Augmentation 효과 라벨 1차 | `patches/augmentation_effects_small.json` | 부분 성공 후 2차로 보정 | `screenshot/augmentation_crtx42_success.png`, `screenshot/augmentation_neurotrainer_success.png` | 2차에서 처리 완료 |
+| Augmentation 효과 라벨 2차 | `patches/augmentation_effects_individual.json` | 화면 검증 완료 | `screenshot/augmentation_synaptic_success.png`, `screenshot/augmentation_synthetic_nerve_success.png`, `screenshot/augmentation_cranial_signal_processors_success.png` | 없음 |
+| Terminal `analyze` 라벨 | `patches/terminal_analyze_labels.json` | 화면 검증 완료 | `screenshot/terminal_analyze_home_success.png` | 다른 서버 상태 케이스 추가 후보 |
+| Hacknet 요약 라벨 | `patches/hacknet_summary_labels.json` | 화면 검증 완료 | `screenshot/hacknet_summary_success.png` | 없음 |
+| Hacknet Node 카드 라벨 | `patches/hacknet_node_card_labels.json` | 화면 검증 완료 | `screenshot/hacknet_node_card_success.png` | 없음 |
+| Options System 라벨 | `patches/options_system_labels.json` | 후속 Options sweep으로 완료 | `screenshot/options_system_success.png` | 없음 |
+| Options 라벨/버튼/툴팁 | `options_remaining_texts.json`, `options_sidebar_buttons.json`, `options_keybinding_texts.json`, `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`, `options_final_visual_fixes.json` | 화면 검증 완료 | `screenshot/options_interface_final_success.png` | 없음 |
+| Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert CLI + 스크린샷 검증 완료 | `screenshot/patcher_01_clean_dry_run.png` ... `screenshot/patcher_06_revert_count_check.png` | 없음 |
 
 ### Phase 1 패처 로컬 CLI 검증
 
@@ -74,7 +74,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Phase 1 패처의 clean GameRoot apply/revert 통제 검증은 CLI 기준 완료했다.
 - 스크린샷 기준으로도 패처 검증 흐름을 남겼으므로 Phase 1 패처 검증은 완료로 본다.
 
-## 2026-06-29 - Hacknet Nodes 설명문 한글화
+## Hacknet Nodes 설명문 한글화
 
 목표:
 
@@ -90,14 +90,14 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 스크린샷:
 
-![첫 출력](../screenshot/%EC%B2%AB%20%EC%B6%9C%EB%A0%A5.png)
+![첫 출력](../screenshot/hacknet_nodes_intro_success.png)
 
 관련 문서:
 
 - `docs/05_first_patch_result.md`
 - `patches/hacknet_nodes_intro_small.json`
 
-## 2026-06-29 - NeoDunggeunmo 폰트 1차 실험
+## NeoDunggeunmo 폰트 1차 실험
 
 목표:
 
@@ -117,7 +117,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - TTF 내부 family 이름은 `NeoDunggeunmo`로 확인되어 이름 불일치 가능성은 낮다.
 - 기존 설정값 또는 컴포넌트 스타일이 기본 font stack 변경을 우회하는 것으로 판단했다.
 
-## 2026-06-29 - NeoDunggeunmo force CSS 실험
+## NeoDunggeunmo force CSS 실험
 
 목표:
 
@@ -130,7 +130,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 스크린샷:
 
-![폰트 변경](../screenshot/%ED%8F%B0%ED%8A%B8%EB%B3%80%EA%B2%BD.png)
+![폰트 변경](../screenshot/font_neodgm_success.png)
 
 판단:
 
@@ -153,7 +153,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Phase 1 패처는 문자열 치환과 폰트 패치를 별도 patchId로 분리해야 한다.
 - 폰트 패치는 전체 UI 적용을 기본값으로 두되, 에디터 예외 처리를 옵션으로 둔다.
 
-## 2026-06-29 - Augmentation 효과 라벨 소형 패치
+## Augmentation 효과 라벨 소형 패치
 
 목표:
 
@@ -259,7 +259,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - `faster hack(), grow(), and weaken()` -> `hack(), grow(), weaken() 속도 증가`
 - `hack() success chance` -> `hack() 성공 확률`
 
-## 2026-06-29 - Augmentation 효과 라벨 2차 패치
+## Augmentation 효과 라벨 2차 패치
 
 목표:
 
@@ -304,7 +304,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 실제 게임 화면으로 2차 패치 반영을 확인했다.
 - 다음 단계는 Terminal analyze 라벨 패치다.
 
-## 2026-06-29 - Augmentation 효과 라벨 2차 화면 검증
+## Augmentation 효과 라벨 2차 화면 검증
 
 목표:
 
@@ -352,7 +352,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 현재 Augmentation 효과 라벨은 “공통 라벨 + 개별 스킬/경험치 + 해킹 액션 라벨”까지 안정적으로 처리된 상태다.
 - 다음 단계는 Terminal analyze 라벨 패치로 이동한다.
 
-## 2026-06-29 - Terminal analyze 라벨 패치
+## Terminal analyze 라벨 패치
 
 목표:
 
@@ -402,7 +402,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 일반 서버와 Backdoor/권한 상태가 다른 서버를 비교한다.
 - 스크린샷을 추가한 뒤 Phase 4 완료로 본다.
 
-## 2026-06-29 - Terminal analyze 화면 검증
+## Terminal analyze 화면 검증
 
 목표:
 
@@ -428,7 +428,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 현재 검증은 home 서버 기준이다.
 - 다음에 다른 서버를 볼 때 Backdoor 설치 여부와 포트 Open 상태가 다른 케이스를 추가로 찍으면 더 좋다.
 
-## 2026-06-29 - Hacknet 요약 라벨 패치
+## Hacknet 요약 라벨 패치
 
 목표:
 
@@ -463,7 +463,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 실제 Hacknet Nodes 화면을 다시 열어 요약 박스와 구매 버튼 표시를 확인한다.
 - 스크린샷이 추가되면 이 항목 아래에 화면 검증 결과를 이어 쓴다.
 
-## 2026-06-29 - Hacknet 요약 라벨 화면 검증
+## Hacknet 요약 라벨 화면 검증
 
 스크린샷: Hacknet Summary
 
@@ -482,7 +482,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Hacknet 요약 박스 라벨은 실제 화면 검증까지 성공했다.
 - 같은 화면 안에서 다음으로 넓힐 후보는 Hacknet Node 카드 라벨이지만, `Level:`, `RAM:`, `Cores:`는 broad 출현 수가 많으므로 문맥 제한 패치가 필요하다.
 
-## 2026-06-29 - Hacknet Node 카드 라벨 패치
+## Hacknet Node 카드 라벨 패치
 
 목표:
 
@@ -522,7 +522,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 실제 Hacknet Nodes 화면에서 Node 카드 표시를 확인한다.
 - 특히 `최대 레벨`, `최대 RAM`, `최대 코어`는 최대치 상태의 노드에서만 보이므로 스크린샷 조건을 맞춰 확인한다.
 
-## 2026-06-29 - Hacknet Node 카드 화면 검증
+## Hacknet Node 카드 화면 검증
 
 스크린샷: Hacknet Node 카드
 
@@ -540,7 +540,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Hacknet Node 카드 라벨 패치는 실제 화면 검증까지 성공했다.
 
-## 2026-06-29 - Options System 라벨 패치
+## Options System 라벨 패치
 
 목표:
 
@@ -583,7 +583,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 실제 Options > System 화면을 다시 열어 한글 라벨 표시와 줄바꿈을 확인한다.
 - 적용 후 스크린샷이 추가되면 화면 검증 결과를 이어 쓴다.
 
-## 2026-06-29 - Options System 라벨 화면 검증
+## Options System 라벨 화면 검증
 
 스크린샷:
 
@@ -602,7 +602,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - System 라벨 1차 패치는 성공했지만, 설명문/툴팁은 별도 sweep이 필요했다.
 
-## 2026-06-29 - Options 라벨/버튼/Key Binding 확장 패치
+## Options 라벨/버튼/Key Binding 확장 패치
 
 추가한 manifest:
 
@@ -636,7 +636,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 라벨/버튼 확장은 성공했지만, Options 전체 완료로 보기에는 부족했다.
 - 이후 패치는 스크린샷 기반 잔여 문구를 실제 `main.bundle.js` literal count로 다시 잡는 방식으로 진행했다.
 
-## 2026-06-29 - Options 툴팁 보정 및 final sweep
+## Options 툴팁 보정 및 final sweep
 
 추가한 manifest:
 
@@ -672,7 +672,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 실제 게임을 새로고침한 뒤 Options의 System, Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding 탭을 한 번씩 열어 시각 검증한다.
 - 새 성공 스크린샷이 추가되면 이 항목 아래에 연결한다.
 
-## 2026-06-29 - Options 최종 잔여 4곳 보정
+## Options 최종 잔여 4곳 보정
 
 스크린샷:
 
@@ -708,7 +708,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 확인한 Options 잔여 4곳은 정적 검증 기준으로 처리 완료했다.
 - 화면 재확인 결과 길이 문제와 새 잔여가 없어 Options 묶음을 완료로 본다.
 
-## 2026-06-29 - Options 완료 화면 확인
+## Options 완료 화면 확인
 
 스크린샷:
 
