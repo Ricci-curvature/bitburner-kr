@@ -37,23 +37,42 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Hacknet Node 카드 라벨 | `patches/hacknet_node_card_labels.json` | 화면 검증 완료 | `hacknet_node_card_success.png` | 없음 |
 | Options System 라벨 | `patches/options_system_labels.json` | 후속 Options sweep으로 완료 | `options_system_success.png` | 없음 |
 | Options 라벨/버튼/툴팁 | `options_remaining_texts.json`, `options_sidebar_buttons.json`, `options_keybinding_texts.json`, `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`, `options_final_visual_fixes.json` | 화면 검증 완료 | `options_interface_final_success.png` | 없음 |
-| Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert 통제 검증 완료, 로컬 화면 기록 대기 | 스크린샷 대기 | 로컬 실행 화면 캡처 추가 |
+| Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert CLI + 스크린샷 검증 완료 | `patcher_01_clean_dry_run.png` ... `patcher_06_revert_count_check.png` | 없음 |
 
-### Phase 1 패처 로컬 화면 검증 대기
+### Phase 1 패처 로컬 CLI 검증
 
-남길 스크린샷 후보:
+확인한 내용:
 
-- clean GameRoot에서 `apply-patch.ps1` dry-run 출력
-- clean GameRoot에서 `apply-patch.ps1 -Apply` 적용 완료 출력
-- `patch-state.json`에 `patchId`, `targetHashBefore`, `targetHashAfter`, `backupPath`가 기록된 화면
-- `revert-patch.ps1` 복구 완료 출력
-- 복구 후 원문/target count가 기대대로 돌아온 확인 출력
+- `revert-patch.ps1`가 `-GameRoot`를 받도록 보정했다.
+- state 후보를 `GameRoot` 아래의 `targetPath`로 필터링해, 테스트 루트 검증 중 실제 게임 설치 경로를 잘못 되돌릴 가능성을 줄였다.
+- 최신 state가 `already-applied`뿐이면 backup이 없으므로 조기 실패하도록 했다.
+- `C:\tmp\bbkr-patcher-verify`를 백업 원본 번들로 다시 만든 뒤 `dry-run -> apply -> 재 dry-run -> revert dry-run -> revert apply`를 실행했다.
+- 복구 후 `source count after revert: 1`, `target count after revert: 0`을 확인했다.
 
-판단 기준:
+스크린샷:
 
-- 패처 기능은 clean GameRoot apply/revert 통제 실험으로 이미 검증했다.
-- 다만 실제 로컬 실행 화면 스크린샷이 없으므로, 문서상 최종 화면 검증은 대기 상태로 둔다.
-- 스크린샷이 추가되면 `screenshot/patcher_apply_revert_success.png` 같은 이름으로 연결하고 표의 스크린샷/검증 상태를 갱신한다.
+![패처 clean dry-run](../screenshot/patcher_01_clean_dry_run.png)
+
+![패처 apply](../screenshot/patcher_02_apply.png)
+
+![패처 재 dry-run](../screenshot/patcher_03_post_apply_dry_run.png)
+
+![패처 state 기록](../screenshot/patcher_04_patch_state.png)
+
+![패처 already-applied guard](../screenshot/patcher_05_revert_already_applied_guard.png)
+
+![패처 revert count 확인](../screenshot/patcher_06_revert_count_check.png)
+
+실패 기록:
+
+- 처음 테스트 루트는 이미 패치된 라이브 `main.bundle.js`를 복사해 만들어졌다.
+- 이 경우 `apply-patch.ps1 -Apply`가 `already-applied` state를 남기며 `backupPath`가 `null`이 된다.
+- 따라서 revert 검증은 성립하지 않는다. clean GameRoot는 반드시 미패치 원본 번들 또는 패치 전 백업에서 만들어야 한다.
+
+판단:
+
+- Phase 1 패처의 clean GameRoot apply/revert 통제 검증은 CLI 기준 완료했다.
+- 스크린샷 기준으로도 패처 검증 흐름을 남겼으므로 Phase 1 패처 검증은 완료로 본다.
 
 ## 2026-06-29 - Hacknet Nodes 설명문 한글화
 

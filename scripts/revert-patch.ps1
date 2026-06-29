@@ -1,6 +1,7 @@
 param(
   [Parameter(Mandatory = $true)]
   [string]$PatchId,
+  [string]$GameRoot = "D:\SteamLibrary\steamapps\common\Bitburner",
   [switch]$Apply
 )
 
@@ -10,6 +11,23 @@ $ErrorActionPreference = "Stop"
 $ProjectRoot = Split-Path -Parent $PSScriptRoot
 $StatePath = Join-Path $ProjectRoot "patches\patch-state.json"
 $BackupRoot = Join-Path $ProjectRoot "backups"
+$GameRoot = [IO.Path]::GetFullPath($GameRoot)
+
+function Normalize-Root([string]$Path) {
+  return ([IO.Path]::GetFullPath($Path)).TrimEnd('\', '/') + [IO.Path]::DirectorySeparatorChar
+}
+
+function Test-UnderRoot([string]$Path, [string]$Root) {
+  $fullPath = [IO.Path]::GetFullPath($Path)
+  $fullRoot = Normalize-Root $Root
+  return $fullPath.StartsWith($fullRoot, [StringComparison]::OrdinalIgnoreCase)
+}
+
+function Assert-UnderRoot([string]$Path, [string]$Root, [string]$Label) {
+  if (-not (Test-UnderRoot $Path $Root)) {
+    throw "$Label path is outside allowed root. Path: $([IO.Path]::GetFullPath($Path)) Root: $(Normalize-Root $Root)"
+  }
+}
 
 function Get-Sha256([string]$Path) {
   if (-not (Test-Path -LiteralPath $Path)) { return $null }
@@ -28,17 +46,31 @@ function Save-State([array]$Entries) {
 }
 
 $state = Load-State
-$candidates = @($state | Where-Object { $_.patchId -eq $PatchId -and $_.status -in @("applied", "already-applied") })
-if ($candidates.Count -eq 0) { throw "No applied state entries found for patchId: $PatchId" }
+$candidates = @($state | Where-Object {
+  $_.patchId -eq $PatchId -and
+  $_.status -in @("applied", "already-applied") -and
+  $_.targetPath -and
+  (Test-UnderRoot ([string]$_.targetPath) $GameRoot)
+})
+if ($candidates.Count -eq 0) {
+  throw "No applied state entries found for patchId under GameRoot. PatchId: $PatchId GameRoot: $GameRoot"
+}
 
 $latestTime = ($candidates | Sort-Object appliedAt -Descending | Select-Object -First 1).appliedAt
 $entries = @($candidates | Where-Object { $_.appliedAt -eq $latestTime })
+$revertibleEntries = @($entries | Where-Object { $_.status -eq "applied" })
 
 Write-Host "Patch : $PatchId"
 Write-Host "Mode  : $(if ($Apply) { 'APPLY' } else { 'DRY-RUN' })"
+Write-Host "Game  : $GameRoot"
 Write-Host "Entries: $($entries.Count)"
 
+if ($revertibleEntries.Count -eq 0) {
+  throw "No revertible entries found for patchId under GameRoot. Latest entries are already-applied and have no backup. Rebuild the test GameRoot from an unpatched bundle, then run apply again."
+}
+
 foreach ($entry in $entries) {
+  Assert-UnderRoot ([string]$entry.targetPath) $GameRoot "Target"
   if ($entry.status -eq "already-applied") {
     Write-Host "[skip] already-applied state has no backup: $($entry.targetPath)"
     continue
@@ -64,6 +96,7 @@ $timestamp = (Get-Date).ToString("yyyy-MM-ddTHH-mm-ss-fff")
 foreach ($entry in $entries) {
   if ($entry.status -eq "already-applied") { continue }
   $target = [string]$entry.targetPath
+  Assert-UnderRoot $target $GameRoot "Target"
   $preRevertBackup = Join-Path $BackupRoot (([IO.Path]::GetFileName($target)) + ".before-revert-$PatchId-$timestamp")
   if (Test-Path -LiteralPath $target) { Copy-Item -LiteralPath $target -Destination $preRevertBackup -Force }
   $existedBefore = $true
