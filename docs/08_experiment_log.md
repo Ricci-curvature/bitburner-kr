@@ -409,3 +409,43 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Hacknet 요약 박스 라벨은 실제 화면 검증까지 성공했다.
 - 같은 화면 안에서 다음으로 넓힐 후보는 Hacknet Node 카드 라벨이지만, `Level:`, `RAM:`, `Cores:`는 broad 출현 수가 많으므로 문맥 제한 패치가 필요하다.
+
+## 2026-06-29 - Hacknet Node 카드 라벨 패치
+
+목표:
+
+- Hacknet 요약 박스 다음으로 같은 화면 안의 Node 카드 라벨을 작게 확장한다.
+- 전역 라벨 오염을 피하기 위해 broad string이 아니라 React minified context 조각을 source로 사용한다.
+
+적용한 번역:
+
+- `Production:` -> `생산량:`
+- `Level:` -> `레벨:`
+- `Cores:` -> `코어:`
+- `MAX LEVEL` -> `최대 레벨`
+- `MAX RAM` -> `최대 RAM`
+- `MAX CORES` -> `최대 코어`
+
+보존한 것:
+
+- `RAM:`은 그대로 둔다.
+- Hacknet Node 이름, 금액, 초당 생산량, 업그레이드 비용 표기는 그대로 둔다.
+
+통제 확인:
+
+- `Production:`은 전체 번들에 16회, `Level:`은 179회, `RAM:`은 48회, `Cores:`는 27회 등장했다.
+- 따라서 `r.createElement(m.A,null,"...")`와 `r.createElement(d.A,{disabled:!0},"...")` 형태의 Hacknet Node 카드 전용 조각으로 제한했다.
+- 제한된 source 6개는 각각 정확히 1회만 매치되었다.
+
+적용 결과:
+
+- `scripts/apply-patch.ps1 -Patch patches/hacknet_node_card_labels.json` dry-run 통과
+- `scripts/apply-patch.ps1 -Patch patches/hacknet_node_card_labels.json -Apply` 적용 성공
+- 적용 후 6개 source 조각은 모두 0회 확인
+- 적용 후 6개 target 조각은 모두 1회 확인
+- 재실행 dry-run에서 6개 operation 모두 `already-applied` 확인
+
+다음 확인:
+
+- 실제 Hacknet Nodes 화면에서 Node 카드 표시를 확인한다.
+- 특히 `최대 레벨`, `최대 RAM`, `최대 코어`는 최대치 상태의 노드에서만 보이므로 스크린샷 조건을 맞춰 확인한다.

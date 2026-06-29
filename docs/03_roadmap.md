@@ -377,3 +377,33 @@
 - `hacknet_summary_success.png` 스크린샷을 실험 로그에 연결 완료
 - 구매 버튼은 화면 하단이 일부만 보이는 상태라 다음 넓은 스크린샷에서 추가 확인한다.
 
+
+## Phase 5 진행 메모 - Hacknet Node 카드 라벨
+
+2026-06-29 기준 Hacknet Node 카드의 표 라벨과 최대치 버튼 라벨 소형 패치를 적용했다.
+
+구현된 것:
+
+- `patches/hacknet_node_card_labels.json`
+- `Production:` -> `생산량:`
+- `Level:` -> `레벨:`
+- `Cores:` -> `코어:`
+- `MAX LEVEL` -> `최대 레벨`
+- `MAX RAM` -> `최대 RAM`
+- `MAX CORES` -> `최대 코어`
+
+보존한 것:
+
+- `RAM:`은 약어 가독성이 좋아 번역하지 않았다.
+- Hacknet Node 이름과 금액/생산량 포맷은 건드리지 않았다.
+
+검증한 것:
+
+- broad 출현 수는 `Production:` 16회, `Level:` 179회, `RAM:` 48회, `Cores:` 27회라 직접 치환하지 않았다.
+- React minified context 조각 기준으로 6개 source가 각각 정확히 1회만 매치되는 것을 확인했다.
+- dry-run, apply, 적용 후 source 0회/target 1회, 재 dry-run already-applied 확인을 통과했다.
+
+다음 확인:
+
+- 실제 Hacknet Nodes 화면에서 Node 카드 라벨과 최대치 버튼 표시를 확인한다.
+- 스크린샷이 추가되면 실험 로그에 화면 검증 결과를 이어 쓴다.

@@ -143,3 +143,10 @@
 - `hacknet_summary_success.png`를 추가했다.
 - Hacknet 요약 박스에서 제목, 사용한 돈, 벌어들인 돈, 생산 속도 라벨 표시를 확인했다.
 - 금액/초당 생산량 포맷과 NeoDunggeunmo 정렬이 유지되는 것을 확인했다.
+
+## 2026-06-29 - Hacknet Node 카드 라벨 패치 적용
+
+- `patches/hacknet_node_card_labels.json`을 추가했다.
+- Hacknet Node 카드의 `Production`, `Level`, `Cores` 라벨과 최대치 버튼 3개를 번역했다.
+- `RAM:`은 약어 그대로 보존했다.
+- 전역 출현 수가 많은 라벨이라 React minified context 조각으로 제한해 적용했다.

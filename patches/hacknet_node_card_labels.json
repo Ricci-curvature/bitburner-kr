@@ -1,0 +1,83 @@
+{
+  "patchId": "hacknet_node_card_labels",
+  "description": "Translate Hacknet Node card labels and max upgrade button text with context-limited React snippets.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/Hacknet/ui/HacknetNodeElem.tsx"
+  ],
+  "scope": "Hacknet Node card table labels and max upgrade buttons only",
+  "preserveTerms": [
+    "Hacknet",
+    "Hacknet Node",
+    "RAM",
+    "Node"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_node_card_production",
+      "source": "r.createElement(m.A,null,\"Production:\")",
+      "target": "r.createElement(m.A,null,\"생산량:\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_node_card_level",
+      "source": "r.createElement(m.A,null,\"Level:\")",
+      "target": "r.createElement(m.A,null,\"레벨:\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_node_card_cores",
+      "source": "r.createElement(m.A,null,\"Cores:\")",
+      "target": "r.createElement(m.A,null,\"코어:\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_node_card_max_level",
+      "source": "r.createElement(d.A,{disabled:!0},\"MAX LEVEL\")",
+      "target": "r.createElement(d.A,{disabled:!0},\"최대 레벨\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_node_card_max_ram",
+      "source": "r.createElement(d.A,{disabled:!0},\"MAX RAM\")",
+      "target": "r.createElement(d.A,{disabled:!0},\"최대 RAM\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_node_card_max_cores",
+      "source": "r.createElement(d.A,{disabled:!0},\"MAX CORES\")",
+      "target": "r.createElement(d.A,{disabled:!0},\"최대 코어\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "patchedStringsFound": 6,
+    "contextLimited": true,
+    "preservedStrings": ["RAM:"]
+  }
+}
