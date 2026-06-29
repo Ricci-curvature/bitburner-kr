@@ -229,5 +229,53 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 판단:
 
 - 1차 스크린샷에서 보였던 `dexterity skill`, `agility skill`, `faster hack(), grow(), and weaken()`, `hack() success chance` 잔류는 패치 범위 문제였고, 2차 manifest로 해결했다.
-- 아직 실제 게임 화면 재검증 스크린샷은 필요하다.
-- 다음 화면 검증 후 Terminal analyze 라벨 패치로 넘어간다.
+- 실제 게임 화면 재검증 스크린샷으로 2차 패치 반영을 확인했다.
+- 다음 단계는 Terminal analyze 라벨 패치다.
+
+## 2026-06-29 - Augmentation 효과 라벨 2차 화면 검증
+
+목표:
+
+- 2차 패치가 실제 게임 UI에 반영되는지 확인한다.
+- 1차에서 영어로 남았던 라벨이 사라졌는지 확인한다.
+- 숫자, `%`, API 표기, 줄바꿈이 깨지지 않는지 본다.
+
+검증 스크린샷 1: Synaptic potentiation 계열
+
+![Synaptic potentiation 2차 성공](../screenshot/augmentation_synaptic_success.png)
+
+관찰:
+
+- `효과:`가 유지된다.
+- `해킹 경험치`가 유지된다.
+- 1차에서 영어로 남았던 `faster hack(), grow(), and weaken()`가 `hack(), grow(), weaken() 속도 증가`로 바뀌었다.
+- 1차에서 영어로 남았던 `hack() success chance`가 `hack() 성공 확률`로 바뀌었다.
+- `hack()`, `grow()`, `weaken()` API 표기는 그대로 보존되었다.
+
+검증 스크린샷 2: Synthetic Nerve Enhancement 계열
+
+![Synthetic nerve 2차 성공](../screenshot/augmentation_synthetic_nerve_success.png)
+
+관찰:
+
+- `dexterity skill`이 `민첩 스킬`로 바뀌었다.
+- `agility skill`이 `기동 스킬`로 바뀌었다.
+- 설명문과 Augmentation 이름은 원문 그대로 유지되었다.
+- 효과 라벨만 좁게 번역하는 정책이 지켜졌다.
+
+검증 스크린샷 3: Cranial Signal Processors - Gen II
+
+![Cranial Signal Processors 2차 성공](../screenshot/augmentation_cranial_signal_processors_success.png)
+
+관찰:
+
+- `해킹 스킬`, `hack(), grow(), weaken() 속도 증가`, `hack() 성공 확률`이 한 화면에서 함께 정상 표시된다.
+- 긴 설명문과 효과 목록 사이의 줄간격은 깨지지 않았다.
+- 숫자와 `%` 포맷도 유지되었다.
+
+판단:
+
+- Augmentation 효과 라벨 2차 패치는 실제 화면 검증까지 성공했다.
+- 1차에서 실패처럼 보였던 항목들은 패치 범위 밖 잔류였고, 2차에서 해결되었다.
+- 현재 Augmentation 효과 라벨은 “공통 라벨 + 개별 스킬/경험치 + 해킹 액션 라벨”까지 안정적으로 처리된 상태다.
+- 다음 단계는 Terminal analyze 라벨 패치로 이동한다.

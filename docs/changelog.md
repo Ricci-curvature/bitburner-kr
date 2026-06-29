@@ -109,3 +109,10 @@
 - 개별 스킬/경험치 라벨 10개와 해킹 액션 라벨 2개를 Augmentation 전용 minified 조각으로 치환했다.
 - `faster hack(), grow(), and weaken()`는 전체 번들에 3회 존재해 broad 치환을 피하고 `e.hacking_speed` 문맥으로 제한했다.
 - dry-run 12개 `sourceCount=1`, 적용 후 source 0회/target 1회 검증을 통과했다.
+
+## 2026-06-29 - Augmentation 2차 화면 검증 스크린샷 기록
+
+- `augmentation_synaptic_success.png`, `augmentation_synthetic_nerve_success.png`, `augmentation_cranial_signal_processors_success.png`를 추가했다.
+- Synaptic 계열에서 `hack(), grow(), weaken() 속도 증가`와 `hack() 성공 확률` 표시를 확인했다.
+- Synthetic Nerve 계열에서 `민첩 스킬`, `기동 스킬` 표시를 확인했다.
+- Cranial Signal Processors 계열에서 해킹 스킬/속도/성공 확률 라벨이 함께 정상 표시되는 것을 확인했다.

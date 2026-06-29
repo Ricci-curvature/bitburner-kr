@@ -318,5 +318,6 @@
 
 다음 확인:
 
-- 게임 재시작 후 Synaptic potentiation 계열과 Synthetic Nerve Enhancement 계열 화면에서 실제 표시 확인
-- 확인이 끝나면 Terminal analyze 라벨 패치로 이동
+- Synaptic potentiation 계열과 Synthetic Nerve Enhancement 계열 실제 표시 확인 완료
+- Cranial Signal Processors 계열에서 해킹 스킬/속도/성공 확률 동시 표시 확인 완료
+- 다음 단계는 Terminal analyze 라벨 패치
