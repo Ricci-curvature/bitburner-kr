@@ -45,7 +45,7 @@
 
 ## 2026-06-29 - NeoDunggeunmo 1차 실패 및 force CSS 실험
 
-- 사용자 스크린샷 기준 1차 font stack 치환은 실제 화면 폰트 변경으로 이어지지 않았다.
+- 화면 스크린샷 기준 1차 font stack 치환은 실제 화면 폰트 변경으로 이어지지 않았다.
 - TTF 내부 family 이름은 `NeoDunggeunmo`로 확인했다.
 - `index.html`에 `#root` 하위 텍스트와 입력/코드/Monaco 계열에 대한 `!important` font-family 강제 CSS를 추가했다.
 
@@ -167,7 +167,7 @@
 ## 2026-06-29 - Options 창 확장 및 툴팁 보정
 
 - Options 라벨/탭/하단 작업 버튼/Key Binding 보조 텍스트 패치 manifest를 추가했다.
-- 사용자 스크린샷에서 확인된 미번역 툴팁과 설명문을 `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`으로 보정했다.
+- 화면 스크린샷에서 확인된 미번역 툴팁과 설명문을 `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`으로 보정했다.
 - 소스맵 줄바꿈 원문과 실제 minified 번들 문자열이 달라 `expectedCount=0`이 발생한 케이스를 기록하고, 실제 literal count 기반으로 재작성했다.
 - System, Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding의 주요 Options 문구를 정적 검증 기준으로 완료했다.
 - Options scope 밖에 남은 Dark Web/Active Scripts 툴팁은 다음 후보로 분리했다.
@@ -179,3 +179,10 @@
 - Numeric Display 통화 기호 위치 툴팁을 번역했다.
 - Key Binding 표시명 매핑에 Faction/Augmentation/Achievements/Options/ScriptEditor 계열을 추가했다.
 - 실험 로그의 스크린샷 표현을 `스크린샷`으로 통일하고, 중간 잔여 기록과 최종 보정 기록을 분리했다.
+
+## 2026-06-29 - Options 완료 화면 확인
+
+- `options_interface_final_success.png`를 추가했다.
+- Options 화면의 한글 렌더링이 누락 없이 완료된 것을 기록했다.
+- 실험 로그와 README의 화면 확인 관련 문서 서술을 정리했다.
+- Options 묶음을 화면 확인 기준 완료 상태로 업데이트했다.

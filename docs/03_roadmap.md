@@ -461,7 +461,7 @@
 
 - 각 manifest는 dry-run을 먼저 통과한 뒤 `-Apply`로 적용했다.
 - 적용 후 재 dry-run에서 모든 operation이 `already-applied` 상태임을 확인했다.
-- 사용자 스크린샷에서 발견된 영어 잔여 문구는 실제 번들 literal count 기반으로 다시 잡아 보정했다.
+- 화면 스크린샷에서 발견된 영어 잔여 문구는 실제 번들 literal count 기반으로 다시 잡아 보정했다.
 - Options 내부에서 확인된 `If this is set` 계열 잔여 설명문은 0회로 만들었다.
 - 남은 `If this is set` 3건은 Dark Web/Active Scripts 문맥으로 Options scope 밖이다.
 
@@ -473,7 +473,7 @@
 
 ## Phase 5 진행 메모 - Options 최종 시각 잔여 보정
 
-2026-06-29 사용자 확인 기준 Options에서 남은 4곳을 추가 보정했다.
+2026-06-29 화면 확인 기준 Options에서 남은 4곳을 추가 보정했다.
 
 구현된 것:
 
@@ -491,3 +491,18 @@
 
 - Options 화면을 새로고침해 최종 시각 확인 스크린샷을 남긴다.
 - 다음 패치 후보는 Options 범위 밖의 Dark Web/Active Scripts 단발 툴팁 또는 Active Scripts 라벨이다.
+
+## Phase 5 완료 메모 - Options 창
+
+2026-06-29 기준 Options 창 묶음은 화면 확인까지 완료했다.
+
+완료 기준:
+
+- System, Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding 탭의 주요 라벨/버튼/툴팁 설명문 한글 렌더링 확인
+- 최종 잔여 4곳 보정 후 새 잔여 문구 없음
+- 길이 문제나 UI 깨짐 없음
+- `options_interface_final_success.png`를 실험 로그에 연결
+
+다음 단계:
+
+- Options 범위 밖의 Dark Web/Active Scripts 단발 툴팁 후보를 별도 scope로 분리한다.
