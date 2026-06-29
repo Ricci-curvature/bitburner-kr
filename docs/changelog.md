@@ -102,3 +102,10 @@
 - `CRTX42-AA`와 `Neurotrainer I`에서 적용 성공을 확인했다.
 - Synaptic potentiation 계열과 Synthetic Nerve Enhancement 계열에서 1차 scope 밖 라벨이 영어로 남는 것을 확인했다.
 - 남은 라벨은 실패가 아니라 다음 Augmentation 2차 패치 후보로 분리했다.
+
+## 2026-06-29 - Augmentation 효과 라벨 2차 패치 적용
+
+- `patches/augmentation_effects_individual.json`을 추가했다.
+- 개별 스킬/경험치 라벨 10개와 해킹 액션 라벨 2개를 Augmentation 전용 minified 조각으로 치환했다.
+- `faster hack(), grow(), and weaken()`는 전체 번들에 3회 존재해 broad 치환을 피하고 `e.hacking_speed` 문맥으로 제한했다.
+- dry-run 12개 `sourceCount=1`, 적용 후 source 0회/target 1회 검증을 통과했다.

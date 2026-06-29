@@ -1,0 +1,139 @@
+{
+  "patchId": "augmentation_effects_individual",
+  "description": "Translate individual Augmentation effect labels that remained after the first small effects patch.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/Augmentation/Augmentation.ts"
+  ],
+  "scope": "Augmentation effect description labels only: individual skills, individual exp, and hacking action modifiers.",
+  "preserveTerms": [
+    "Augmentation",
+    "Faction",
+    "hack()",
+    "grow()",
+    "weaken()"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_strength_skill",
+      "source": "r(e.strength-1)} strength skill`",
+      "target": "r(e.strength-1)} 힘 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_defense_skill",
+      "source": "r(e.defense-1)} defense skill`",
+      "target": "r(e.defense-1)} 방어 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_dexterity_skill",
+      "source": "r(e.dexterity-1)} dexterity skill`",
+      "target": "r(e.dexterity-1)} 민첩 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_agility_skill",
+      "source": "r(e.agility-1)} agility skill`",
+      "target": "r(e.agility-1)} 기동 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_charisma_skill",
+      "source": "r(e.charisma-1)} charisma skill`",
+      "target": "r(e.charisma-1)} 카리스마 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_strength_exp",
+      "source": "r(e.strength_exp-1)} strength exp`",
+      "target": "r(e.strength_exp-1)} 힘 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_defense_exp",
+      "source": "r(e.defense_exp-1)} defense exp`",
+      "target": "r(e.defense_exp-1)} 방어 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_dexterity_exp",
+      "source": "r(e.dexterity_exp-1)} dexterity exp`",
+      "target": "r(e.dexterity_exp-1)} 민첩 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_agility_exp",
+      "source": "r(e.agility_exp-1)} agility exp`",
+      "target": "r(e.agility_exp-1)} 기동 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_charisma_exp",
+      "source": "r(e.charisma_exp-1)} charisma exp`",
+      "target": "r(e.charisma_exp-1)} 카리스마 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_hacking_speed",
+      "source": "r(e.hacking_speed-1)} faster hack(), grow(), and weaken()`",
+      "target": "r(e.hacking_speed-1)} hack(), grow(), weaken() 속도 증가`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_hacking_chance",
+      "source": "r(e.hacking_chance-1)} hack() success chance`",
+      "target": "r(e.hacking_chance-1)} hack() 성공 확률`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ]
+}

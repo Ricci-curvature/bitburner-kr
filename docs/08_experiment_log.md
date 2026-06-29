@@ -186,3 +186,48 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - `charisma exp` -> `카리스마 경험치`
 - `faster hack(), grow(), and weaken()` -> `hack(), grow(), weaken() 속도 증가`
 - `hack() success chance` -> `hack() 성공 확률`
+
+## 2026-06-29 - Augmentation 효과 라벨 2차 패치
+
+목표:
+
+- 1차 패치 후 스크린샷에서 남은 개별 효과 라벨을 처리한다.
+- 같은 영어 문장이 여러 문맥에 존재하는 경우 broad 치환을 피한다.
+- `hack()`, `grow()`, `weaken()` 같은 API 표기는 유지한다.
+
+적용한 번역:
+
+- `strength skill` -> `힘 스킬`
+- `defense skill` -> `방어 스킬`
+- `dexterity skill` -> `민첩 스킬`
+- `agility skill` -> `기동 스킬`
+- `charisma skill` -> `카리스마 스킬`
+- `strength exp` -> `힘 경험치`
+- `defense exp` -> `방어 경험치`
+- `dexterity exp` -> `민첩 경험치`
+- `agility exp` -> `기동 경험치`
+- `charisma exp` -> `카리스마 경험치`
+- `faster hack(), grow(), and weaken()` -> `hack(), grow(), weaken() 속도 증가`
+- `hack() success chance` -> `hack() 성공 확률`
+
+통제 확인:
+
+- 개별 스킬/경험치 라벨 10개는 적용 전 각각 정확히 1회 매치되었다.
+- `hack() success chance`도 Augmentation 전용 조각에서 정확히 1회 매치되었다.
+- `faster hack(), grow(), and weaken()` 원문은 전체 번들 기준 3회였다.
+- 3회 중 하나는 Augmentation 효과, 하나는 다른 효과 템플릿, 하나는 IPvGO 보너스 설명이었다.
+- 따라서 실제 source는 `r(e.hacking_speed-1)} faster hack(), grow(), and weaken()`처럼 Augmentation 전용 multiplier 문맥을 포함해 잡았다.
+
+적용 결과:
+
+- `scripts/apply-patch.ps1 -Patch patches/augmentation_effects_individual.json` dry-run 통과
+- `scripts/apply-patch.ps1 -Patch patches/augmentation_effects_individual.json -Apply` 적용 성공
+- 적용 후 12개 source 조각은 모두 0회 확인
+- 적용 후 12개 target 조각은 모두 1회 확인
+- `patch-state.json`에 `augmentation_effects_individual` applied entry가 기록되었다.
+
+판단:
+
+- 1차 스크린샷에서 보였던 `dexterity skill`, `agility skill`, `faster hack(), grow(), and weaken()`, `hack() success chance` 잔류는 패치 범위 문제였고, 2차 manifest로 해결했다.
+- 아직 실제 게임 화면 재검증 스크린샷은 필요하다.
+- 다음 화면 검증 후 Terminal analyze 라벨 패치로 넘어간다.

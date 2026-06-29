@@ -296,5 +296,27 @@
 
 다음 확인:
 
-- Augmentation 효과 라벨 2차 패치로 개별 스킬/경험치/해킹 액션 라벨 추가
+- Augmentation 효과 라벨 2차 패치로 개별 스킬/경험치/해킹 액션 라벨 추가 완료
 - 이후 Terminal analyze 라벨 패치로 이동
+
+## Phase 3 진행 메모 - 2차
+
+2026-06-29 기준 Augmentation 효과 라벨 2차 패치를 적용했다.
+
+구현된 것:
+
+- `patches/augmentation_effects_individual.json`
+- 개별 스킬 라벨 5개 치환: 힘, 방어, 민첩, 기동, 카리스마
+- 개별 경험치 라벨 5개 치환: 힘, 방어, 민첩, 기동, 카리스마
+- 해킹 액션 라벨 2개 치환: `hack(), grow(), weaken() 속도 증가`, `hack() 성공 확률`
+
+검증한 것:
+
+- dry-run에서 12개 operation 모두 `sourceCount=1` 확인
+- 적용 후 각 source 조각 0회, target 조각 1회 확인
+- `faster hack(), grow(), and weaken()`는 전체 번들에 3회 있었으므로 Augmentation 전용 `e.hacking_speed` 문맥으로 좁혀 적용
+
+다음 확인:
+
+- 게임 재시작 후 Synaptic potentiation 계열과 Synthetic Nerve Enhancement 계열 화면에서 실제 표시 확인
+- 확인이 끝나면 Terminal analyze 라벨 패치로 이동
