@@ -18,6 +18,7 @@
 - Dark Net 화면 라벨/상태/주요 툴팁
 - Faction work 라벨/메인 잔여/짧은 소개문
 - Faction Augmentations 구매 화면 라벨/설명문
+- Documentation 홈/목차와 Beginner's guide 상단/`First Steps` 섹션
 - 고유명사 유지 전략 검증
 - 번들 직접 치환 방식 검증
 - 패처 기반 dry-run -> apply -> 재 dry-run 검증 흐름 정착
@@ -26,6 +27,7 @@
 
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
+- Documentation 섹션 단위 확장
 - Hacknet 관련 나머지 설명/툴팁
 - 공용 시간 단위 formatter
 - UI 폭/줄높이 장기 검증
@@ -163,14 +165,14 @@
 
 후보 순서:
 
-1. Dark Net 인증/상세 모달 잔여
-2. Faction 긴 lore/rumor 문구 sweep
-3. Hacknet 관련 나머지 설명/툴팁
-4. 공용 시간 단위 formatter
-5. Gang 설명/툴팁
-6. Work/Class 결과 문구
-7. Tutorial 설명문
-8. Documentation 일부
+1. Documentation `Creating our First Script` 섹션 단위 확장
+2. Dark Net 인증/상세 모달 잔여
+3. Faction 긴 lore/rumor 문구 sweep
+4. Hacknet 관련 나머지 설명/툴팁
+5. 공용 시간 단위 formatter
+6. Gang 설명/툴팁
+7. Work/Class 결과 문구
+8. Tutorial 설명문
 
 선정 기준:
 
@@ -617,4 +619,29 @@
 남은 것:
 
 - 개별 Augmentation lore 설명문과 Grafting 구매 화면은 별도 manifest로 분리한다.
-- 다음 후보는 Dark Net 인증/상세 모달 잔여 또는 Faction 긴 lore/rumor 문구 sweep이다.
+- 다음 후보는 Documentation 섹션 단위 확장, Dark Net 인증/상세 모달 잔여, Faction 긴 lore/rumor 문구 sweep이다.
+
+## Phase 11 완료 메모 - Documentation 홈/Beginner's guide 1차
+
+구현된 것:
+
+- `patches/documentation_home_toc.json`
+- `patches/documentation_beginners_intro_first_steps.json`
+- Documentation 홈/목차의 제목, 섹션명, 링크 라벨
+- Beginner's guide 제목, 참고문, 소개, `First Steps` 섹션 전체
+
+검증한 것:
+
+- 두 manifest 모두 dry-run expected count를 통과했다.
+- 적용 후 재 dry-run에서 두 manifest 모두 already-applied로 확인했다.
+- 대표 원문 `# Documentation`, `Getting Started Guide for Beginner Programmers`, `## First Steps`, `Beginner's guide](help/getting_started.md)`는 source 0회, target 1회로 확인했다.
+- `documentation_beginner_intro_first_steps_success.png`, `documentation_home_advanced_success.png`, `documentation_home_resources_success.png`에서 화면 렌더링을 확인했다.
+
+운영 메모:
+
+- Documentation markdown은 모듈 단위 문자열로 들어 있어 섹션 단위 패치가 현실적이다.
+- 같은 `main.bundle.js`를 수정하는 manifest는 병렬 apply 시 마지막 writer가 앞선 변경을 덮을 수 있으므로 순차 적용한다.
+
+남은 것:
+
+- Beginner's guide의 `Creating our First Script` 섹션부터 이어서 섹션 단위로 확장한다.

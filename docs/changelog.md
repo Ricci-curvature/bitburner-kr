@@ -221,3 +221,12 @@
 - Faction Augmentations 구매 화면 제목, 상단 설명문, 정렬/검색 UI, 구매/보유 버튼, 평판 비용 단위, 선행 조건/획득처 툴팁을 번역했다.
 - 구매 확인 모달 문구와 구매 버튼을 번역했다.
 - `faction_augmentations_purchase_success.png`, `faction_augmentations_prereq_tooltip_success.png`를 추가하고 화면 검증 완료로 기록했다.
+
+## Documentation 홈/Beginner's guide 1차 패치 적용
+
+- `patches/documentation_home_toc.json`, `patches/documentation_beginners_intro_first_steps.json`을 추가했다.
+- Documentation 홈/목차의 섹션명과 링크 라벨을 번역했다.
+- Beginner's guide 제목, 참고문, 소개, `First Steps` 섹션 전체를 번역했다.
+- markdown 링크 경로, 코드 span, 명령어, 파일명, 서버명은 보존했다.
+- 같은 `main.bundle.js`를 수정하는 manifest는 병렬 적용 시 덮어쓰기 위험이 있어 순차 적용 원칙을 실험 로그에 기록했다.
+- `documentation_beginner_intro_first_steps_success.png`, `documentation_home_advanced_success.png`, `documentation_home_resources_success.png`를 추가하고 화면 검증 완료로 기록했다.

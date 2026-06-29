@@ -17,11 +17,13 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Dark Net 화면 라벨/상태/툴팁
 - Faction work 라벨/메인 잔여/짧은 소개문
 - Faction Augmentations 구매 화면
+- Documentation 홈/목차와 Beginner's guide 상단/`First Steps` 섹션
 
 진행 후보:
 
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
+- Documentation `Creating our First Script` 섹션 단위 확장
 
 검증 원칙:
 
@@ -47,6 +49,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Dark Net 화면 라벨/툴팁 | `patches/darknet_tooltips.json` | dev-only 오판 후 revert, 실제 화면 manifest 재작성 및 화면 검증 완료 | `screenshot/darknet_success.png` | `Logs scraped via`, `Hint:` 2회 출현 문구 별도 후보 |
 | Faction work/메인/짧은 소개문 | `patches/faction_work_labels.json`, `patches/faction_main_residual_labels.json`, `patches/faction_info_descriptions_small.json` | 화면 검증 완료 | `screenshot/faction_sector12_info_success.png`, `screenshot/faction_slum_snakes_work_success.png`, `screenshot/faction_favor_tooltip_success.png` | 긴 Faction lore/rumor |
 | Faction Augmentations 구매 화면 | `patches/faction_augmentations_purchase_labels.json` | 화면 검증 완료 | `screenshot/faction_augmentations_purchase_success.png`, `screenshot/faction_augmentations_prereq_tooltip_success.png` | 개별 Augmentation lore 설명문, Grafting 구매 화면 |
+| Documentation 홈/Beginner's guide 1차 | `patches/documentation_home_toc.json`, `patches/documentation_beginners_intro_first_steps.json` | 화면 검증 완료 | `screenshot/documentation_beginner_intro_first_steps_success.png`, `screenshot/documentation_home_advanced_success.png`, `screenshot/documentation_home_resources_success.png` | Beginner's guide `Creating our First Script` 이후 섹션 |
 
 ### Phase 1 패처 로컬 CLI 검증
 
@@ -942,3 +945,50 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Faction Augmentations 구매 화면의 주요 라벨/설명문/툴팁은 화면 확인 기준 완료했다.
 - 개별 Augmentation lore 설명문과 Grafting 구매 화면은 별도 manifest로 분리한다.
 - 다음 후보는 Dark Net 인증/상세 모달 잔여 또는 Faction 긴 lore/rumor 문구 sweep이다.
+
+## Documentation 홈/Beginner's guide 1차 패치
+
+목표:
+
+- Documentation 홈/목차의 큰 섹션과 링크 라벨을 번역한다.
+- Beginner's guide는 너무 잘게 쪼개지 않고 상단부터 `First Steps` 섹션 전체까지 번역한다.
+- markdown 링크 경로, 코드 span, 명령어, 파일명, 서버명은 보존한다.
+
+적용한 manifest:
+
+- `patches/documentation_home_toc.json`
+- `patches/documentation_beginners_intro_first_steps.json`
+
+적용한 내용:
+
+- Documentation 홈의 `Documentation`, `Guides`, `Basic Mechanics`, `Advanced Mechanics`, `Resources`, `Migration`을 번역했다.
+- 기본/고급/자료/마이그레이션 목차의 링크 라벨을 번역하고 링크 경로는 유지했다.
+- Beginner's guide 제목, 참고문, 소개, `First Steps` 섹션 전체를 번역했다.
+- `n00dles.js`, `kill n00dles.js`, `Terminal`, `Active Scripts`, `Kill Script`, `Hacknet Node` 등은 보존했다.
+
+통제 확인:
+
+- `documentation_home_toc.json`은 4개 operation 모두 dry-run에서 `sourceCount=1`로 통과했다.
+- `documentation_beginners_intro_first_steps.json`은 1개 장문 operation이 dry-run에서 `sourceCount=1`로 통과했다.
+- 적용 후 재 dry-run에서 두 manifest 모두 `already-applied`로 확인했다.
+- 대표 원문 `# Documentation`, `Getting Started Guide for Beginner Programmers`, `## First Steps`, `Beginner's guide](help/getting_started.md)`는 source 0회, target 1회로 확인했다.
+
+오판과 보정:
+
+- 두 manifest를 병렬 apply했을 때 같은 `main.bundle.js`의 마지막 writer가 앞선 변경을 덮어쓸 수 있음을 확인했다.
+- 이후 Beginner's guide manifest를 순차 재적용해 두 manifest가 동시에 `already-applied` 상태인 것을 확인했다.
+- 이후 같은 파일을 수정하는 manifest는 순차 apply를 원칙으로 둔다.
+
+스크린샷:
+
+![Documentation Beginner's guide 성공](../screenshot/documentation_beginner_intro_first_steps_success.png)
+
+![Documentation 고급 메커니즘 목차 성공](../screenshot/documentation_home_advanced_success.png)
+
+![Documentation 자료/마이그레이션 목차 성공](../screenshot/documentation_home_resources_success.png)
+
+판단:
+
+- Documentation markdown은 모듈 단위 문자열로 들어 있어 섹션 단위 패치가 현실적이다.
+- 문서 영역은 텍스트량 대비 로직 영향이 낮고 체감이 커서, 이후 선별적 전체 한글화 확장의 주력 후보로 본다.
+- 다음 후보는 Beginner's guide의 `Creating our First Script` 섹션이다.

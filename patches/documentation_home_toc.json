@@ -1,0 +1,69 @@
+{
+  "patchId": "documentation_home_toc",
+  "description": "Translate Documentation home table of contents labels while preserving markdown link targets.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Documentation/doc/index.md"
+  ],
+  "scope": "Documentation home page headings and table-of-contents link labels only",
+  "preserveTerms": [
+    "NS API",
+    "BitNode",
+    "Source-File",
+    "Gang",
+    "Corporation",
+    "Bladeburner",
+    "Hacknet",
+    "IPvGO",
+    "Darkweb Network"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_home_guides_basic_headings",
+      "source": "# Documentation\\n\\n## Guides\\n\\n- [Beginner's guide](help/getting_started.md)\\n\\n## Basic Mechanics",
+      "target": "# 문서\\n\\n## 가이드\\n\\n- [초보자 가이드](help/getting_started.md)\\n\\n## 기본 메커니즘",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_home_basic_links",
+      "source": "- [Stats](basic/stats.md)\\n- [Terminal](basic/terminal.md)\\n- [Hacking](basic/hacking.md)\\n- [Scripts](basic/scripts.md)\\n- [Servers](basic/servers.md)\\n- [RAM](basic/ram.md)\\n- [Hacknet nodes](basic/hacknet_nodes.md)\\n- [Augmentations](basic/augmentations.md)\\n- [Companies](basic/companies.md)\\n- [Factions](basic/factions.md)\\n- [Crimes](basic/crimes.md)\\n- [Infiltration](basic/infiltration.md)\\n- [Programs](basic/programs.md)\\n- [Reputation](basic/reputation.md)\\n- [Stock market](basic/stockmarket.md)\\n- [World](basic/world.md)\\n- [Coding contracts](basic/codingcontracts.md)\\n- [Autocomplete](basic/autocomplete.md)\\n\\n## Advanced Mechanics",
+      "target": "- [스탯](basic/stats.md)\\n- [터미널](basic/terminal.md)\\n- [해킹](basic/hacking.md)\\n- [스크립트](basic/scripts.md)\\n- [서버](basic/servers.md)\\n- [RAM](basic/ram.md)\\n- [Hacknet Node](basic/hacknet_nodes.md)\\n- [Augmentation](basic/augmentations.md)\\n- [회사](basic/companies.md)\\n- [Faction](basic/factions.md)\\n- [범죄](basic/crimes.md)\\n- [잠입](basic/infiltration.md)\\n- [프로그램](basic/programs.md)\\n- [평판](basic/reputation.md)\\n- [주식 시장](basic/stockmarket.md)\\n- [월드](basic/world.md)\\n- [코딩 계약](basic/codingcontracts.md)\\n- [자동 완성](basic/autocomplete.md)\\n\\n## 고급 메커니즘",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_home_advanced_links",
+      "source": "- [Hacking algorithms](programming/hackingalgorithms.md)\\n- [Offline scripts and bonus time](programming/offlineandbonustime.md)\\n- [List of factions and their requirements](advanced/faction_list.md)\\n- [BitNodes](advanced/bitnodes.md)\\n- [BitNode recommendation - Short guide](advanced/bitnode_recommendation_short_guide.md)\\n- [BitNode recommendation - Comprehensive guide](advanced/bitnode_recommendation_comprehensive_guide.md)\\n- [Source-Files](advanced/sourcefiles.md)\\n- [Gang](advanced/gang.md)\\n- [Corporation](advanced/corporations.md)\\n- [Intelligence](advanced/intelligence.md)\\n- [Bladeburner](advanced/bladeburners.md)\\n- [Hacknet servers](advanced/hacknetservers.md)\\n- [Sleeves](advanced/sleeves.md)\\n- [Grafting](advanced/grafting.md)\\n- [Stanek's Gift](advanced/stanek.md)\\n- [IPvGO](programming/go_algorithms.md)\\n- [Darkweb Network](programming/darknet.md)\\n\\n## Resources",
+      "target": "- [해킹 알고리즘](programming/hackingalgorithms.md)\\n- [오프라인 스크립트와 보너스 시간](programming/offlineandbonustime.md)\\n- [Faction 목록과 가입 조건](advanced/faction_list.md)\\n- [BitNode](advanced/bitnodes.md)\\n- [BitNode 추천 - 짧은 가이드](advanced/bitnode_recommendation_short_guide.md)\\n- [BitNode 추천 - 종합 가이드](advanced/bitnode_recommendation_comprehensive_guide.md)\\n- [Source-File](advanced/sourcefiles.md)\\n- [Gang](advanced/gang.md)\\n- [Corporation](advanced/corporations.md)\\n- [지능](advanced/intelligence.md)\\n- [Bladeburner](advanced/bladeburners.md)\\n- [Hacknet 서버](advanced/hacknetservers.md)\\n- [Sleeve](advanced/sleeves.md)\\n- [Grafting](advanced/grafting.md)\\n- [Stanek's Gift](advanced/stanek.md)\\n- [IPvGO](programming/go_algorithms.md)\\n- [Darkweb Network](programming/darknet.md)\\n\\n## 자료",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_home_resource_links",
+      "source": "- [NS API documentation](../../../../markdown/bitburner.ns.md)\\n- [Learn to program](programming/learn.md)\\n- [Remote API](programming/remote_api.md)\\n- [Game frozen or stuck?](programming/game_frozen.md)\\n- [TypeScript and React](programming/typescript_react.md)\\n- [Tools & Resources](help/tools_and_resources.md)\\n- [FAQ](help/faq.md)\\n- [Changelog](changelog.md)\\n- [Changelog - Legacy v2](changelog-v2.md)\\n- [Changelog - Legacy v1](changelog-v1.md)\\n- [Changelog - Legacy v0](changelog-v0.md)\\n\\n## Migration\\n\\n- [Bitburner v1.0.0 script migration guide](migrations/v1.md)\\n- [Bitburner v2.0.0 script migration guide](migrations/v2.md)\\n- [Netscript 2 migration guide (.script to .js)](migrations/ns2.md)",
+      "target": "- [NS API 문서](../../../../markdown/bitburner.ns.md)\\n- [프로그래밍 배우기](programming/learn.md)\\n- [Remote API](programming/remote_api.md)\\n- [게임이 멈추거나 응답하지 않나요?](programming/game_frozen.md)\\n- [TypeScript와 React](programming/typescript_react.md)\\n- [도구와 자료](help/tools_and_resources.md)\\n- [FAQ](help/faq.md)\\n- [변경 기록](changelog.md)\\n- [변경 기록 - Legacy v2](changelog-v2.md)\\n- [변경 기록 - Legacy v1](changelog-v1.md)\\n- [변경 기록 - Legacy v0](changelog-v0.md)\\n\\n## 마이그레이션\\n\\n- [Bitburner v1.0.0 스크립트 마이그레이션 가이드](migrations/v1.md)\\n- [Bitburner v2.0.0 스크립트 마이그레이션 가이드](migrations/v2.md)\\n- [Netscript 2 마이그레이션 가이드(.script에서 .js로)](migrations/ns2.md)",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Documentation home headings and table-of-contents labels should render in Korean while links still navigate to the same markdown pages.",
+    "knownRemaining": [
+      "Individual documentation pages are intentionally left for section-by-section patches."
+    ]
+  }
+}

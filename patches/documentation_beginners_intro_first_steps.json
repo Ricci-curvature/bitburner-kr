@@ -1,0 +1,44 @@
+{
+  "patchId": "documentation_beginners_intro_first_steps",
+  "description": "Translate the Beginner's guide title, intro, and full First Steps section while preserving code, commands, and markdown link targets.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Documentation/doc/help/getting_started.md"
+  ],
+  "scope": "Beginner's guide top content through the First Steps section",
+  "preserveTerms": [
+    "Bitburner",
+    "Scripts",
+    "Stats",
+    "Factions",
+    "Augmentations",
+    "Terminal",
+    "Active Scripts",
+    "Kill Script",
+    "Hacknet Nodes",
+    "Hacknet Node",
+    "n00dles.js",
+    "n00dles",
+    "Alt + s",
+    "Alt + h"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_beginner_intro_and_first_steps",
+      "source": "# Getting Started Guide for Beginner Programmers\\n\\n_Note_: The [Scripts](../basic/scripts.md) and strategies in this guide aren't necessarily optimal or comprehensive.\\nThis guide is tailored to help those with minimal programming knowledge experience Bitburner during early stages of the game.\\n\\nIf you are confused or overwhelmed by the game, especially the coding and scripting aspects, this guide is perfect for you!\\n\\n## Introduction\\n\\nBitburner is a cyberpunk-themed incremental RPG.\\nYou will progress by raising your [Stats](../basic/stats.md), earning money, and with practice, advancing your real-world coding skills.\\nAfter reaching certain criteria, you will receive invitations from in-game [Factions](../basic/factions.md).\\nJoining [Factions](../basic/factions.md) and working for them will unlock various [Augmentations](../basic/augmentations.md),\\nwhich are purchased and \\\"installed,\\\" adding a persistent bonus to [stats](../basic/stats.md) and other abilities. Working with Factions and installing Augmentations is a basic step for progressing in Bitburner.\\n\\nThe game has an open, minimalistic storyline that can be played in multiple ways to reach your goals.\\nSince this guide is written as a basic introduction to Bitburner, it will not expose the entire scope or storyline available.\\n\\n## First Steps\\n\\nI'm going to assume you followed the introductory tutorial when you first began the game.\\nIn this introductory tutorial, you created a [Script](../basic/scripts.md) called `n00dles.js` and ran it on the `n00dles` server.\\nNow, we'll kill this [Script](../basic/scripts.md). There are two ways to do this:\\n\\n- You can go to the Terminal and enter: `kill n00dles.js`\\n- You can go to the `Active Scripts` page (Alt + s) and press the `Kill Script` button for `n00dles.js`.\\n\\nIf you skipped the introductory tutorial, then ignore the part above.\\nInstead, go to the `Hacknet Nodes` page (Alt + h) and purchase a [Hacknet Node](../basic/hacknet_nodes.md) to start generating some passive income.\\n\\n## Creating our First Script",
+      "target": "# 초보 프로그래머를 위한 시작 가이드\\n\\n_참고_: 이 가이드의 [Scripts](../basic/scripts.md)와 전략이 반드시 최적이거나 완전한 것은 아닙니다.\\n이 가이드는 프로그래밍 지식이 적은 플레이어가 Bitburner 초반을 경험할 수 있도록 맞춰져 있습니다.\\n\\n게임, 특히 코딩과 스크립트 작성 부분이 헷갈리거나 부담스럽다면 이 가이드가 도움이 될 것입니다.\\n\\n## 소개\\n\\nBitburner는 사이버펑크 테마의 incremental RPG입니다.\\n[Stats](../basic/stats.md)를 올리고 돈을 벌며, 연습을 통해 현실의 코딩 실력도 키우면서 진행합니다.\\n특정 조건을 만족하면 게임 내 [Factions](../basic/factions.md)에서 초대를 받게 됩니다.\\n[Factions](../basic/factions.md)에 가입해 일을 하면 여러 [Augmentations](../basic/augmentations.md)이 해금됩니다.\\nAugmentation은 구매 후 \\\"설치\\\"하여 [stats](../basic/stats.md)와 여러 능력에 영구 보너스를 추가합니다. Faction과 함께 일하고 Augmentation을 설치하는 것은 Bitburner 진행의 기본 단계입니다.\\n\\n이 게임은 여러 방식으로 목표에 도달할 수 있는 개방적이고 미니멀한 스토리라인을 가지고 있습니다.\\n이 가이드는 Bitburner의 기본 소개를 목적으로 작성되었으므로, 게임의 전체 범위나 스토리를 모두 드러내지는 않습니다.\\n\\n## 첫 단계\\n\\n처음 게임을 시작했을 때 입문 튜토리얼을 따라왔다고 가정하겠습니다.\\n그 튜토리얼에서 `n00dles.js`라는 [Script](../basic/scripts.md)를 만들고 `n00dles` 서버에서 실행했을 것입니다.\\n이제 이 [Script](../basic/scripts.md)를 종료해 보겠습니다. 방법은 두 가지입니다:\\n\\n- Terminal로 가서 `kill n00dles.js`를 입력합니다.\\n- `Active Scripts` 페이지(Alt + s)로 가서 `n00dles.js`의 `Kill Script` 버튼을 누릅니다.\\n\\n입문 튜토리얼을 건너뛰었다면 위 내용은 무시해도 됩니다.\\n대신 `Hacknet Nodes` 페이지(Alt + h)로 가서 [Hacknet Node](../basic/hacknet_nodes.md)를 구매해 패시브 수입을 만들기 시작하세요.\\n\\n## 첫 Script 만들기",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Beginner's guide title, intro, and First Steps section should render in Korean while markdown links, code spans, commands, server names, and page names remain usable.",
+    "knownRemaining": [
+      "The Creating our First Script section and later sections are intentionally left for the next section-level patch."
+    ]
+  }
+}

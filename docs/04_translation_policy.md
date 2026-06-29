@@ -51,6 +51,15 @@
 - 고유명사를 과하게 풀어 번역하지 않는다.
 - 긴 문장은 영어 원문보다 길어질 수 있으므로 줄바꿈을 확인한다.
 
+## Documentation 번역 기준
+
+- markdown 링크의 표시 텍스트는 번역하되 링크 경로는 보존한다.
+- 코드 span 안의 명령어, 파일명, 서버명은 원문을 유지한다.
+- `kill n00dles.js`, `n00dles.js`, `hack()`, `grow()`, `weaken()` 같은 실행 예시는 번역하지 않는다.
+- `Terminal`, `Active Scripts`, `Script`, `Hacknet Node`처럼 이미 UI/게임 맥락에서 쓰는 용어는 섹션 안에서 일관되게 유지한다.
+- 문서 패치는 너무 잘게 쪼개지 않고 섹션 단위로 진행하되, 각 manifest는 dry-run과 화면 스크린샷으로 검증한다.
+- 같은 `main.bundle.js`를 수정하는 manifest는 병렬 적용하지 않고 순차 적용한다.
+
 ## 예시
 
 원문:
