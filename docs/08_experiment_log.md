@@ -12,12 +12,13 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Terminal `analyze` 라벨
 - Hacknet 요약/Node 카드 라벨
 - Options 라벨/버튼/주요 툴팁
+- Active Scripts 라벨/설명문/생산 통계 텍스트
 
 진행 후보:
 
-- Dark Web/Active Scripts 단발 툴팁
-- Active Scripts 라벨
+- Dark Web 단발 툴팁
 - Monaco 에디터 폰트 예외 처리
+- Faction work 라벨
 
 검증 원칙:
 
@@ -38,6 +39,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Options System 라벨 | `patches/options_system_labels.json` | 후속 Options sweep으로 완료 | `screenshot/options_system_success.png` | 없음 |
 | Options 라벨/버튼/툴팁 | `options_remaining_texts.json`, `options_sidebar_buttons.json`, `options_keybinding_texts.json`, `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`, `options_final_visual_fixes.json` | 화면 검증 완료 | `screenshot/options_interface_final_success.png` | 없음 |
 | Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert CLI + 스크린샷 검증 완료 | `screenshot/patcher_01_clean_dry_run.png` ... `screenshot/patcher_06_revert_count_check.png` | 없음 |
+| Active Scripts 라벨/텍스트 | `patches/active_scripts_labels.json`, `patches/active_scripts_texts.json` | 1차 잔여 후 2차 보정, 화면 검증 완료 | `screenshot/active_scripts_success.png` | 공용 시간 단위 formatter 별도 후보 |
 
 ### Phase 1 패처 로컬 CLI 검증
 
@@ -723,4 +725,41 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 판단:
 
 - Options 창 라벨/작업 버튼/주요 툴팁 설명문 묶음은 화면 확인 기준으로 완료했다.
-- 다음 단계는 Options 범위 밖의 Dark Web/Active Scripts 단발 툴팁 또는 Active Scripts 라벨 패치다.
+- 다음 단계 후보는 Dark Web 단발 툴팁 또는 Active Scripts 라벨 패치였고, Active Scripts 라벨은 후속 패치로 처리했다.
+
+## Active Scripts 라벨/텍스트 패치
+
+목표:
+
+- Options 범위 밖으로 분리했던 Active Scripts 화면의 주요 라벨과 설명문을 처리한다.
+- 탭/버튼/상세 통계 라벨을 화면 문맥 안에서만 치환한다.
+- 시간 단위 formatter처럼 전역 영향이 큰 후보는 이번 범위에서 제외한다.
+
+적용한 manifest:
+
+- `patches/active_scripts_labels.json`
+- `patches/active_scripts_texts.json`
+
+1차 적용:
+
+- 탭 `Active`, `Recently Killed`, `Recent Errors`를 번역했다.
+- 오류 모달 숨기기 토글/툴팁, 모든 스크립트 종료 버튼/툴팁을 번역했다.
+- 상세 통계의 스레드, 인수, 온라인/오프라인 시간, 총 온라인/오프라인 생산 라벨을 번역했다.
+- 화면 확인 결과 소개문, 총 생산 라벨, 페이지당 항목, 표시 범위, 온라인 생산 속도, 경험치 단위가 남았다.
+
+![Active Scripts 1차 잔여](../screenshot/active_scripts_partial_residual.png)
+
+2차 보정:
+
+- 소개문과 총 생산 라벨을 번역했다.
+- `서버/페이지`, `스크립트/페이지`, 표시 범위 문구를 번역했다.
+- `온라인 생산 속도`, `해킹 경험치`, `해킹 경험치 / 초`를 번역했다.
+- 적용 후 관련 source 문자열은 0회, target 문자열은 기대 count로 확인했다.
+
+![Active Scripts 최종 성공](../screenshot/active_scripts_success.png)
+
+판단:
+
+- Active Scripts 라벨/설명문/생산 통계 텍스트 묶음은 화면 확인 기준으로 완료했다.
+- `4 hours 23 minutes 16 seconds` 같은 시간 단위는 공용 formatter 출력으로 보이며, 별도 통제 실험 후보로 남긴다.
+- 다음 후보는 Dark Web 단발 툴팁 또는 Faction work 라벨이다.

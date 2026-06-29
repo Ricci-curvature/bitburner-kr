@@ -469,7 +469,7 @@
 
 - 게임을 새로고침하고 Options 전 탭의 시각 검증 스크린샷을 추가한다.
 - Options 화면에서 길이가 과한 한국어 툴팁이 있으면 표현을 줄인다.
-- 이후 Phase 6 후보는 Active Scripts 또는 Faction 계열 라벨 소형 패치다.
+- 이후 Phase 6 후보였던 Active Scripts 라벨 소형 패치는 후속 Phase 6에서 처리했다.
 
 ## Phase 5 진행 메모 - Options 최종 시각 잔여 보정
 
@@ -490,7 +490,7 @@
 다음 확인:
 
 - Options 화면을 새로고침해 최종 시각 확인 스크린샷을 남긴다.
-- 다음 패치 후보는 Options 범위 밖의 Dark Web/Active Scripts 단발 툴팁 또는 Active Scripts 라벨이다.
+- 다음 패치 후보였던 Active Scripts 라벨은 후속 Phase 6에서 처리했다.
 
 ## Phase 5 완료 메모 - Options 창
 
@@ -505,4 +505,23 @@
 
 다음 단계:
 
-- Options 범위 밖의 Dark Web/Active Scripts 단발 툴팁 후보를 별도 scope로 분리한다.
+- Active Scripts 라벨을 별도 scope로 처리한 뒤, Dark Web 단발 툴팁 후보를 남긴다.
+## Phase 6 완료 메모 - Active Scripts
+
+구현된 것:
+
+- `patches/active_scripts_labels.json`
+- `patches/active_scripts_texts.json`
+- Active Scripts 탭, 오류 모달 숨기기, 모든 스크립트 종료 버튼/툴팁
+- Active Scripts 소개문, 총 생산, 페이지당 표시 수, 표시 범위, 생산 통계 라벨
+
+검증한 것:
+
+- 두 manifest 모두 dry-run, apply, 재 dry-run already-applied 확인을 통과했다.
+- 1차 화면 확인에서 남은 설명문/통계 텍스트를 2차 manifest로 보정했다.
+- 최종 화면에서 주요 Active Scripts 라벨과 생산 통계 텍스트의 한글 렌더링을 확인했다.
+
+남은 것:
+
+- `hours`, `minutes`, `seconds` 같은 시간 단위는 공용 formatter 출력으로 보이므로 별도 통제 실험으로 분리한다.
+- 다음 후보는 Dark Web 단발 툴팁 또는 Faction work 라벨이다.

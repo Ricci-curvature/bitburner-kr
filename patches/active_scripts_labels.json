@@ -1,0 +1,131 @@
+{
+  "patchId": "active_scripts_labels",
+  "description": "Translate focused Active Scripts page tabs, controls, and detail labels.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/ActiveScripts/ui/ActiveScriptsRoot.tsx",
+    "webpack:///./src/ActiveScripts/ui/ScriptProduction.tsx"
+  ],
+  "scope": "Active Scripts page tab labels, suppress error control, kill-all control, and script detail labels",
+  "preserveTerms": [
+    "PID",
+    "RAM",
+    "LOG",
+    "Tail"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_tab_active",
+      "source": "label:\"Active\",value:f.SimplePage.ActiveScripts",
+      "target": "label:\"활성\",value:f.SimplePage.ActiveScripts",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_tab_recently_killed",
+      "source": "label:\"Recently Killed\",value:f.SimplePage.RecentlyKilledScripts",
+      "target": "label:\"최근 종료\",value:f.SimplePage.RecentlyKilledScripts",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_tab_recent_errors",
+      "source": "label:u.W5.UnreadErrors&&t!==f.SimplePage.RecentErrors?`Recent Errors (${u.W5.UnreadErrors})`:\"Recent Errors\",value:f.SimplePage.RecentErrors",
+      "target": "label:u.W5.UnreadErrors&&t!==f.SimplePage.RecentErrors?`최근 오류 (${u.W5.UnreadErrors})`:\"최근 오류\",value:f.SimplePage.RecentErrors",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_suppress_errors_and_kill_all_button",
+      "source": "text:\"Suppress error modals (5 min)\",tooltip:r.createElement(r.Fragment,null,\"If this is set, no error modals will be shown for the next five minutes, and only log errors to the Recent Errors page.\"),wrapperStyles:{marginLeft:\"20px\"}}),r.createElement(o.A,{color:\"error\",onClick:h.YL,sx:{margin:0}},\"Kill All Scripts\")",
+      "target": "text:\"오류 모달 숨기기 (5분)\",tooltip:r.createElement(r.Fragment,null,\"이 옵션을 켜면 다음 5분 동안 오류 모달을 표시하지 않고 최근 오류 탭에만 기록합니다.\"),wrapperStyles:{marginLeft:\"20px\"}}),r.createElement(o.A,{color:\"error\",onClick:h.YL,sx:{margin:0}},\"모든 스크립트 종료\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_kill_all_icon_tooltip",
+      "source": "title:\"Kill all running scripts\"",
+      "target": "title:\"실행 중인 모든 스크립트 종료\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_detail_threads",
+      "source": "\"└ Threads:\"",
+      "target": "\"└ 스레드:\"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_detail_args",
+      "source": "\"└ Args: \"",
+      "target": "\"└ 인수: \"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_detail_online_time",
+      "source": "\"└ Online Time:\"",
+      "target": "\"└ 온라인 시간:\"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_detail_offline_time",
+      "source": "\"└ Offline Time:\"",
+      "target": "\"└ 오프라인 시간:\"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_detail_total_online_production",
+      "source": "\"└ Total online production:\"",
+      "target": "\"└ 총 온라인 생산:\"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "active_scripts_detail_total_offline_production",
+      "source": "\"└ Total offline production:\"",
+      "target": "\"└ 총 오프라인 생산:\"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true
+  }
+}

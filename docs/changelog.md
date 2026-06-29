@@ -186,3 +186,10 @@
 - Options 화면의 한글 렌더링이 누락 없이 완료된 것을 기록했다.
 - 실험 로그와 README의 화면 확인 관련 문서 서술을 정리했다.
 - Options 묶음을 화면 확인 기준 완료 상태로 업데이트했다.
+## Active Scripts 라벨/텍스트 패치 적용
+
+- `patches/active_scripts_labels.json`과 `patches/active_scripts_texts.json`을 추가했다.
+- Active Scripts 탭, 오류 모달 숨기기, 모든 스크립트 종료 버튼/툴팁을 번역했다.
+- 소개문, 총 생산, 페이지당 표시 수, 표시 범위, 생산 통계 라벨을 2차로 보정했다.
+- `active_scripts_partial_residual.png`와 `active_scripts_success.png`를 추가했다.
+- 시간 단위 formatter는 전역 영향 가능성이 있어 별도 후보로 남겼다.
