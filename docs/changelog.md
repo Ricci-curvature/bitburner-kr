@@ -42,3 +42,9 @@
 - `index.html`에 `@font-face`를 추가했다.
 - `main.bundle.js`의 기본 font stack 4곳을 `NeoDunggeunmo` 우선으로 치환했다.
 - README에 첫 Hacknet 한글 출력 스크린샷을 추가했다.
+
+## 2026-06-29 - NeoDunggeunmo 1차 실패 및 force CSS 실험
+
+- 사용자 스크린샷 기준 1차 font stack 치환은 실제 화면 폰트 변경으로 이어지지 않았다.
+- TTF 내부 family 이름은 `NeoDunggeunmo`로 확인했다.
+- `index.html`에 `#root` 하위 텍스트와 입력/코드/Monaco 계열에 대한 `!important` font-family 강제 CSS를 추가했다.

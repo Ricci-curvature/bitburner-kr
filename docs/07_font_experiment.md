@@ -60,3 +60,23 @@ Phase 1 패처에서는 폰트 적용을 문자열 번역 패치와 별도 patch
 ## 복구
 
 폰트 실험을 되돌릴 때는 `backups/`의 `index.html.before-neodgm-font-*`, `main.bundle.js.before-neodgm-font-*`를 원래 위치로 복사한다. `dist/fonts/neodgm.ttf`는 삭제해도 되지만, 번들/HTML이 먼저 복구되어야 한다.
+
+## 2026-06-29 추가 실험: force CSS
+
+사용자 확인 결과 1차 실험은 화면상 폰트 변화가 보이지 않았다. 파일 변경 자체는 확인되었다.
+
+확인된 사실:
+
+- `@font-face`는 `index.html`에 존재한다.
+- `main.bundle.js`의 기본 font stack 4곳은 `NeoDunggeunmo` 우선으로 바뀌었다.
+- `neodgm.ttf` 내부 family 이름은 `NeoDunggeunmo`가 맞다.
+
+따라서 현재 가장 유력한 원인은 기존 설정값 또는 컴포넌트 스타일이 기본 font stack 변경을 우회하는 것이다.
+
+2차 실험으로 `index.html`에 다음 방향의 강제 CSS를 추가했다.
+
+- `--bb-kr-font-family` CSS 변수를 정의한다.
+- `html body #root *:not(svg):not(path)`에 `font-family: var(--bb-kr-font-family) !important`를 적용한다.
+- `input`, `textarea`, `button`, `pre`, `code`, `.monaco-editor`에도 같은 font family를 강제한다.
+
+이 실험은 렌더링 여부를 확인하기 위한 강한 패치다. 성공하면 Phase 1 패처에서는 사용자 설정을 보존하는 더 좁은 selector로 줄이는 것을 검토한다.

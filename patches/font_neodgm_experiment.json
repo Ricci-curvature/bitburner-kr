@@ -19,6 +19,15 @@
       "insert": "      @font-face {\n        font-family: \"NeoDunggeunmo\";\n        src: url(\"dist/fonts/neodgm.ttf\") format(\"truetype\");\n        font-weight: 400;\n        font-style: normal;\n        font-display: swap;\n      }\n"
     },
     {
+      "type": "insertBefore",
+      "file": "resources/app/index.html",
+      "anchor": "      body {",
+      "expectedCount": 1,
+      "allowExistingTarget": true,
+      "targetContains": "bb-kr-font-family",
+      "insert": "      :root {\n        --bb-kr-font-family: \\\"NeoDunggeunmo\\\", JetBrainsMono, \\\"Courier New\\\", monospace;\n      }\n      html body,\n      html body #root,\n      html body #root *:not(svg):not(path) {\n        font-family: var(--bb-kr-font-family) !important;\n      }\n      input,\n      textarea,\n      button,\n      pre,\n      code,\n      .monaco-editor,\n      .monaco-editor * {\n        font-family: var(--bb-kr-font-family) !important;\n      }\n"
+    },
+    {
       "type": "replace",
       "file": "resources/app/dist/main.bundle.js",
       "source": "JetBrainsMono, \"Courier New\", monospace",
@@ -27,5 +36,9 @@
       "allowRemainingSource": false,
       "allowExistingTarget": true
     }
+  ],
+  "notes": [
+    "v1 bundle default font stack replacement did not visibly affect the UI in user screenshot.",
+    "v2 adds index.html force CSS override for rendered UI verification."
   ]
 }
