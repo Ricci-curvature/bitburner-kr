@@ -1,0 +1,31 @@
+{
+  "patchId": "font.neodgm.v1",
+  "description": "Load NeoDunggeunmo and prefer it before Bitburner's default monospaced font stack.",
+  "gameVersion": "3.0.1",
+  "operations": [
+    {
+      "type": "copy",
+      "source": "assets/fonts/neodgm.ttf",
+      "target": "resources/app/dist/fonts/neodgm.ttf",
+      "required": true
+    },
+    {
+      "type": "insertBefore",
+      "file": "resources/app/index.html",
+      "anchor": "      html, body {",
+      "expectedCount": 1,
+      "allowExistingTarget": true,
+      "targetContains": "font-family: \"NeoDunggeunmo\"",
+      "insert": "      @font-face {\n        font-family: \"NeoDunggeunmo\";\n        src: url(\"dist/fonts/neodgm.ttf\") format(\"truetype\");\n        font-weight: 400;\n        font-style: normal;\n        font-display: swap;\n      }\n"
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "JetBrainsMono, \"Courier New\", monospace",
+      "target": "NeoDunggeunmo, JetBrainsMono, \"Courier New\", monospace",
+      "expectedCount": 4,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ]
+}

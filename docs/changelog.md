@@ -35,3 +35,10 @@
 - `Ricci-curvature/bitburner-kr` 저장소 생성을 목표로 로컬 git 저장소화를 준비했다.
 - 게임 번들 백업(`backups/*`)과 폰트 원본(`assets/fonts/*`)은 라이선스/배포 리스크 때문에 git 추적에서 제외했다.
 - Phase 1 패처는 dry-run 기본값, expected count, patch-state, 원문 잔존 검사 규칙을 필수 안전장치로 둔다.
+
+## 2026-06-29 - NeoDunggeunmo 폰트 실험
+
+- Bitburner 앱 리소스에 `dist/fonts/neodgm.ttf`를 복사했다.
+- `index.html`에 `@font-face`를 추가했다.
+- `main.bundle.js`의 기본 font stack 4곳을 `NeoDunggeunmo` 우선으로 치환했다.
+- README에 첫 Hacknet 한글 출력 스크린샷을 추가했다.
