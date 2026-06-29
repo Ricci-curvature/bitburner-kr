@@ -124,3 +124,9 @@
 - `Backdoor` 라벨은 analyze 함수 안의 2회 출력을 `expectedCount: 2`로 처리했다.
 - `N/A`, `YES/NO`, `Open/Closed`, 명령어/API/포트명은 보존했다.
 - dry-run, apply, source 0회/target expectedCount 검증, 재 dry-run already-applied 확인을 통과했다.
+
+## 2026-06-29 - Terminal analyze 화면 검증 스크린샷 기록
+
+- `terminal_analyze_home_success.png`를 추가했다.
+- Terminal `analyze` 실행 결과에서 조직/권한/Backdoor/해킹/포트 라벨 표시를 확인했다.
+- `RAM`, `YES/NO`, `Closed`, `hack()`, `NUKE`, 포트명 보존도 확인했다.

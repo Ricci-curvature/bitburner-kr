@@ -343,6 +343,6 @@
 
 다음 확인:
 
-- 게임 재시작 후 Terminal에서 `analyze` 실행 화면 확인
-- 일반 서버와 권한/Backdoor 상태가 다른 서버를 비교
-- 스크린샷을 `screenshot/`에 저장하고 실험 로그에 연결
+- Terminal에서 `analyze` 실행 화면 확인 완료
+- home 서버 기준 조직/권한/Backdoor/해킹/포트 라벨 정상 표시 확인 완료
+- `terminal_analyze_home_success.png` 스크린샷을 실험 로그에 연결 완료

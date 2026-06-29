@@ -25,7 +25,7 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 - 현재 폰트 전략은 전체 UI NeoDunggeunmo 적용을 기본 후보로 두고, 필요 시 Monaco 코드 에디터만 예외 처리하는 방향
 - Phase 1 패처는 dry-run 기본값, `expectedCount`, `allowRemainingSource`, `patch-state.json` 기록을 필수 안전장치로 설계
 - Augmentation 효과 라벨 1차/2차 패치 적용 및 화면 검증 완료
-- Terminal `analyze` 출력 라벨 패치 적용 완료, 화면 검증 대기
+- Terminal `analyze` 출력 라벨 패치 적용 및 화면 검증 완료
 
 자세한 실험 진행 상황과 스크린샷은 [`docs/08_experiment_log.md`](docs/08_experiment_log.md)를 본다.
 

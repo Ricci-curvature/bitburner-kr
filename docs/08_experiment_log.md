@@ -329,3 +329,29 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 실제 Terminal에서 `analyze` 명령을 실행해 화면 표시를 확인한다.
 - 일반 서버와 Backdoor/권한 상태가 다른 서버를 비교한다.
 - 검증 스크린샷을 추가한 뒤 Phase 4 완료로 본다.
+
+## 2026-06-29 - Terminal analyze 화면 검증
+
+목표:
+
+- 실제 Terminal에서 `analyze`를 실행해 패치가 화면에 반영되는지 확인한다.
+- 한글 라벨과 보존 대상 상태값이 같이 깨지지 않는지 확인한다.
+- NeoDunggeunmo 폰트에서 터미널 라인 간격과 정렬이 무너지지 않는지 본다.
+
+검증 스크린샷: home 서버 analyze
+
+![Terminal analyze home 성공](../screenshot/terminal_analyze_home_success.png)
+
+관찰:
+
+- `조직 이름`, `루트 권한`, `이 호스트에서 스크립트 실행 가능`이 정상 표시된다.
+- `Backdoor 설치`, `hack()/backdoor 필요 해킹 레벨`, `서버 보안 레벨`, `hack() 성공 확률`, `hack() 소요 시간`이 정상 표시된다.
+- `서버 보유 자금`, `NUKE 필요 개방 포트 수`, `SSH/FTP/SMTP/HTTP/SQL 포트`가 정상 표시된다.
+- `RAM`, `YES`, `NO`, `Closed`, `hack()`, `NUKE`, 포트명은 의도대로 보존되었다.
+- 숫자, `%`, 달러 표기, `seconds` 표기는 깨지지 않았다.
+
+판단:
+
+- Terminal `analyze` 라벨 패치는 실제 화면 검증까지 성공했다.
+- 현재 검증은 home 서버 기준이다.
+- 다음에 다른 서버를 볼 때 Backdoor 설치 여부와 포트 Open 상태가 다른 케이스를 추가로 찍으면 더 좋다.
