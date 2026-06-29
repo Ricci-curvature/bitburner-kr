@@ -8,6 +8,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Hacknet Nodes 소개문
 - NeoDunggeunmo 전체 UI 폰트 적용
+- Monaco 코드 에디터 폰트 예외 처리
 - Augmentation 효과 라벨 1차/2차
 - Terminal `analyze` 라벨
 - Hacknet 요약/Node 카드 라벨
@@ -17,7 +18,6 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 진행 후보:
 
-- Monaco 에디터 폰트 예외 처리
 - Faction work 라벨
 
 검증 원칙:
@@ -30,7 +30,8 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | 영역 | Manifest | 검증 상태 | 스크린샷 | 남은 것 |
 | --- | --- | --- | --- | --- |
 | Hacknet Nodes 소개문 | `patches/hacknet_nodes_intro_small.json` | 화면 검증 완료 | `screenshot/hacknet_nodes_intro_success.png` | 없음 |
-| NeoDunggeunmo 폰트 | `patches/font_neodgm_experiment.json` | force CSS 화면 검증 완료 | `screenshot/font_neodgm_success.png` | Monaco 에디터 예외 처리 후보 |
+| NeoDunggeunmo 폰트 | `patches/font_neodgm_experiment.json` | force CSS 화면 검증 완료 | `screenshot/font_neodgm_success.png` | Monaco 예외 처리 완료 |
+| Monaco 코드 에디터 폰트 예외 | `patches/font_monaco_exception.json` | 화면 검증 완료 | `screenshot/font_monaco_exception_success.png` | 없음 |
 | Augmentation 효과 라벨 1차 | `patches/augmentation_effects_small.json` | 부분 성공 후 2차로 보정 | `screenshot/augmentation_crtx42_success.png`, `screenshot/augmentation_neurotrainer_success.png` | 2차에서 처리 완료 |
 | Augmentation 효과 라벨 2차 | `patches/augmentation_effects_individual.json` | 화면 검증 완료 | `screenshot/augmentation_synaptic_success.png`, `screenshot/augmentation_synthetic_nerve_success.png`, `screenshot/augmentation_cranial_signal_processors_success.png` | 없음 |
 | Terminal `analyze` 라벨 | `patches/terminal_analyze_labels.json` | 화면 검증 완료 | `screenshot/terminal_analyze_home_success.png` | 다른 서버 상태 케이스 추가 후보 |
@@ -763,7 +764,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Active Scripts 라벨/설명문/생산 통계 텍스트 묶음은 화면 확인 기준으로 완료했다.
 - `4 hours 23 minutes 16 seconds` 같은 시간 단위는 공용 formatter 출력으로 보이며, 별도 통제 실험 후보로 남긴다.
-- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+- 다음 후보는 Faction work 라벨이다.
 
 ## Dark Net 화면 라벨/툴팁 패치
 
@@ -810,5 +811,40 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Dark Net 화면의 주요 라벨, 상태 문구, 검색 UI, 1회짜리 툴팁 묶음은 화면 확인 기준 완료했다.
 - `Logs scraped via`, `Hint:`는 각각 2회 출현해 이번 범위에서 제외했고, 인증/상세 모달 보강 후보로 남긴다.
-- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+- 다음 후보는 Faction work 라벨이다.
 
+
+## Monaco 코드 에디터 폰트 예외 처리
+
+목표:
+
+- 전체 UI의 NeoDunggeunmo 분위기는 유지한다.
+- 인게임 Script Editor의 Monaco 코드 본문만 기존 코딩 폰트 계열로 되돌린다.
+- 번들 로직을 건드리지 않고 `index.html` CSS override만 추가한다.
+
+적용한 manifest:
+
+- `patches/font_monaco_exception.json`
+
+적용한 내용:
+
+- `--bb-kr-code-font-family: JetBrainsMono, "Courier New", monospace` 변수를 추가했다.
+- `.monaco-editor`, `.monaco-diff-editor` 내부에만 `--bb-kr-code-font-family`를 `!important`로 적용했다.
+- 터미널, tail 창, 일반 UI는 기존 NeoDunggeunmo 적용을 유지한다.
+
+검증:
+
+- dry-run에서 `index.html` anchor가 1회로 확인되었다.
+- apply 후 재 dry-run에서 `already-applied`로 확인되었다.
+- 실제 `index.html`에서 `--bb-kr-code-font-family`, `.monaco-editor`, `.monaco-diff-editor` override 존재를 확인했다.
+- Script Editor 화면에서 코드 본문이 기존 코딩 폰트 계열로 보이고, 주변 UI는 NeoDunggeunmo를 유지하는 것을 확인했다.
+
+스크린샷:
+
+![Monaco 폰트 예외 성공](../screenshot/font_monaco_exception_success.png)
+
+판단:
+
+- Monaco 코드 에디터 예외 처리는 화면 확인 기준 완료했다.
+- 인게임 에디터 사용 빈도는 낮더라도, 긴 스크립트 편집 시 코드 가독성을 보존하는 안전장치로 유지한다.
+- 다음 후보는 Faction work 라벨이다.

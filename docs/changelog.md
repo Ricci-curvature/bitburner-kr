@@ -201,3 +201,9 @@
 - Dark Net 제목, 서버 카드 상태, 매력 라벨, 검색 UI, 문서 버튼, 주요 상태 툴팁을 번역했다.
 - `darknet_success.png`를 추가하고 화면 검증 완료로 기록했다.
 - `Logs scraped via`, `Hint:`는 2회 출현 문구라 별도 보강 후보로 남겼다.
+
+## Monaco 코드 에디터 폰트 예외 처리
+
+- `patches/font_monaco_exception.json`을 추가했다.
+- 전체 UI NeoDunggeunmo 적용은 유지하고, Monaco Script Editor/diff editor 내부만 기존 코딩 폰트 계열로 되돌렸다.
+- `font_monaco_exception_success.png`를 추가하고 화면 검증 완료로 기록했다.

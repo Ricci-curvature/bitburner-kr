@@ -1,0 +1,27 @@
+{
+  "patchId": "font.monaco.exception.v1",
+  "description": "Keep the global NeoDunggeunmo UI font, but restore Monaco editor surfaces to Bitburner's code font stack.",
+  "gameVersion": "3.0.1",
+  "scope": "index.html CSS override for Monaco editor only",
+  "dependsOn": [
+    "font.neodgm.v1"
+  ],
+  "operations": [
+    {
+      "type": "insertBefore",
+      "file": "resources/app/index.html",
+      "anchor": "      body {",
+      "expectedCount": 1,
+      "allowExistingTarget": true,
+      "targetContains": "--bb-kr-code-font-family",
+      "insert": "      :root {\n        --bb-kr-code-font-family: JetBrainsMono, \"Courier New\", monospace;\n      }\n      html body #root .monaco-editor,\n      html body #root .monaco-editor *,\n      html body #root .monaco-diff-editor,\n      html body #root .monaco-diff-editor * {\n        font-family: var(--bb-kr-code-font-family) !important;\n      }\n"
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Monaco script editor code text should use JetBrainsMono/Courier-style code font while the surrounding UI remains NeoDunggeunmo.",
+    "knownRemaining": [
+      "Terminal, tail windows, buttons, and general UI intentionally keep NeoDunggeunmo."
+    ]
+  }
+}

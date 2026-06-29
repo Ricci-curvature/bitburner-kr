@@ -525,7 +525,7 @@
 남은 것:
 
 - `hours`, `minutes`, `seconds` 같은 시간 단위는 공용 formatter 출력으로 보이므로 별도 통제 실험으로 분리한다.
-- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+- 다음 후보는 Faction work 라벨이다.
 
 ## Phase 7 완료 메모 - Dark Net 화면
 
@@ -546,6 +546,24 @@
 남은 것:
 
 - `Logs scraped via`, `Hint:`는 2회 출현 문구라 별도 보강 후보로 둔다.
-- 다음 후보는 Faction work 라벨 또는 Monaco 에디터 폰트 예외 처리다.
+- 다음 후보는 Faction work 라벨이다.
 
 
+
+## Phase 8 완료 메모 - Monaco 코드 에디터 폰트 예외
+
+구현된 것:
+
+- `patches/font_monaco_exception.json`
+- 전체 UI NeoDunggeunmo 유지
+- Monaco Script Editor와 Monaco diff editor 내부만 `JetBrainsMono, "Courier New", monospace`로 override
+
+검증한 것:
+
+- dry-run에서 `index.html` anchor 1회 확인
+- apply 후 재 dry-run `already-applied` 확인
+- Script Editor 화면에서 코드 본문이 기존 코딩 폰트 계열로 표시되는 것을 확인했다.
+
+남은 것:
+
+- 다음 후보는 Faction work 라벨이다.
