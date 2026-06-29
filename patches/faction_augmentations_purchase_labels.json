@@ -1,0 +1,180 @@
+{
+  "patchId": "faction_augmentations_purchase_labels",
+  "description": "Translate labels, descriptions, sort controls, purchase cards, and confirmation modal on the Faction Augmentations purchase page.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Faction/ui/FactionRoot.tsx",
+    "webpack:///./src/Augmentation/ui/PurchaseAugmentations.tsx",
+    "webpack:///./src/Augmentation/ui/AugmentationsPage.tsx",
+    "webpack:///./src/Augmentation/ui/PurchaseAugmentationModal.tsx"
+  ],
+  "scope": "Faction Augmentations purchase page and shared Augmentation purchase card labels used from that page",
+  "preserveTerms": [
+    "Faction",
+    "Augmentation",
+    "NeuroFlux Governor",
+    "Shadows of Anarchy",
+    "Grafting",
+    "favor"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_back_and_title",
+      "source": "r.createElement(o.A,{onClick:()=>v.I.back()},\"Back\"),r.createElement(i.A,{variant:\"h4\"},\"Faction Augmentations - \",e.name)",
+      "target": "r.createElement(o.A,{onClick:()=>v.I.back()},\"뒤로\"),r.createElement(i.A,{variant:\"h4\"},\"Faction Augmentation 구매 - \",e.name)",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_intro_description",
+      "source": "r.createElement(i.A,null,\"These are all of the Augmentations that are available to purchase from \",r.createElement(\"b\",null,e.name),\". Augmentations are powerful upgrades that will enhance your abilities.\")",
+      "target": "r.createElement(i.A,null,e.name,\"에서 구매할 수 있는 모든 Augmentation 목록입니다. Augmentation은 능력을 강화하는 강력한 업그레이드입니다.\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_price_reset_description",
+      "source": "L=r.createElement(i.A,null,\"The price of every Augmentation increases for every queued Augmentation and it is reset when you install them.\")",
+      "target": "L=r.createElement(i.A,null,\"대기열에 넣은 Augmentation 하나마다 모든 Augmentation의 가격이 증가하며, 설치하면 가격 배율은 초기화됩니다.\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_soa_price_description",
+      "source": "L=r.createElement(i.A,null,\"This price multiplier increases for each \",h.FactionName.ShadowsOfAnarchy,\" augmentation already purchased. The multiplier is NOT reset when installing augmentations.\")",
+      "target": "L=r.createElement(i.A,null,h.FactionName.ShadowsOfAnarchy,\" Augmentation을 구매할 때마다 이 가격 배율이 증가합니다. 이 배율은 Augmentation을 설치해도 초기화되지 않습니다.\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_multiplier_labels",
+      "source": "\"Price multiplier:\"",
+      "target": "\"가격 배율:\"",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_reputation_multiplier_label",
+      "source": "\"Reputation multiplier:\"",
+      "target": "\"평판 배율:\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_sort_buttons",
+      "source": "r.createElement(o.A,{onClick:()=>T(p.t.Cost)},\"Sort by Cost\"),r.createElement(o.A,{onClick:()=>T(p.t.Reputation)},\"Sort by Reputation\"),r.createElement(o.A,{onClick:()=>T(p.t.Default)},\"Sort by Default Order\"),r.createElement(o.A,{onClick:()=>T(p.t.Purchasable)},\"Sort by Purchasable\")",
+      "target": "r.createElement(o.A,{onClick:()=>T(p.t.Cost)},\"비용순 정렬\"),r.createElement(o.A,{onClick:()=>T(p.t.Reputation)},\"평판순 정렬\"),r.createElement(o.A,{onClick:()=>T(p.t.Default)},\"기본순 정렬\"),r.createElement(o.A,{onClick:()=>T(p.t.Purchasable)},\"구매 가능순 정렬\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_filter_placeholder",
+      "source": "placeholder:\"Filter augmentations\"",
+      "target": "placeholder:\"Augmentation 검색\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_card_buy_owned",
+      "source": "e.owned?\"Owned\":\"Buy\"",
+      "target": "e.owned?\"보유\":\"구매\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_card_rep_cost_unit",
+      "source": "value:`${(0,p.jp)(A)} rep`",
+      "target": "value:`${(0,p.jp)(A)} 평판`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_prereq_label_and_status",
+      "source": "\"This Augmentation has the following pre-requisite(s):\"",
+      "target": "\"이 Augmentation에는 다음 선행 조건이 필요합니다:\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_prereq_owned_missing",
+      "source": "d.createElement(r.A,{fontSize:\"small\",sx:{mr:1}}),\"Pre-requisites Owned\"):d.createElement(d.Fragment,null,d.createElement(a.A,{fontSize:\"small\",sx:{mr:1}}),\"Missing \",e.aug.prereqs.length-t.length,\" pre-requisite(s)\")",
+      "target": "d.createElement(r.A,{fontSize:\"small\",sx:{mr:1}}),\"선행 조건 보유\"):d.createElement(d.Fragment,null,d.createElement(a.A,{fontSize:\"small\",sx:{mr:1}}),\"선행 조건 \",e.aug.prereqs.length-t.length,\"개 부족\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_exclusive_source_tooltip",
+      "source": "d.createElement(s.A,{sx:{color:f.w.theme.money}},\"This Augmentation can only be acquired from the following source(s):\"),d.createElement(\"ul\",null,d.createElement(s.A,{sx:{color:f.w.theme.money}},d.createElement(\"li\",null,d.createElement(\"b\",null,e.aug.factions[0]),\" faction\"),h.ai.isAwareOfGang()&&!e.aug.isSpecial&&d.createElement(\"li\",null,\"Certain \",d.createElement(\"b\",null,\"gangs\")),h.ai.canAccessGrafting()&&(!e.aug.isSpecial||e.aug.factions.includes(g.FactionName.Bladeburners))&&e.aug.name!==g.AugmentationName.TheRedPill&&d.createElement(\"li\",null,d.createElement(\"b\",null,\"Grafting\")))))",
+      "target": "d.createElement(s.A,{sx:{color:f.w.theme.money}},\"이 Augmentation은 다음 출처에서만 획득할 수 있습니다:\"),d.createElement(\"ul\",null,d.createElement(s.A,{sx:{color:f.w.theme.money}},d.createElement(\"li\",null,d.createElement(\"b\",null,e.aug.factions[0]),\" Faction\"),h.ai.isAwareOfGang()&&!e.aug.isSpecial&&d.createElement(\"li\",null,\"특정 \",d.createElement(\"b\",null,\"갱\")),h.ai.canAccessGrafting()&&(!e.aug.isSpecial||e.aug.factions.includes(g.FactionName.Bladeburners))&&e.aug.name!==g.AugmentationName.TheRedPill&&d.createElement(\"li\",null,d.createElement(\"b\",null,\"Grafting\")))))",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_purchase_confirm_modal",
+      "source": "\"Would you like to purchase the \",e.name,\" Augmentation for \",r.createElement(o.v,{money:(0,a.R$)(e).moneyCost}),\"?\",r.createElement(\"br\",null),r.createElement(\"br\",null)),r.createElement(c.A,{autoFocus:!0,onClick:()=>{(0,i.O5)(t,e),n()}}," ,
+      "target": "e.name,\" Augmentation을 \",r.createElement(o.v,{money:(0,a.R$)(e).moneyCost}),\"에 구매하시겠습니까?\",r.createElement(\"br\",null),r.createElement(\"br\",null)),r.createElement(c.A,{autoFocus:!0,onClick:()=>{(0,i.O5)(t,e),n()}}," ,
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_augs_purchase_confirm_button",
+      "source": "}},\"Purchase\"))}},635796",
+      "target": "}},\"구매\"))}},635796",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Faction Augmentations purchase page title, description, sort/filter controls, buy/owned cards, pre-requisite labels, and purchase confirmation should render in Korean while Augmentation and Faction names remain unchanged.",
+    "knownRemaining": [
+      "Individual Augmentation lore descriptions are intentionally left for a later content/lore sweep.",
+      "Grafting purchase page uses a separate sort/filter UI and is not covered by this Faction page patch."
+    ]
+  }
+}

@@ -2,22 +2,32 @@
 
 ## 현재 상태
 
-첫 소형 패치가 성공했다.
+여러 화면에서 소형 패치 -> 화면 검증 -> 문서화 -> 커밋 흐름이 안정적으로 반복되고 있다.
 
-성공한 것:
+완료한 것:
 
 - `Hacknet Nodes` 소개 설명문 3개 치환
-- 게임 재시작 후 한국어 정상 표시 확인
+- Phase 1 패처와 revert 통제 검증
+- NeoDunggeunmo 전체 UI 폰트 적용
+- Monaco 코드 에디터 폰트 예외 처리
+- Augmentation 효과 라벨 1차/2차
+- Terminal `analyze` 라벨
+- Hacknet 요약/Node 카드 라벨
+- Options 라벨/버튼/주요 툴팁
+- Active Scripts 라벨/설명문/생산 통계 텍스트
+- Dark Net 화면 라벨/상태/주요 툴팁
+- Faction work 라벨/메인 잔여/짧은 소개문
+- Faction Augmentations 구매 화면 라벨/설명문
 - 고유명사 유지 전략 검증
 - 번들 직접 치환 방식 검증
-- 백업과 패치 기록 생성
+- 패처 기반 dry-run -> apply -> 재 dry-run 검증 흐름 정착
 
-아직 하지 않은 것:
+남은 주요 후보:
 
-- 자동 패처 작성
-- 롤백 스크립트 작성
-- 네오둥근모 폰트 적용
-- 다른 화면 번역 확장
+- Dark Net 인증/상세 모달 잔여
+- Faction 긴 lore/rumor 문구 sweep
+- Hacknet 관련 나머지 설명/툴팁
+- 공용 시간 단위 formatter
 - UI 폭/줄높이 장기 검증
 
 ## 운영 원칙
@@ -153,13 +163,14 @@
 
 후보 순서:
 
-1. Hacknet 관련 나머지 설명/툴팁
-2. Faction work 설명
-3. Gang 설명/툴팁
-4. Active Scripts 통계 라벨
-5. Work/Class 결과 문구
-6. Tutorial 설명문
-7. Documentation 일부
+1. Dark Net 인증/상세 모달 잔여
+2. Faction 긴 lore/rumor 문구 sweep
+3. Hacknet 관련 나머지 설명/툴팁
+4. 공용 시간 단위 formatter
+5. Gang 설명/툴팁
+6. Work/Class 결과 문구
+7. Tutorial 설명문
+8. Documentation 일부
 
 선정 기준:
 
@@ -525,7 +536,7 @@
 남은 것:
 
 - `hours`, `minutes`, `seconds` 같은 시간 단위는 공용 formatter 출력으로 보이므로 별도 통제 실험으로 분리한다.
-- 다음 후보는 Faction work 라벨이다.
+- Faction work 라벨은 후속 Phase 9에서 처리했다.
 
 ## Phase 7 완료 메모 - Dark Net 화면
 
@@ -546,7 +557,7 @@
 남은 것:
 
 - `Logs scraped via`, `Hint:`는 2회 출현 문구라 별도 보강 후보로 둔다.
-- 다음 후보는 Faction work 라벨이다.
+- Faction work 라벨은 후속 Phase 9에서 처리했다.
 
 
 
@@ -566,4 +577,44 @@
 
 남은 것:
 
-- 다음 후보는 Faction work 라벨이다.
+- Faction work 라벨과 Faction Augmentations 구매 화면은 후속 Phase 9/10에서 처리했다.
+
+## Phase 9 완료 메모 - Faction work/메인/짧은 소개문
+
+구현된 것:
+
+- `patches/faction_work_labels.json`
+- `patches/faction_main_residual_labels.json`
+- `patches/faction_info_descriptions_small.json`
+- Faction work 안내문과 작업 카드 3종
+- Faction 메인 화면의 특수 캠페인, 기부 해금, Reputation/Favor 툴팁
+- Sector-12, Tetrads 등 짧은 Faction 소개문과 적대 관계 라벨
+
+검증한 것:
+
+- 세 manifest 모두 dry-run, apply, 재 dry-run already-applied 확인을 통과했다.
+- `faction_sector12_info_success.png`, `faction_slum_snakes_work_success.png`, `faction_favor_tooltip_success.png`에서 화면 렌더링을 확인했다.
+
+남은 것:
+
+- 긴 Faction lore/rumor 문구는 별도 sweep으로 분리한다.
+
+## Phase 10 완료 메모 - Faction Augmentations 구매 화면
+
+구현된 것:
+
+- `patches/faction_augmentations_purchase_labels.json`
+- Faction Augmentations 구매 화면 제목, 상단 설명문, 가격/평판 배율, 정렬/검색 UI
+- 구매/보유 버튼, 평판 비용 단위, 선행 조건 라벨/툴팁, 획득처 툴팁
+- 구매 확인 모달 문구와 구매 버튼
+
+검증한 것:
+
+- dry-run에서 15개 operation이 expected count로 통과했다.
+- 적용 후 재 dry-run에서 15개 operation 모두 already-applied로 확인했다.
+- `faction_augmentations_purchase_success.png`, `faction_augmentations_prereq_tooltip_success.png`에서 화면 렌더링을 확인했다.
+
+남은 것:
+
+- 개별 Augmentation lore 설명문과 Grafting 구매 화면은 별도 manifest로 분리한다.
+- 다음 후보는 Dark Net 인증/상세 모달 잔여 또는 Faction 긴 lore/rumor 문구 sweep이다.

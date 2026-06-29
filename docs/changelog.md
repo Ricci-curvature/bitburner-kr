@@ -207,3 +207,17 @@
 - `patches/font_monaco_exception.json`을 추가했다.
 - 전체 UI NeoDunggeunmo 적용은 유지하고, Monaco Script Editor/diff editor 내부만 기존 코딩 폰트 계열로 되돌렸다.
 - `font_monaco_exception_success.png`를 추가하고 화면 검증 완료로 기록했다.
+
+## Faction work/메인/짧은 소개문 패치 적용
+
+- `patches/faction_work_labels.json`, `patches/faction_main_residual_labels.json`, `patches/faction_info_descriptions_small.json`을 추가했다.
+- Faction work 안내문, 작업 카드, 작업 진행/종료 라벨을 번역했다.
+- Faction 메인 화면의 특수 캠페인, 기부 해금, Reputation/Favor 툴팁, 짧은 소개문을 보정했다.
+- `faction_sector12_info_success.png`, `faction_slum_snakes_work_success.png`, `faction_favor_tooltip_success.png`를 추가하고 화면 검증 완료로 기록했다.
+
+## Faction Augmentations 구매 화면 패치 적용
+
+- `patches/faction_augmentations_purchase_labels.json`을 추가했다.
+- Faction Augmentations 구매 화면 제목, 상단 설명문, 정렬/검색 UI, 구매/보유 버튼, 평판 비용 단위, 선행 조건/획득처 툴팁을 번역했다.
+- 구매 확인 모달 문구와 구매 버튼을 번역했다.
+- `faction_augmentations_purchase_success.png`, `faction_augmentations_prereq_tooltip_success.png`를 추가하고 화면 검증 완료로 기록했다.

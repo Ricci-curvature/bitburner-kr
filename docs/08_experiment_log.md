@@ -16,11 +16,12 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Active Scripts 라벨/설명문/생산 통계 텍스트
 - Dark Net 화면 라벨/상태/툴팁
 - Faction work 라벨/메인 잔여/짧은 소개문
+- Faction Augmentations 구매 화면
 
 진행 후보:
 
-- Faction Augmentations 구매 화면
 - Dark Net 인증/상세 모달 잔여
+- Faction 긴 lore/rumor 문구 sweep
 
 검증 원칙:
 
@@ -44,7 +45,8 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert CLI + 스크린샷 검증 완료 | `screenshot/patcher_01_clean_dry_run.png` ... `screenshot/patcher_06_revert_count_check.png` | 없음 |
 | Active Scripts 라벨/텍스트 | `patches/active_scripts_labels.json`, `patches/active_scripts_texts.json` | 1차 잔여 후 2차 보정, 화면 검증 완료 | `screenshot/active_scripts_success.png` | 공용 시간 단위 formatter 별도 후보 |
 | Dark Net 화면 라벨/툴팁 | `patches/darknet_tooltips.json` | dev-only 오판 후 revert, 실제 화면 manifest 재작성 및 화면 검증 완료 | `screenshot/darknet_success.png` | `Logs scraped via`, `Hint:` 2회 출현 문구 별도 후보 |
-| Faction work/메인/짧은 소개문 | `patches/faction_work_labels.json`, `patches/faction_main_residual_labels.json`, `patches/faction_info_descriptions_small.json` | 화면 검증 완료 | `screenshot/faction_sector12_info_success.png`, `screenshot/faction_slum_snakes_work_success.png`, `screenshot/faction_favor_tooltip_success.png` | 긴 Faction lore/rumor, Faction Augmentations 구매 화면 |
+| Faction work/메인/짧은 소개문 | `patches/faction_work_labels.json`, `patches/faction_main_residual_labels.json`, `patches/faction_info_descriptions_small.json` | 화면 검증 완료 | `screenshot/faction_sector12_info_success.png`, `screenshot/faction_slum_snakes_work_success.png`, `screenshot/faction_favor_tooltip_success.png` | 긴 Faction lore/rumor |
+| Faction Augmentations 구매 화면 | `patches/faction_augmentations_purchase_labels.json` | 화면 검증 완료 | `screenshot/faction_augmentations_purchase_success.png`, `screenshot/faction_augmentations_prereq_tooltip_success.png` | 개별 Augmentation lore 설명문, Grafting 구매 화면 |
 
 ### Phase 1 패처 로컬 CLI 검증
 
@@ -767,7 +769,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Active Scripts 라벨/설명문/생산 통계 텍스트 묶음은 화면 확인 기준으로 완료했다.
 - `4 hours 23 minutes 16 seconds` 같은 시간 단위는 공용 formatter 출력으로 보이며, 별도 통제 실험 후보로 남긴다.
-- 다음 후보는 Faction work 라벨이다.
+- 다음 후보는 Dark Net/Faction 외의 잔여 라벨 또는 Monaco 에디터 폰트 예외 처리다.
 
 ## Dark Net 화면 라벨/툴팁 패치
 
@@ -814,7 +816,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Dark Net 화면의 주요 라벨, 상태 문구, 검색 UI, 1회짜리 툴팁 묶음은 화면 확인 기준 완료했다.
 - `Logs scraped via`, `Hint:`는 각각 2회 출현해 이번 범위에서 제외했고, 인증/상세 모달 보강 후보로 남긴다.
-- 다음 후보는 Faction work 라벨이다.
+- 다음 후보는 Monaco 에디터 폰트 예외 처리 또는 Faction work 라벨이다.
 
 
 ## Monaco 코드 에디터 폰트 예외 처리
@@ -895,5 +897,48 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 판단:
 
 - Faction work 라벨, 메인 잔여 라벨, 짧은 소개문은 화면 확인 기준 완료했다.
-- 긴 Faction lore/rumor 문구와 Faction Augmentations 구매 화면은 별도 manifest로 분리하는 것이 안전하다.
+- 긴 Faction lore/rumor 문구는 별도 manifest로 분리하는 것이 안전하다.
 - 다음 후보는 Faction Augmentations 구매 화면 라벨/설명문이다.
+
+## Faction Augmentations 구매 화면 패치
+
+목표:
+
+- Faction 메인 화면에서 이어지는 Augmentation 구매 화면의 라벨과 안내문을 처리한다.
+- Augmentation 이름, Faction 이름, `NeuroFlux Governor`, `Grafting` 같은 고유명사는 유지한다.
+- 개별 Augmentation lore 설명문은 범위가 크므로 이번 패치에서 제외한다.
+
+적용한 manifest:
+
+- `patches/faction_augmentations_purchase_labels.json`
+
+적용한 내용:
+
+- `Back` 버튼과 `Faction Augmentations -` 제목을 번역했다.
+- 상단 안내문과 가격 배율 안내문을 번역했다.
+- `Price multiplier`, `Reputation multiplier` 라벨을 번역했다.
+- `Sort by Cost`, `Sort by Reputation`, `Sort by Default Order`, `Sort by Purchasable` 정렬 버튼을 번역했다.
+- 검색 placeholder를 `Augmentation 검색`으로 번역했다.
+- 카드 버튼 `Buy`, `Owned`를 `구매`, `보유`로 번역했다.
+- 평판 비용 단위 `rep`를 카드 문맥에서 `평판`으로 번역했다.
+- 선행 조건 라벨/툴팁과 획득처 툴팁을 번역했다.
+- 구매 확인 모달의 질문 문구와 구매 버튼을 번역했다.
+
+통제 확인:
+
+- dry-run에서 15개 operation 모두 expected count로 통과했다.
+- `가격 배율:`은 일반 Faction과 `Shadows of Anarchy` 특수 문맥 2곳이어서 `expectedCount: 2`로 처리했다.
+- 적용 후 재 dry-run에서 15개 operation 모두 `already-applied`로 확인했다.
+- 대표 원문 `Faction Augmentations -`, `These are all of the Augmentations that are available to purchase from`, `Sort by Reputation`, `Filter augmentations`, `Pre-requisites Owned`, `Would you like to purchase the`는 source 0회, target 1회로 확인했다.
+
+스크린샷:
+
+![Faction Augmentations 구매 화면 성공](../screenshot/faction_augmentations_purchase_success.png)
+
+![Faction Augmentations 선행 조건 툴팁 성공](../screenshot/faction_augmentations_prereq_tooltip_success.png)
+
+판단:
+
+- Faction Augmentations 구매 화면의 주요 라벨/설명문/툴팁은 화면 확인 기준 완료했다.
+- 개별 Augmentation lore 설명문과 Grafting 구매 화면은 별도 manifest로 분리한다.
+- 다음 후보는 Dark Net 인증/상세 모달 잔여 또는 Faction 긴 lore/rumor 문구 sweep이다.
