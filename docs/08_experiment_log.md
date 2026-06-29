@@ -37,7 +37,23 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Hacknet Node 카드 라벨 | `patches/hacknet_node_card_labels.json` | 화면 검증 완료 | `hacknet_node_card_success.png` | 없음 |
 | Options System 라벨 | `patches/options_system_labels.json` | 후속 Options sweep으로 완료 | `options_system_success.png` | 없음 |
 | Options 라벨/버튼/툴팁 | `options_remaining_texts.json`, `options_sidebar_buttons.json`, `options_keybinding_texts.json`, `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`, `options_final_visual_fixes.json` | 화면 검증 완료 | `options_interface_final_success.png` | 없음 |
-| Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert 통제 검증 완료 | 없음 | 패치 범위 확대 시 계속 사용 |
+| Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert 통제 검증 완료, 로컬 화면 기록 대기 | 스크린샷 대기 | 로컬 실행 화면 캡처 추가 |
+
+### Phase 1 패처 로컬 화면 검증 대기
+
+남길 스크린샷 후보:
+
+- clean GameRoot에서 `apply-patch.ps1` dry-run 출력
+- clean GameRoot에서 `apply-patch.ps1 -Apply` 적용 완료 출력
+- `patch-state.json`에 `patchId`, `targetHashBefore`, `targetHashAfter`, `backupPath`가 기록된 화면
+- `revert-patch.ps1` 복구 완료 출력
+- 복구 후 원문/target count가 기대대로 돌아온 확인 출력
+
+판단 기준:
+
+- 패처 기능은 clean GameRoot apply/revert 통제 실험으로 이미 검증했다.
+- 다만 실제 로컬 실행 화면 스크린샷이 없으므로, 문서상 최종 화면 검증은 대기 상태로 둔다.
+- 스크린샷이 추가되면 `screenshot/patcher_apply_revert_success.png` 같은 이름으로 연결하고 표의 스크린샷/검증 상태를 갱신한다.
 
 ## 2026-06-29 - Hacknet Nodes 설명문 한글화
 
