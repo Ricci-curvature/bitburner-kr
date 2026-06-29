@@ -449,3 +449,64 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - 실제 Hacknet Nodes 화면에서 Node 카드 표시를 확인한다.
 - 특히 `최대 레벨`, `최대 RAM`, `최대 코어`는 최대치 상태의 노드에서만 보이므로 스크린샷 조건을 맞춰 확인한다.
+
+## 2026-06-29 - Hacknet Node 카드 화면 검증
+
+검증 스크린샷: Hacknet Node 카드
+
+![Hacknet Node 카드 성공](../screenshot/hacknet_node_card_success.png)
+
+관찰:
+
+- `생산량:`, `레벨:`, `코어:`가 정상 표시된다.
+- `RAM:`은 의도대로 원문 약어를 유지한다.
+- 최대치 상태 버튼이 `최대 레벨`, `최대 RAM`, `최대 코어`로 표시된다.
+- Node 이름, 금액, 초당 생산량, 수치 포맷은 유지된다.
+- 버튼 폭 안에 한글 라벨이 들어가며 큰 UI 깨짐은 보이지 않는다.
+
+판단:
+
+- Hacknet Node 카드 라벨 패치는 실제 화면 검증까지 성공했다.
+
+## 2026-06-29 - Options System 라벨 패치
+
+목표:
+
+- Options 화면에서 가장 먼저 보이는 System 페이지의 입력/슬라이더/스위치 라벨을 한글화한다.
+- 왼쪽 탭과 하단 작업 버튼은 별도 패치로 분리한다.
+
+기준 스크린샷:
+
+![Options System 적용 전](../screenshot/options_system_before.png)
+
+적용한 번역:
+
+- `Autoexec Script + Args` -> `Autoexec 스크립트 + 인수`
+- `Recently killed scripts size` -> `최근 종료 스크립트 크기`
+- `Netscript log size` -> `Netscript 로그 크기`
+- `Netscript port size` -> `Netscript 포트 크기`
+- `Terminal capacity` -> `터미널 용량`
+- `Autosave interval (s)` -> `자동 저장 간격 (초)`
+- `Tail render interval (ms)` -> `Tail 렌더 간격 (ms)`
+- `Suppress Auto-Save Game Toast` -> `자동 저장 알림 숨기기`
+- `Suppress Auto-Save Disabled Warning` -> `자동 저장 비활성화 경고 숨기기`
+- `Save game on file save` -> `파일 저장 시 게임 저장`
+- `Exclude Running Scripts from Save` -> `저장에서 실행 중인 스크립트 제외`
+
+통제 확인:
+
+- `Options`, `System`, `Interface`, `Misc` 등은 전역 출현 수가 많아 이번 패치에서 제외했다.
+- System 페이지 내부 label/text prop만 source로 삼았다.
+- `Recently killed scripts size`는 전체 번들에 3회 나오지만, `label:"Recently killed scripts size"`는 1회라 이 문맥으로 제한했다.
+
+적용 결과:
+
+- dry-run에서 11개 operation 모두 `sourceCount=1` 확인
+- `-Apply` 적용 성공
+- 적용 후 11개 target 조각 모두 1회 확인
+- 재실행 dry-run에서 11개 operation 모두 `already-applied` 확인
+
+다음 확인:
+
+- 실제 Options > System 화면을 다시 열어 한글 라벨 표시와 줄바꿈을 확인한다.
+- 적용 후 스크린샷이 추가되면 화면 검증 결과를 이어 쓴다.

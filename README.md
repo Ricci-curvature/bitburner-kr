@@ -27,7 +27,8 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 - Augmentation 효과 라벨 1차/2차 패치 적용 및 화면 검증 완료
 - Terminal `analyze` 출력 라벨 패치 적용 및 화면 검증 완료
 - Hacknet 요약 박스/구매 버튼 라벨 패치 적용 및 화면 검증 완료
-- Hacknet Node 카드 라벨/최대치 버튼 패치 적용 완료
+- Hacknet Node 카드 라벨/최대치 버튼 패치 적용 및 화면 검증 완료
+- Options System 페이지 라벨 1차 패치 적용 완료
 
 자세한 실험 진행 상황과 스크린샷은 [`docs/08_experiment_log.md`](docs/08_experiment_log.md)를 본다.
 
@@ -44,10 +45,12 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 
 ## 다음 실험 후보
 
-1. Monaco 코드 에디터에서 NeoDunggeunmo 전체 UI 적용의 실사용 확인.
-2. Hacknet Node 카드 라벨 화면 검증 스크린샷 기록.
-3. Hacknet 관련 나머지 설명/툴팁 확장.
-4. Active Scripts 또는 Faction work 라벨 소형 패치.
+1. Options System 페이지 화면 검증 스크린샷 기록.
+2. Options 왼쪽 메뉴/하단 작업 버튼 라벨 소형 패치.
+3. Monaco 코드 에디터에서 NeoDunggeunmo 전체 UI 적용의 실사용 확인.
+4. Hacknet 관련 나머지 설명/툴팁 확장.
+5. Active Scripts 또는 Faction work 라벨 소형 패치.
+
 
 
 

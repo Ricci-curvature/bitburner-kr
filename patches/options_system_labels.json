@@ -1,0 +1,134 @@
+{
+  "patchId": "options_system_labels",
+  "description": "Translate Options System page visible labels with label/text context-limited snippets.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/Options/ui/SystemPage.tsx"
+  ],
+  "scope": "Options System page input, slider, and switch labels only",
+  "preserveTerms": [
+    "Autoexec",
+    "Netscript",
+    "Tail",
+    "Game",
+    "Save"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_autoexec_args",
+      "source": "label:\"Autoexec Script + Args\"",
+      "target": "label:\"Autoexec 스크립트 + 인수\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_recent_scripts_size",
+      "source": "label:\"Recently killed scripts size\"",
+      "target": "label:\"최근 종료 스크립트 크기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_netscript_log_size",
+      "source": "label:\"Netscript log size\"",
+      "target": "label:\"Netscript 로그 크기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_netscript_port_size",
+      "source": "label:\"Netscript port size\"",
+      "target": "label:\"Netscript 포트 크기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_terminal_capacity",
+      "source": "label:\"Terminal capacity\"",
+      "target": "label:\"터미널 용량\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_autosave_interval",
+      "source": "label:\"Autosave interval (s)\"",
+      "target": "label:\"자동 저장 간격 (초)\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_tail_render_interval",
+      "source": "label:\"Tail render interval (ms)\"",
+      "target": "label:\"Tail 렌더 간격 (ms)\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_suppress_autosave_toast",
+      "source": "text:\"Suppress Auto-Save Game Toast\"",
+      "target": "text:\"자동 저장 알림 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_suppress_autosave_disabled_warning",
+      "source": "text:\"Suppress Auto-Save Disabled Warning\"",
+      "target": "text:\"자동 저장 비활성화 경고 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_save_on_file_save",
+      "source": "text:\"Save game on file save\"",
+      "target": "text:\"파일 저장 시 게임 저장\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_system_exclude_running_scripts",
+      "source": "text:\"Exclude Running Scripts from Save\"",
+      "target": "text:\"저장에서 실행 중인 스크립트 제외\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "patchedStringsFound": 11,
+    "contextLimited": true
+  }
+}
+

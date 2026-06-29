@@ -407,3 +407,38 @@
 
 - 실제 Hacknet Nodes 화면에서 Node 카드 라벨과 최대치 버튼 표시를 확인한다.
 - 스크린샷이 추가되면 실험 로그에 화면 검증 결과를 이어 쓴다.
+
+## Phase 5 진행 메모 - Options System 라벨
+
+2026-06-29 기준 Options 화면의 System 페이지 라벨 1차 패치를 적용했다.
+
+구현된 것:
+
+- `patches/options_system_labels.json`
+- `Autoexec Script + Args` -> `Autoexec 스크립트 + 인수`
+- `Recently killed scripts size` -> `최근 종료 스크립트 크기`
+- `Netscript log size` -> `Netscript 로그 크기`
+- `Netscript port size` -> `Netscript 포트 크기`
+- `Terminal capacity` -> `터미널 용량`
+- `Autosave interval (s)` -> `자동 저장 간격 (초)`
+- `Tail render interval (ms)` -> `Tail 렌더 간격 (ms)`
+- `Suppress Auto-Save Game Toast` -> `자동 저장 알림 숨기기`
+- `Suppress Auto-Save Disabled Warning` -> `자동 저장 비활성화 경고 숨기기`
+- `Save game on file save` -> `파일 저장 시 게임 저장`
+- `Exclude Running Scripts from Save` -> `저장에서 실행 중인 스크립트 제외`
+
+보존한 것:
+
+- `Autoexec`, `Netscript`, `Tail`은 게임 내 고유 용어에 가까워 유지했다.
+- Options 제목, 왼쪽 탭, 하단 작업 버튼은 다음 패치로 분리했다.
+
+검증한 것:
+
+- `label:`/`text:` 문맥으로 제한한 11개 source가 각각 정확히 1회만 매치되는 것을 확인했다.
+- dry-run, apply, 적용 후 target 1회, 재 dry-run already-applied 확인을 통과했다.
+- `Recently killed scripts size`는 API 문서에도 등장하므로 `label:` 문맥으로 제한했고 `allowRemainingSource: true`로 기록했다.
+
+다음 확인:
+
+- 실제 Options > System 화면에서 라벨 길이와 스위치 줄바꿈을 확인한다.
+- 화면 검증 스크린샷을 추가하면 Options System 1차 패치를 완료로 본다.

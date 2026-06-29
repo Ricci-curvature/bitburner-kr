@@ -150,3 +150,16 @@
 - Hacknet Node 카드의 `Production`, `Level`, `Cores` 라벨과 최대치 버튼 3개를 번역했다.
 - `RAM:`은 약어 그대로 보존했다.
 - 전역 출현 수가 많은 라벨이라 React minified context 조각으로 제한해 적용했다.
+
+## 2026-06-29 - Hacknet Node 카드 화면 검증
+
+- `hacknet_node_card_success.png`를 추가했다.
+- Hacknet Node 카드의 생산량/레벨/코어 라벨과 최대치 버튼 표시를 확인했다.
+- `RAM:` 약어, Node 이름, 금액/생산량 포맷 보존을 확인했다.
+
+## 2026-06-29 - Options System 라벨 패치 적용
+
+- `options_system_before.png`를 추가했다.
+- `patches/options_system_labels.json`을 추가했다.
+- Options System 페이지의 입력/슬라이더/스위치 라벨 11개를 번역했다.
+- 왼쪽 탭, Options 제목, 하단 작업 버튼은 다음 패치로 분리했다.
