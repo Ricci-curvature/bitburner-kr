@@ -355,3 +355,38 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Terminal `analyze` 라벨 패치는 실제 화면 검증까지 성공했다.
 - 현재 검증은 home 서버 기준이다.
 - 다음에 다른 서버를 볼 때 Backdoor 설치 여부와 포트 Open 상태가 다른 케이스를 추가로 찍으면 더 좋다.
+
+## 2026-06-29 - Hacknet 요약 라벨 패치
+
+목표:
+
+- 이미 검증된 Hacknet 화면 안에서 설명문 다음으로 작은 라벨 패치를 진행한다.
+- 플레이어가 바로 읽는 요약 박스와 구매 버튼만 다룬다.
+- `Level:`, `RAM:`, `Cores:`처럼 다른 화면/컴포넌트에도 많이 나오는 라벨은 제외한다.
+
+적용한 번역:
+
+- `Hacknet Summary` -> `Hacknet 요약`
+- `Money Spent:` -> `사용한 돈:`
+- `Money Produced:` -> `벌어들인 돈:`
+- `Production Rate:` -> `생산 속도:`
+- `Purchase Hacknet Node -` -> `Hacknet Node 구매 -`
+
+통제 확인:
+
+- 위 5개 source는 현재 Bitburner 3.0.1 번들에서 각각 정확히 1회만 등장했다.
+- `Level:`은 179회, `RAM:`은 48회, `Cores:`는 27회 등장하므로 broad 치환하지 않았다.
+- `MAX LEVEL`, `MAX RAM`, `MAX CORES`는 Hacknet Node와 Hacknet Server 문맥이 섞일 수 있어 다음 별도 패치로 남겼다.
+
+적용 결과:
+
+- `scripts/apply-patch.ps1 -Patch patches/hacknet_summary_labels.json` dry-run 통과
+- `scripts/apply-patch.ps1 -Patch patches/hacknet_summary_labels.json -Apply` 적용 성공
+- 적용 후 5개 source 조각은 모두 0회 확인
+- 적용 후 5개 target 조각은 모두 1회 확인
+- 재실행 dry-run에서 5개 operation 모두 `already-applied` 확인
+
+다음 확인:
+
+- 실제 Hacknet Nodes 화면을 다시 열어 요약 박스와 구매 버튼 표시를 확인한다.
+- 스크린샷이 추가되면 이 항목 아래에 화면 검증 결과를 이어 쓴다.

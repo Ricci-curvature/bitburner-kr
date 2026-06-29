@@ -346,3 +346,32 @@
 - Terminal에서 `analyze` 실행 화면 확인 완료
 - home 서버 기준 조직/권한/Backdoor/해킹/포트 라벨 정상 표시 확인 완료
 - `terminal_analyze_home_success.png` 스크린샷을 실험 로그에 연결 완료
+
+## Phase 5 진행 메모 - Hacknet 요약 라벨
+
+2026-06-29 기준 Hacknet 화면의 요약 박스와 구매 버튼 라벨 소형 패치를 적용했다.
+
+구현된 것:
+
+- `patches/hacknet_summary_labels.json`
+- `Hacknet Summary` -> `Hacknet 요약`
+- `Money Spent:` -> `사용한 돈:`
+- `Money Produced:` -> `벌어들인 돈:`
+- `Production Rate:` -> `생산 속도:`
+- `Purchase Hacknet Node -` -> `Hacknet Node 구매 -`
+
+검증한 것:
+
+- dry-run에서 5개 operation 모두 `sourceCount=1` 확인
+- 적용 후 각 source 0회, target 1회 확인
+- 재실행 dry-run에서 5개 operation 모두 `already-applied` 확인
+
+보류한 것:
+
+- `Level:`, `RAM:`, `Cores:`는 전체 번들 출현 수가 많아 이번 범위에서 제외했다.
+- `MAX LEVEL`, `MAX RAM`, `MAX CORES`도 여러 Hacknet Node/Server 문맥이 섞일 수 있어 별도 문맥 패치로 분리한다.
+
+다음 확인:
+
+- 실제 Hacknet Nodes 화면에서 요약 박스와 구매 버튼 표시를 확인한다.
+- 화면 검증 스크린샷을 추가하면 Phase 5 첫 Hacknet 확장 패치를 완료로 본다.

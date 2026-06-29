@@ -1,0 +1,73 @@
+{
+  "patchId": "hacknet_summary_labels",
+  "description": "Translate small Hacknet summary labels and purchase button text.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/Hacknet/ui/PlayerInfo.tsx",
+    "webpack:///./src/Hacknet/ui/PurchaseButton.tsx"
+  ],
+  "scope": "Hacknet summary panel labels and Hacknet Node purchase button only",
+  "preserveTerms": [
+    "Hacknet",
+    "Hacknet Node",
+    "Node",
+    "Money"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_summary_title",
+      "source": "Hacknet Summary",
+      "target": "Hacknet 요약",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_summary_money_spent",
+      "source": "Money Spent:",
+      "target": "사용한 돈:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_summary_money_produced",
+      "source": "Money Produced:",
+      "target": "벌어들인 돈:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_summary_production_rate",
+      "source": "Production Rate:",
+      "target": "생산 속도:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "hacknet_purchase_node_button",
+      "source": "Purchase Hacknet Node -",
+      "target": "Hacknet Node 구매 -",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "patchedStringsFound": 5,
+    "originalStringsRemaining": 0
+  }
+}

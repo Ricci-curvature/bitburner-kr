@@ -130,3 +130,10 @@
 - `terminal_analyze_home_success.png`를 추가했다.
 - Terminal `analyze` 실행 결과에서 조직/권한/Backdoor/해킹/포트 라벨 표시를 확인했다.
 - `RAM`, `YES/NO`, `Closed`, `hack()`, `NUKE`, 포트명 보존도 확인했다.
+
+## 2026-06-29 - Hacknet 요약 라벨 패치 적용
+
+- `patches/hacknet_summary_labels.json`을 추가했다.
+- Hacknet 요약 박스의 제목/금액/생산 속도 라벨과 Hacknet Node 구매 버튼을 번역했다.
+- 5개 source 모두 `expectedCount=1`로 제한했고, 적용 후 source 0회/target 1회 검증을 통과했다.
+- `Level:`, `RAM:`, `Cores:`처럼 전역 출현이 많은 라벨은 이번 패치에서 제외했다.
