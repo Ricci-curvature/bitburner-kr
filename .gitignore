@@ -1,0 +1,10 @@
+backups/*
+!backups/README.md
+
+assets/fonts/*
+!assets/fonts/README.md
+
+patch-state.json
+*.log
+.DS_Store
+Thumbs.db
