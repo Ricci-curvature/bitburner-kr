@@ -28,7 +28,7 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 - Terminal `analyze` 출력 라벨 패치 적용 및 화면 검증 완료
 - Hacknet 요약 박스/구매 버튼 라벨 패치 적용 및 화면 검증 완료
 - Hacknet Node 카드 라벨/최대치 버튼 패치 적용 및 화면 검증 완료
-- Options 창 라벨/작업 버튼/주요 툴팁 설명문 패치 적용 및 정적 검증 완료
+- Options 창 라벨/작업 버튼/주요 툴팁 설명문 패치 적용, 사용자 확인 잔여 4곳 보정 완료
 
 자세한 실험 진행 상황과 스크린샷은 [`docs/08_experiment_log.md`](docs/08_experiment_log.md)를 본다.
 

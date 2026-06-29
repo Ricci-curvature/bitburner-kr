@@ -470,3 +470,24 @@
 - 게임을 새로고침하고 Options 전 탭의 시각 검증 스크린샷을 추가한다.
 - Options 화면에서 길이가 과한 한국어 툴팁이 있으면 표현을 줄인다.
 - 이후 Phase 6 후보는 Active Scripts 또는 Faction 계열 라벨 소형 패치다.
+
+## Phase 5 진행 메모 - Options 최종 시각 잔여 보정
+
+2026-06-29 사용자 확인 기준 Options에서 남은 4곳을 추가 보정했다.
+
+구현된 것:
+
+- `patches/options_final_visual_fixes.json`
+- Interface 시간 예시의 영어 시간 단위 한국어화
+- Numeric Display 통화 기호 위치 툴팁 한국어화
+- Key Binding 동작 이름 매핑 보강: Faction/Augmentation/Achievements/Options/ScriptEditor 계열
+
+검증한 것:
+
+- dry-run, apply, 재 dry-run already-applied 확인을 통과했다.
+- 기존 영어/내부 action id source는 0회, target은 1회 확인했다.
+
+다음 확인:
+
+- Options 화면을 새로고침해 최종 시각 확인 스크린샷을 남긴다.
+- 다음 패치 후보는 Options 범위 밖의 Dark Web/Active Scripts 단발 툴팁 또는 Active Scripts 라벨이다.

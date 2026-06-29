@@ -106,7 +106,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 적용 후 source 조각 7개는 모두 0회, target 조각 7개는 모두 1회 확인했다.
 - `patch-state.json`에 `augmentation_effects_small` applied entry 7개가 기록되었다.
 
-화면 검증 스크린샷:
+스크린샷:
 
 성공 사례 1: `CRTX42-AA`
 
@@ -229,7 +229,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 판단:
 
 - 1차 스크린샷에서 보였던 `dexterity skill`, `agility skill`, `faster hack(), grow(), and weaken()`, `hack() success chance` 잔류는 패치 범위 문제였고, 2차 manifest로 해결했다.
-- 실제 게임 화면 재검증 스크린샷으로 2차 패치 반영을 확인했다.
+- 실제 게임 화면으로 2차 패치 반영을 확인했다.
 - 다음 단계는 Terminal analyze 라벨 패치다.
 
 ## 2026-06-29 - Augmentation 효과 라벨 2차 화면 검증
@@ -240,7 +240,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 1차에서 영어로 남았던 라벨이 사라졌는지 확인한다.
 - 숫자, `%`, API 표기, 줄바꿈이 깨지지 않는지 본다.
 
-검증 스크린샷 1: Synaptic potentiation 계열
+스크린샷 1: Synaptic potentiation 계열
 
 ![Synaptic potentiation 2차 성공](../screenshot/augmentation_synaptic_success.png)
 
@@ -252,7 +252,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 1차에서 영어로 남았던 `hack() success chance`가 `hack() 성공 확률`로 바뀌었다.
 - `hack()`, `grow()`, `weaken()` API 표기는 그대로 보존되었다.
 
-검증 스크린샷 2: Synthetic Nerve Enhancement 계열
+스크린샷 2: Synthetic Nerve Enhancement 계열
 
 ![Synthetic nerve 2차 성공](../screenshot/augmentation_synthetic_nerve_success.png)
 
@@ -263,7 +263,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 설명문과 Augmentation 이름은 원문 그대로 유지되었다.
 - 효과 라벨만 좁게 번역하는 정책이 지켜졌다.
 
-검증 스크린샷 3: Cranial Signal Processors - Gen II
+스크린샷 3: Cranial Signal Processors - Gen II
 
 ![Cranial Signal Processors 2차 성공](../screenshot/augmentation_cranial_signal_processors_success.png)
 
@@ -328,7 +328,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - 실제 Terminal에서 `analyze` 명령을 실행해 화면 표시를 확인한다.
 - 일반 서버와 Backdoor/권한 상태가 다른 서버를 비교한다.
-- 검증 스크린샷을 추가한 뒤 Phase 4 완료로 본다.
+- 스크린샷을 추가한 뒤 Phase 4 완료로 본다.
 
 ## 2026-06-29 - Terminal analyze 화면 검증
 
@@ -338,7 +338,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 한글 라벨과 보존 대상 상태값이 같이 깨지지 않는지 확인한다.
 - NeoDunggeunmo 폰트에서 터미널 라인 간격과 정렬이 무너지지 않는지 본다.
 
-검증 스크린샷: home 서버 analyze
+스크린샷: home 서버 analyze
 
 ![Terminal analyze home 성공](../screenshot/terminal_analyze_home_success.png)
 
@@ -393,7 +393,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 ## 2026-06-29 - Hacknet 요약 라벨 화면 검증
 
-검증 스크린샷: Hacknet Summary
+스크린샷: Hacknet Summary
 
 ![Hacknet 요약 라벨 성공](../screenshot/hacknet_summary_success.png)
 
@@ -452,7 +452,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 ## 2026-06-29 - Hacknet Node 카드 화면 검증
 
-검증 스크린샷: Hacknet Node 카드
+스크린샷: Hacknet Node 카드
 
 ![Hacknet Node 카드 성공](../screenshot/hacknet_node_card_success.png)
 
@@ -513,7 +513,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 ## 2026-06-29 - Options System 라벨 화면 검증
 
-검증 스크린샷:
+스크린샷:
 
 ![Options System 성공](../screenshot/options_system_success.png)
 ![최근 종료 스크립트 툴팁 성공](../screenshot/options_system_recent_tooltip_success.png)
@@ -545,11 +545,11 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 하단 작업 버튼: 저장, 삭제, 내보내기/가져오기, 강제 종료, 소프트 리셋, 파일 진단, 테마/스타일 편집, 크레딧, 버그 신고, 튜토리얼 초기화
 - Key Binding 보조 텍스트: 사용 방법, 공통 단축키, Bash 단축키, 충돌/초기화 관련 라벨
 
-사용자 검증 스크린샷:
+스크린샷:
 
-![Options Gameplay 적용 전/부분](../screenshot/options_gameplay_before.png)
-![Options Key Binding 부분 적용](../screenshot/options_keybinding_partial.png)
-![Options Misc Steam 툴팁 보정 전](../screenshot/options_misc_sync_tooltip_before.png)
+![Options Gameplay 부분 적용 상태](../screenshot/options_gameplay_before.png)
+![Options Key Binding 부분 적용 상태](../screenshot/options_keybinding_partial.png)
+![Options Misc Steam 툴팁 잔여](../screenshot/options_misc_sync_tooltip_before.png)
 
 확인된 미완료:
 
@@ -557,6 +557,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Misc의 `Sync Steam achievements` 라벨과 툴팁이 영어로 남았다.
 - System의 `자동 저장 비활성화 경고 숨기기` 툴팁이 영어로 남았다.
 - Options의 설명문 계열은 라벨보다 source 형태가 다양해서 별도 보정 manifest가 필요했다.
+- 이 스크린샷들은 최종 성공 화면이 아니라 잔여 문구를 확인하기 위한 중간 기록이다.
 
 판단:
 
@@ -598,3 +599,39 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - 실제 게임을 새로고침한 뒤 Options의 System, Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding 탭을 한 번씩 열어 시각 검증한다.
 - 새 성공 스크린샷이 추가되면 이 항목 아래에 연결한다.
+
+## 2026-06-29 - Options 최종 잔여 4곳 보정
+
+스크린샷:
+
+![Options Interface 시간 예시 잔여](../screenshot/options_interface_time_example_residual.png)
+![Options Numeric 통화 기호 툴팁 잔여](../screenshot/options_numeric_currency_tooltip_residual.png)
+![Options Key Binding 동작 이름 잔여 1](../screenshot/options_keybinding_actions_residual_1.png)
+![Options Key Binding 동작 이름 잔여 2](../screenshot/options_keybinding_actions_residual_2.png)
+![Options System Tail 툴팁 성공](../screenshot/options_system_tail_tooltip_success.png)
+
+확인된 잔여:
+
+- Interface 시간 단위 예시에서 `1 hour 13 seconds`, `1 hour 0 minutes 13 seconds`가 영어 단위로 남았다.
+- Numeric Display의 통화 기호 위치 툴팁이 영어로 남았다.
+- Key Binding 표에서 `Faction`, `Augmentation`, `Achievements`, `Options`가 영어로 남았다.
+- Key Binding 표에서 `ScriptEditor-Save`, `ScriptEditor-GoToTerminal`, `ScriptEditor-Run` 내부 action id가 그대로 표시되었다.
+
+적용한 보정:
+
+- `patches/options_final_visual_fixes.json` 추가
+- 시간 예시: `예: 1시간 13초가 1시간 0분 13초로 표시됩니다.`
+- 통화 기호 툴팁: `활성화하면 통화 기호가 숫자 뒤에 표시됩니다(예: €100 대신 100€).`
+- Key Binding 표시 매핑 추가: `팩션`, `증강`, `업적`, `옵션`, `스크립트 저장`, `터미널로 이동`, `스크립트 실행`
+
+검증:
+
+- dry-run에서 3개 operation 모두 `sourceCount=1` 확인
+- apply 성공
+- 재 dry-run에서 3개 operation 모두 `already-applied` 확인
+- 적용 후 기존 원문은 0회, 새 target은 각 1회 확인
+
+판단:
+
+- 사용자가 확인한 Options 잔여 4곳은 정적 검증 기준으로 처리 완료했다.
+- 화면 재확인 후 길이 문제나 새 잔여가 없으면 Options 묶음을 완료로 본다.

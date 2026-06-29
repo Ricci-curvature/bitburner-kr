@@ -171,3 +171,11 @@
 - 소스맵 줄바꿈 원문과 실제 minified 번들 문자열이 달라 `expectedCount=0`이 발생한 케이스를 기록하고, 실제 literal count 기반으로 재작성했다.
 - System, Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding의 주요 Options 문구를 정적 검증 기준으로 완료했다.
 - Options scope 밖에 남은 Dark Web/Active Scripts 툴팁은 다음 후보로 분리했다.
+
+## 2026-06-29 - Options 최종 잔여 4곳 보정
+
+- `patches/options_final_visual_fixes.json`을 추가했다.
+- Interface 시간 예시의 영어 단위를 한국어 단위로 바꿨다.
+- Numeric Display 통화 기호 위치 툴팁을 번역했다.
+- Key Binding 표시명 매핑에 Faction/Augmentation/Achievements/Options/ScriptEditor 계열을 추가했다.
+- 실험 로그의 스크린샷 표현을 `스크린샷`으로 통일하고, 중간 잔여 기록과 최종 보정 기록을 분리했다.

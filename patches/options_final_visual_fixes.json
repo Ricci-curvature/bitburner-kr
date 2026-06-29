@@ -1,0 +1,52 @@
+{
+  "patchId": "options_final_visual_fixes",
+  "description": "Fix final visually reported Options strings after user verification.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/GameOptions/ui/InterfacePage.tsx",
+    "webpack:///./src/GameOptions/ui/NumericDisplayPage.tsx",
+    "webpack:///./src/GameOptions/ui/KeyBindingPage.tsx"
+  ],
+  "scope": "Final Options visual verification fixes: time example, currency tooltip, key binding action names",
+  "preserveTerms": [
+    "Hacknet",
+    "IPvGO Subnet",
+    "Dark Net"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_time_units_example_korean_units",
+      "source": "\"예: 1 hour 13 seconds가 1 hour 0 minutes 13 seconds로 표시됩니다.\"",
+      "target": "\"예: 1시간 13초가 1시간 0분 13초로 표시됩니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_currency_symbol_after_tip",
+      "source": "\"If enabled, the currency symbol appears after the number (e.g., 100€ instead of €100)\"",
+      "target": "\"활성화하면 통화 기호가 숫자 뒤에 표시됩니다(예: €100 대신 100€).\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_action_name_display_final",
+      "source": "a.createElement(r.A,{minWidth:\"250px\"},{Terminal:\"터미널\",\"Script Editor\":\"스크립트 편집기\",\"Active Scripts\":\"활성 스크립트\",\"Create Program\":\"프로그램 제작\",Stats:\"스탯\",Factions:\"Faction\",Augmentations:\"Augmentation\",Hacknet:\"Hacknet\",City:\"도시\",Travel:\"여행\",Job:\"직업\",\"Stock Market\":\"주식 시장\",\"IPvGO Subnet\":\"IPvGO Subnet\",\"Dark Net\":\"Dark Net\",Milestones:\"마일스톤\"}[e]??e)",
+      "target": "a.createElement(r.A,{minWidth:\"250px\"},{Terminal:\"터미널\",\"Script Editor\":\"스크립트 편집기\",\"Active Scripts\":\"활성 스크립트\",\"Create Program\":\"프로그램 제작\",Stats:\"스탯\",Factions:\"팩션\",Augmentations:\"증강\",Hacknet:\"Hacknet\",City:\"도시\",Travel:\"여행\",Job:\"직업\",\"Stock Market\":\"주식 시장\",\"IPvGO Subnet\":\"IPvGO Subnet\",\"Dark Net\":\"Dark Net\",Milestones:\"마일스톤\",Achievements:\"업적\",Options:\"옵션\",\"ScriptEditor-Save\":\"스크립트 저장\",\"ScriptEditor-GoToTerminal\":\"터미널로 이동\",\"ScriptEditor-Run\":\"스크립트 실행\"}[e]??e)",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "userReportedScreenshots": true
+  }
+}
