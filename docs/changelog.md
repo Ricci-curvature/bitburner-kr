@@ -60,3 +60,16 @@
 - `screenshot/폰트변경.png`를 추가했다.
 - README와 폰트 실험 문서에 force CSS 성공 화면을 연결했다.
 - 이 스크린샷은 NeoDunggeunmo가 실제 렌더링에 적용되었지만 전체 UI 폰트까지 바뀐 상태를 기록한다.
+
+## 2026-06-29 - README 실험 로그 분리
+
+- README의 실험 상세와 스크린샷을 `docs/08_experiment_log.md`로 분리했다.
+- README는 현재 상태, 문서 링크, 다음 후보 중심으로 축약했다.
+- 폰트 전략은 전체 UI NeoDunggeunmo 적용을 기본 후보로 다시 정리했다.
+
+## 2026-06-29 - 전체 UI NeoDunggeunmo 전략 확정 후보
+
+- 스크린샷 검토 후 NeoDunggeunmo의 영문/숫자까지 Bitburner 분위기에 잘 맞는다고 판단했다.
+- `font_neodgm_experiment.json`의 기본 target을 `NeoDunggeunmo, JetBrainsMono, "Courier New", monospace`로 되돌렸다.
+- 실제 게임 파일도 전체 UI NeoDunggeunmo 우선 순서로 다시 맞췄다.
+- Monaco 코드 에디터만 예외 처리할지는 추후 긴 스크립트 편집 화면을 보고 판단한다.

@@ -18,19 +18,14 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 - HTML 엔트리: `resources\app\index.html`
 - 폰트 파일: `assets\fonts\neodgm.ttf` 로컬 보관, git 추적 제외
 
-## 현재 성공한 실험
+## 현재 상태
 
-### Hacknet Nodes 설명문 소규모 한글화
+- Hacknet Nodes 설명문 3개 한글화 성공
+- NeoDunggeunmo 폰트 로드 및 force CSS 적용 성공
+- 현재 폰트 전략은 전체 UI NeoDunggeunmo 적용을 기본 후보로 두고, 필요 시 Monaco 코드 에디터만 예외 처리하는 방향
+- Phase 1 패처는 dry-run 기본값, `expectedCount`, `allowRemainingSource`, `patch-state.json` 기록을 필수 안전장치로 설계
 
-`Hacknet`, `Hacknet Node`, `Node`, `hack` 같은 고유명사/게임 용어는 유지하고, 설명문 3개만 한국어로 치환했다.
-
-![첫 출력](screenshot/%EC%B2%AB%20%EC%B6%9C%EB%A0%A5.png)
-
-### NeoDunggeunmo 폰트 적용 실험
-
-앱 리소스에 `dist/fonts/neodgm.ttf`를 배치하고, `index.html`에 `@font-face`와 force CSS를 추가했다. force CSS는 실제 렌더링 변경에 성공했지만, 한글뿐 아니라 게임 전체 영문/숫자 UI까지 NeoDunggeunmo로 바뀌었다. 이후 패치 방향은 `JetBrainsMono, NeoDunggeunmo, "Courier New", monospace` 순서로 두어 영문/숫자는 기존 폰트, 한글은 NeoDunggeunmo fallback을 쓰는 것이다.
-
-![폰트 변경](screenshot/%ED%8F%B0%ED%8A%B8%EB%B3%80%EA%B2%BD.png)
+자세한 실험 진행 상황과 스크린샷은 [`docs/08_experiment_log.md`](docs/08_experiment_log.md)를 본다.
 
 ## 문서
 
@@ -40,7 +35,8 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 - `docs/04_translation_policy.md`: 번역 정책과 용어 기준
 - `docs/05_first_patch_result.md`: 첫 Hacknet 설명문 패치 결과
 - `docs/06_patcher_design.md`: Phase 1 패처 안전장치 설계
-- `docs/07_font_experiment.md`: NeoDunggeunmo 폰트 실험 기록
+- `docs/07_font_experiment.md`: NeoDunggeunmo 폰트 실험 상세
+- `docs/08_experiment_log.md`: 실험 진행 상황과 스크린샷 로그
 
 ## 다음 실험 후보
 
