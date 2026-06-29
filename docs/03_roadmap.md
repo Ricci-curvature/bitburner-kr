@@ -321,3 +321,28 @@
 - Synaptic potentiation 계열과 Synthetic Nerve Enhancement 계열 실제 표시 확인 완료
 - Cranial Signal Processors 계열에서 해킹 스킬/속도/성공 확률 동시 표시 확인 완료
 - 다음 단계는 Terminal analyze 라벨 패치
+
+## Phase 4 진행 메모
+
+2026-06-29 기준 Terminal `analyze` 라벨 패치를 적용했다.
+
+구현된 것:
+
+- `patches/terminal_analyze_labels.json`
+- `finishAnalyze` 출력 라벨 17개 치환
+- 조직/권한/RAM 보조 라벨, 해킹 난이도/확률/시간, 서버 자금, NUKE 포트 라벨 처리
+- `hack()`, `backdoor`, `NUKE`, 포트명, `RAM`, `N/A`, `YES/NO`, `Open/Closed`는 보존
+
+검증한 것:
+
+- dry-run에서 `Backdoor` 라벨은 의도대로 2회, 나머지는 모두 1회 매치
+- 적용 후 각 source 조각 0회 확인
+- 적용 후 각 target 조각은 expectedCount 이상 확인
+- 재실행 dry-run에서 17개 operation 모두 `already-applied` 확인
+- 현재 Bitburner 3.0.1 번들에는 `Time to grow`, `Time to weaken` analyze 출력 라벨이 없어 이번 scope에서 제외
+
+다음 확인:
+
+- 게임 재시작 후 Terminal에서 `analyze` 실행 화면 확인
+- 일반 서버와 권한/Backdoor 상태가 다른 서버를 비교
+- 스크린샷을 `screenshot/`에 저장하고 실험 로그에 연결

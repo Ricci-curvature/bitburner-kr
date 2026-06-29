@@ -116,3 +116,11 @@
 - Synaptic 계열에서 `hack(), grow(), weaken() 속도 증가`와 `hack() 성공 확률` 표시를 확인했다.
 - Synthetic Nerve 계열에서 `민첩 스킬`, `기동 스킬` 표시를 확인했다.
 - Cranial Signal Processors 계열에서 해킹 스킬/속도/성공 확률 라벨이 함께 정상 표시되는 것을 확인했다.
+
+## 2026-06-29 - Terminal analyze 라벨 패치 적용
+
+- `patches/terminal_analyze_labels.json`을 추가했다.
+- Terminal `analyze` 출력 라벨 17개를 analyze 전용 minified 조각으로 치환했다.
+- `Backdoor` 라벨은 analyze 함수 안의 2회 출력을 `expectedCount: 2`로 처리했다.
+- `N/A`, `YES/NO`, `Open/Closed`, 명령어/API/포트명은 보존했다.
+- dry-run, apply, source 0회/target expectedCount 검증, 재 dry-run already-applied 확인을 통과했다.

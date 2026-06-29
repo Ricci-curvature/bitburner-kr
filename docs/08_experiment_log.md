@@ -279,3 +279,53 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 1차에서 실패처럼 보였던 항목들은 패치 범위 밖 잔류였고, 2차에서 해결되었다.
 - 현재 Augmentation 효과 라벨은 “공통 라벨 + 개별 스킬/경험치 + 해킹 액션 라벨”까지 안정적으로 처리된 상태다.
 - 다음 단계는 Terminal analyze 라벨 패치로 이동한다.
+
+## 2026-06-29 - Terminal analyze 라벨 패치
+
+목표:
+
+- Terminal `analyze` 명령 출력의 핵심 라벨을 한국어로 바꾼다.
+- 명령어/API 표기와 상태값은 보존한다.
+- 한 화면의 라벨만 다루고, 터미널 전체 메시지 번역으로 확장하지 않는다.
+
+적용한 번역:
+
+- `Organization name:` -> `조직 이름:`
+- `Root Access:` -> `루트 권한:`
+- `Can run scripts on this host:` -> `이 호스트에서 스크립트 실행 가능:`
+- `RAM blocked by owner:` -> `소유자가 차단한 RAM:`
+- `Stasis link:` -> `Stasis 링크:`
+- `Backdoor:` -> `Backdoor 설치:`
+- `Required hacking skill for hack() and backdoor:` -> `hack()/backdoor 필요 해킹 레벨:`
+- `Server security level:` -> `서버 보안 레벨:`
+- `Chance to hack:` -> `hack() 성공 확률:`
+- `Time to hack:` -> `hack() 소요 시간:`
+- `Total money available on server:` -> `서버 보유 자금:`
+- `Required number of open ports for NUKE:` -> `NUKE 필요 개방 포트 수:`
+- `SSH/FTP/SMTP/HTTP/SQL port:` -> `SSH/FTP/SMTP/HTTP/SQL 포트:`
+
+보존한 것:
+
+- `hack()`, `backdoor`, `NUKE`, `SSH`, `FTP`, `SMTP`, `HTTP`, `SQL`, `RAM`
+- `N/A`, `YES`, `NO`, `Open`, `Closed`
+
+통제 확인:
+
+- `Root Access:`와 `RAM:` 같은 짧은 라벨은 전체 번들에 여러 번 나오므로 broad 치환하지 않았다.
+- 실제 source는 `this.print("...")` 또는 template literal 시작부를 포함한 analyze 전용 조각으로 잡았다.
+- `Backdoor:`는 analyze 함수 안에서 두 번 출력되므로 `expectedCount: 2`로 처리했다.
+- 현재 번들에는 `Time to grow`, `Time to weaken` analyze 출력 라벨이 없어 이번 패치에 포함하지 않았다.
+
+적용 결과:
+
+- `scripts/apply-patch.ps1 -Patch patches/terminal_analyze_labels.json` dry-run 통과
+- `scripts/apply-patch.ps1 -Patch patches/terminal_analyze_labels.json -Apply` 적용 성공
+- 적용 후 17개 source 조각은 모두 0회 확인
+- 적용 후 target 조각은 16개가 1회, `Backdoor 설치:`가 2회 확인
+- 재실행 dry-run에서 17개 operation 모두 `already-applied` 확인
+
+다음 확인:
+
+- 실제 Terminal에서 `analyze` 명령을 실행해 화면 표시를 확인한다.
+- 일반 서버와 Backdoor/권한 상태가 다른 서버를 비교한다.
+- 검증 스크린샷을 추가한 뒤 Phase 4 완료로 본다.

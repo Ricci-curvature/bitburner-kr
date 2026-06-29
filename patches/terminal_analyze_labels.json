@@ -1,0 +1,198 @@
+{
+  "patchId": "terminal_analyze_labels",
+  "description": "Translate Terminal analyze output labels while preserving command/API terms and status values.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/Terminal/Terminal.ts"
+  ],
+  "scope": "Terminal analyze command output labels only",
+  "preserveTerms": [
+    "hack()",
+    "backdoor",
+    "NUKE",
+    "SSH",
+    "FTP",
+    "SMTP",
+    "HTTP",
+    "SQL",
+    "RAM",
+    "N/A",
+    "YES",
+    "NO",
+    "Open",
+    "Closed"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_organization_name",
+      "source": "this.print(\"Organization name: \"+",
+      "target": "this.print(\"조직 이름: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_root_access",
+      "source": "this.print(\"Root Access: \"+",
+      "target": "this.print(\"루트 권한: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_can_run_scripts",
+      "source": "this.print(\"Can run scripts on this host: \"+",
+      "target": "this.print(\"이 호스트에서 스크립트 실행 가능: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_ram_blocked",
+      "source": "this.print(\"RAM blocked by owner: \"+",
+      "target": "this.print(\"소유자가 차단한 RAM: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_stasis_link",
+      "source": "this.print(\"Stasis link: \"+",
+      "target": "this.print(\"Stasis 링크: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_backdoor",
+      "source": "this.print(\"Backdoor: \"+",
+      "target": "this.print(\"Backdoor 설치: \"+",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_required_hacking",
+      "source": "this.print(\"Required hacking skill for hack() and backdoor: \"+",
+      "target": "this.print(\"hack()/backdoor 필요 해킹 레벨: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_security_level",
+      "source": "this.print(\"Server security level: \"+",
+      "target": "this.print(\"서버 보안 레벨: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_chance_to_hack",
+      "source": "this.print(\"Chance to hack: \"+",
+      "target": "this.print(\"hack() 성공 확률: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_time_to_hack",
+      "source": "this.print(\"Time to hack: \"+",
+      "target": "this.print(\"hack() 소요 시간: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_total_money",
+      "source": "`Total money available on server: ${",
+      "target": "`서버 보유 자금: ${",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_required_ports",
+      "source": "this.print(\"Required number of open ports for NUKE: \"+",
+      "target": "this.print(\"NUKE 필요 개방 포트 수: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_ssh_port",
+      "source": "this.print(\"SSH port: \"+",
+      "target": "this.print(\"SSH 포트: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_ftp_port",
+      "source": "this.print(\"FTP port: \"+",
+      "target": "this.print(\"FTP 포트: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_smtp_port",
+      "source": "this.print(\"SMTP port: \"+",
+      "target": "this.print(\"SMTP 포트: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_http_port",
+      "source": "this.print(\"HTTP port: \"+",
+      "target": "this.print(\"HTTP 포트: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "terminal_analyze_sql_port",
+      "source": "this.print(\"SQL port: \"+",
+      "target": "this.print(\"SQL 포트: \"+",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ]
+}
