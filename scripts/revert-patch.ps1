@@ -43,10 +43,16 @@ foreach ($entry in $entries) {
     Write-Host "[skip] already-applied state has no backup: $($entry.targetPath)"
     continue
   }
-  if ($null -eq $entry.backupPath -or -not (Test-Path -LiteralPath ([string]$entry.backupPath))) {
-    throw "Backup missing for $($entry.targetPath): $($entry.backupPath)"
+  $existedBefore = $true
+  if ($entry.PSObject.Properties.Name -contains "existedBefore") { $existedBefore = [bool]$entry.existedBefore }
+  if ($existedBefore) {
+    if ($null -eq $entry.backupPath -or -not (Test-Path -LiteralPath ([string]$entry.backupPath))) {
+      throw "Backup missing for $($entry.targetPath): $($entry.backupPath)"
+    }
+    Write-Host "[will-revert] $($entry.targetPath) <- $($entry.backupPath)"
+  } else {
+    Write-Host "[will-remove] $($entry.targetPath) did not exist before apply"
   }
-  Write-Host "[will-revert] $($entry.targetPath) <- $($entry.backupPath)"
 }
 
 if (-not $Apply) {
@@ -60,7 +66,13 @@ foreach ($entry in $entries) {
   $target = [string]$entry.targetPath
   $preRevertBackup = Join-Path $BackupRoot (([IO.Path]::GetFileName($target)) + ".before-revert-$PatchId-$timestamp")
   if (Test-Path -LiteralPath $target) { Copy-Item -LiteralPath $target -Destination $preRevertBackup -Force }
-  Copy-Item -LiteralPath ([string]$entry.backupPath) -Destination $target -Force
+  $existedBefore = $true
+  if ($entry.PSObject.Properties.Name -contains "existedBefore") { $existedBefore = [bool]$entry.existedBefore }
+  if ($existedBefore) {
+    Copy-Item -LiteralPath ([string]$entry.backupPath) -Destination $target -Force
+  } elseif (Test-Path -LiteralPath $target) {
+    Remove-Item -LiteralPath $target -Force
+  }
   $entry.status = "reverted"
   $entry | Add-Member -NotePropertyName revertedAt -NotePropertyValue (Get-Date).ToString("o") -Force
   $entry | Add-Member -NotePropertyName preRevertBackupPath -NotePropertyValue $preRevertBackup -Force

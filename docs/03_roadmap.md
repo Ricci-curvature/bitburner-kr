@@ -262,8 +262,16 @@
 - 이미 적용된 폰트 패치는 dry-run에서 `already-applied`로 감지된다.
 - 임시 clean GameRoot에서는 폰트 패치가 `will-copy`, `will-insert`, `will-replace`로 감지된다.
 
+검증 완료:
+
+- `C:\tmp\bbkr-patcher-apply` clean GameRoot에서 Hacknet 패치 `-Apply` 성공
+- 같은 clean GameRoot에서 폰트 패치 `-Apply` 성공
+- 적용 후 `patch-state.json` 7개 entry 기록 확인
+- `revert-patch.ps1 -PatchId font.neodgm.v1 -Apply` 성공
+- `revert-patch.ps1 -PatchId hacknet_nodes_intro_small -Apply` 성공
+- 최종 상태에서 Hacknet 원문 복구, 한국어 문장 제거, 폰트 파일 제거, force CSS 제거 확인
+
 다음 확인:
 
-- 실제 Steam 업데이트 또는 원본 복구 상태에서 `-Apply` 적용 테스트
-- `patch-state.json` 기록 확인
-- `revert-patch.ps1 -Apply` 복구 테스트
+- 라이브 게임 파일에는 이미 수동 패치가 적용되어 있으므로 당장은 dry-run 검증만 유지
+- 다음 신규 번역 패치부터는 JSON 작성 후 패처로만 적용

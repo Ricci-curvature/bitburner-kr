@@ -80,3 +80,11 @@
 - apply 패처는 dry-run 기본값, `-Apply`, `expectedCount`, `allowRemainingSource`, 이미 적용된 상태 감지를 지원한다.
 - 기존 Hacknet manifest와 신규 operations manifest를 모두 읽을 수 있게 했다.
 - 라이브 게임 파일 dry-run과 임시 clean GameRoot dry-run을 통과했다.
+
+## 2026-06-29 - Phase 1 apply/revert 통제 검증
+
+- `C:\tmp\bbkr-patcher-apply` clean GameRoot에서 Hacknet 패치와 폰트 패치를 `-Apply`로 실제 적용했다.
+- 적용 후 `patch-state.json` 7개 entry 기록을 확인했다.
+- 폰트 패치 revert 후 font file 제거, HTML force CSS 제거, 번들 font stack 복구를 확인했다.
+- Hacknet 패치 revert 후 원문 복구와 한국어 문장 제거를 확인했다.
+- 테스트용 `patch-state.json`은 검증 후 삭제했다.

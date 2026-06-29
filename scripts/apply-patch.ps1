@@ -206,6 +206,7 @@ if (-not $Apply) {
 $timestamp = (Get-Date).ToString("yyyy-MM-ddTHH-mm-ss-fff")
 $backupByPath = @{}
 $entries = @()
+$batchAppliedAt = (Get-Date).ToString("o")
 
 try {
   foreach ($plan in $planned) {
@@ -248,7 +249,7 @@ try {
       backupPath = if ($backupByPath.ContainsKey($path)) { $backupByPath[$path] } else { $null }
       existedBefore = $plan.existedBefore
       status = if ($plan.status -eq "already-applied") { "already-applied" } else { "applied" }
-      appliedAt = (Get-Date).ToString("o")
+      appliedAt = $batchAppliedAt
     }
   }
 
