@@ -2,6 +2,43 @@
 
 Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문서다. README에는 현재 상태와 링크만 유지하고, 세부 시행착오와 판단 근거는 이 문서에 기록한다.
 
+## 현재 상태 요약
+
+완료:
+
+- Hacknet Nodes 소개문
+- NeoDunggeunmo 전체 UI 폰트 적용
+- Augmentation 효과 라벨 1차/2차
+- Terminal `analyze` 라벨
+- Hacknet 요약/Node 카드 라벨
+- Options 라벨/버튼/주요 툴팁
+
+진행 후보:
+
+- Dark Web/Active Scripts 단발 툴팁
+- Active Scripts 라벨
+- Monaco 에디터 폰트 예외 처리
+
+검증 원칙:
+
+- broad 치환 금지
+- `sourceCount`/`targetCount` 확인
+- dry-run -> apply -> 재 dry-run 확인
+- 실제 화면 스크린샷으로 최종 검증
+
+| 영역 | Manifest | 검증 상태 | 스크린샷 | 남은 것 |
+| --- | --- | --- | --- | --- |
+| Hacknet Nodes 소개문 | `patches/hacknet_nodes_intro_small.json` | 화면 검증 완료 | `screenshot/첫 출력.png` | 없음 |
+| NeoDunggeunmo 폰트 | `patches/font_neodgm_experiment.json` | force CSS 화면 검증 완료 | `screenshot/폰트변경.png` | Monaco 에디터 예외 처리 후보 |
+| Augmentation 효과 라벨 1차 | `patches/augmentation_effects_small.json` | 부분 성공 후 2차로 보정 | `augmentation_crtx42_success.png`, `augmentation_neurotrainer_success.png` | 2차에서 처리 완료 |
+| Augmentation 효과 라벨 2차 | `patches/augmentation_effects_individual.json` | 화면 검증 완료 | `augmentation_synaptic_success.png`, `augmentation_synthetic_nerve_success.png`, `augmentation_cranial_signal_processors_success.png` | 없음 |
+| Terminal `analyze` 라벨 | `patches/terminal_analyze_labels.json` | 화면 검증 완료 | `terminal_analyze_home_success.png` | 다른 서버 상태 케이스 추가 후보 |
+| Hacknet 요약 라벨 | `patches/hacknet_summary_labels.json` | 화면 검증 완료 | `hacknet_summary_success.png` | 없음 |
+| Hacknet Node 카드 라벨 | `patches/hacknet_node_card_labels.json` | 화면 검증 완료 | `hacknet_node_card_success.png` | 없음 |
+| Options System 라벨 | `patches/options_system_labels.json` | 후속 Options sweep으로 완료 | `options_system_success.png` | 없음 |
+| Options 라벨/버튼/툴팁 | `options_remaining_texts.json`, `options_sidebar_buttons.json`, `options_keybinding_texts.json`, `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`, `options_final_visual_fixes.json` | 화면 검증 완료 | `options_interface_final_success.png` | 없음 |
+| Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert 통제 검증 완료 | 없음 | 패치 범위 확대 시 계속 사용 |
+
 ## 2026-06-29 - Hacknet Nodes 설명문 한글화
 
 목표:
