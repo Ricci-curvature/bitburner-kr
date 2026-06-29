@@ -95,3 +95,10 @@
 - broad string 치환 대신 Augmentation 효과 생성 함수의 minified 조각만 대상으로 삼았다.
 - `apply-patch.ps1 -Apply`로 실제 적용했고, source 0회/target 1회 검증을 통과했다.
 - 이번 패치부터 수동 치환이 아니라 패처 기반 적용 흐름으로 진행했다.
+
+## 2026-06-29 - Augmentation 화면 검증 스크린샷 기록
+
+- Augmentation 효과 라벨 패치 검증 스크린샷 4장을 추가했다.
+- `CRTX42-AA`와 `Neurotrainer I`에서 적용 성공을 확인했다.
+- Synaptic potentiation 계열과 Synthetic Nerve Enhancement 계열에서 1차 scope 밖 라벨이 영어로 남는 것을 확인했다.
+- 남은 라벨은 실패가 아니라 다음 Augmentation 2차 패치 후보로 분리했다.

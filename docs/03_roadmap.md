@@ -287,8 +287,14 @@
 - 패처 기반 dry-run 및 `-Apply` 적용
 - 적용 후 source 0회, target 1회 검증
 
+화면 검증 완료:
+
+- `CRTX42-AA`: `효과:`, `해킹 스킬`, `해킹 경험치` 정상 표시
+- `Neurotrainer I`: `모든 스킬 경험치` 정상 표시
+- Synaptic potentiation 계열: `해킹 경험치`는 표시되지만 `faster hack(), grow(), and weaken()`, `hack() success chance`는 scope 밖이라 영어로 남음
+- Synthetic Nerve Enhancement 계열: `dexterity skill`, `agility skill`이 scope 밖이라 영어로 남음
+
 다음 확인:
 
-- 게임 재시작 후 Augmentation 상세/구매 모달에서 화면 검증
-- 검증 스크린샷을 `screenshot/`에 추가
-- 문제가 없으면 Terminal analyze 라벨 패치로 이동
+- Augmentation 효과 라벨 2차 패치로 개별 스킬/경험치/해킹 액션 라벨 추가
+- 이후 Terminal analyze 라벨 패치로 이동

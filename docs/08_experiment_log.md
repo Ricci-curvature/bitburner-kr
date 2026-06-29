@@ -106,7 +106,83 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 적용 후 source 조각 7개는 모두 0회, target 조각 7개는 모두 1회 확인했다.
 - `patch-state.json`에 `augmentation_effects_small` applied entry 7개가 기록되었다.
 
-다음 확인:
+화면 검증 스크린샷:
 
-- Augmentation 상세/구매 모달에서 줄바꿈과 `%` 포맷이 유지되는지 확인한다.
-- `NeuroFlux Governor` 등 여러 효과가 있는 Augmentation에서 라벨 조합이 자연스러운지 확인한다.
+성공 사례 1: `CRTX42-AA`
+
+![CRTX42-AA 효과 라벨 성공](../screenshot/augmentation_crtx42_success.png)
+
+관찰:
+
+- `Effects:`가 `효과:`로 정상 표시된다.
+- `hacking skill`이 `해킹 스킬`로 표시된다.
+- `hacking exp`가 `해킹 경험치`로 표시된다.
+- Augmentation 이름 `CRTX42-AA`와 설명문은 원문 그대로 유지되었다.
+- 줄바꿈, 숫자, `%` 포맷은 깨지지 않았다.
+
+성공 사례 2: `Neurotrainer I`
+
+![Neurotrainer I 모든 스킬 경험치 성공](../screenshot/augmentation_neurotrainer_success.png)
+
+관찰:
+
+- `exp for all skills`가 `모든 스킬 경험치`로 정상 표시된다.
+- `%`와 수치 포맷은 유지되었다.
+- 전체 UI NeoDunggeunmo 폰트와 한글 라벨 조합이 자연스럽다.
+- 이 화면은 이번 패치가 “공통 경험치 라벨”에도 적용된다는 증거다.
+
+부분 성공/남은 범위 1: synaptic potentiation 계열
+
+![Synaptic potentiation 부분 성공](../screenshot/augmentation_synaptic_partial.png)
+
+관찰:
+
+- `Effects:` -> `효과:` 성공
+- `hacking exp` -> `해킹 경험치` 성공
+- `faster hack(), grow(), and weaken()`은 영어로 남았다.
+- `hack() success chance`도 영어로 남았다.
+
+판단:
+
+- 이 화면은 패치 실패가 아니라 “1차 scope 밖 문자열”이 남은 사례다.
+- 이번 manifest는 `src/Augmentation/Augmentation.ts`의 스킬/경험치 공통 라벨만 목표로 했다.
+- `faster hack(), grow(), and weaken()`와 `hack() success chance`는 같은 함수의 다른 multiplier 라벨로 보이며, 다음 Augmentation 패치에서 별도 expectedCount로 다루는 것이 맞다.
+- API 표기인 `hack()`, `grow()`, `weaken()`은 유지해야 한다.
+
+부분 성공/남은 범위 2: Synthetic Nerve Enhancement 계열
+
+![Synthetic nerve 부분 성공](../screenshot/augmentation_synthetic_nerve_partial.png)
+
+관찰:
+
+- `Effects:` -> `효과:` 성공
+- `dexterity skill`, `agility skill`은 영어로 남았다.
+
+판단:
+
+- 이 역시 패치 실패가 아니라 의도적으로 남겨둔 개별 스킬 라벨이다.
+- 1차 manifest는 `hacking skill`, `combat skills`, `all skills` 같은 대표/공통 라벨만 처리했다.
+- 다음 후보는 `strength skill`, `defense skill`, `dexterity skill`, `agility skill`, `charisma skill` 및 각 exp 라벨이다.
+- 단순 `dexterity skill` broad 치환은 다른 문맥을 건드릴 수 있으므로, 이번과 같이 `r(e.dexterity-1)} dexterity skill` 뒤에 template literal 종료가 붙는 Augmentation 전용 minified 조각으로 잡아야 한다.
+
+실패/한계 정리:
+
+- 실패한 것은 패처나 적용 절차가 아니라 번역 범위다.
+- source 0회/target 1회 검증은 통과했으므로 manifest에 들어간 7개 조각은 정상 적용되었다.
+- 화면 검증 결과, 이번 patch scope에 포함되지 않은 개별 효과 라벨이 남아 있음을 확인했다.
+- 다음 패치에서는 “Augmentation 효과 라벨 2차”로 개별 스킬/경험치/해킹 액션 라벨을 추가한다.
+
+다음 후보:
+
+- `strength skill` -> `힘 스킬`
+- `defense skill` -> `방어 스킬`
+- `dexterity skill` -> `민첩 스킬`
+- `agility skill` -> `기동 스킬`
+- `charisma skill` -> `카리스마 스킬`
+- `strength exp` -> `힘 경험치`
+- `defense exp` -> `방어 경험치`
+- `dexterity exp` -> `민첩 경험치`
+- `agility exp` -> `기동 경험치`
+- `charisma exp` -> `카리스마 경험치`
+- `faster hack(), grow(), and weaken()` -> `hack(), grow(), weaken() 속도 증가`
+- `hack() success chance` -> `hack() 성공 확률`
