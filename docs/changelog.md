@@ -163,3 +163,11 @@
 - `patches/options_system_labels.json`을 추가했다.
 - Options System 페이지의 입력/슬라이더/스위치 라벨 11개를 번역했다.
 - 왼쪽 탭, Options 제목, 하단 작업 버튼은 다음 패치로 분리했다.
+
+## 2026-06-29 - Options 창 확장 및 툴팁 보정
+
+- Options 라벨/탭/하단 작업 버튼/Key Binding 보조 텍스트 패치 manifest를 추가했다.
+- 사용자 스크린샷에서 확인된 미번역 툴팁과 설명문을 `options_tooltip_completion.json`, `options_tooltip_final_sweep.json`으로 보정했다.
+- 소스맵 줄바꿈 원문과 실제 minified 번들 문자열이 달라 `expectedCount=0`이 발생한 케이스를 기록하고, 실제 literal count 기반으로 재작성했다.
+- System, Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding의 주요 Options 문구를 정적 검증 기준으로 완료했다.
+- Options scope 밖에 남은 Dark Web/Active Scripts 툴팁은 다음 후보로 분리했다.

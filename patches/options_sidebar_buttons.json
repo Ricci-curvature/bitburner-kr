@@ -1,0 +1,100 @@
+{
+  "patchId": "options_sidebar_buttons",
+  "description": "Translate remaining Options sidebar action button labels.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/GameOptions/ui/GameOptionsSidebar.tsx",
+    "webpack:///./src/Themes/ui/*"
+  ],
+  "scope": "Options sidebar action button labels only",
+  "preserveTerms": [
+    "Discord",
+    "Reddit"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_save_game",
+      "source": "},\"Save Game\")",
+      "target": "},\"게임 저장\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_soft_reset",
+      "source": "},\"Soft Reset\")",
+      "target": "},\"소프트 리셋\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_theme_browser",
+      "source": "sx:{gridArea:\"browse\"}},\"Theme Browser\")",
+      "target": "sx:{gridArea:\"browse\"}},\"테마 브라우저\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_theme_editor",
+      "source": "},\"Theme Editor\")",
+      "target": "},\"테마 편집기\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_style_editor",
+      "source": "},\"Style Editor\")",
+      "target": "},\"스타일 편집기\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_credits",
+      "source": "},\"Credits\")",
+      "target": "},\"크레딧\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_reset_tutorial",
+      "source": "},\"Reset tutorial\")",
+      "target": "},\"튜토리얼 초기화\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_button_compare_save",
+      "source": "},\"Compare Save\")",
+      "target": "},\"저장 비교\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "contextLimited": true
+  }
+}

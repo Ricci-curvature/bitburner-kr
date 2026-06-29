@@ -442,3 +442,31 @@
 
 - 실제 Options > System 화면에서 라벨 길이와 스위치 줄바꿈을 확인한다.
 - 화면 검증 스크린샷을 추가하면 Options System 1차 패치를 완료로 본다.
+
+## Phase 5 진행 메모 - Options 창 확장 및 설명문 sweep
+
+2026-06-29 기준 Options 창의 라벨/버튼/주요 설명문 패치를 적용했다.
+
+구현된 것:
+
+- `patches/options_remaining_texts.json`
+- `patches/options_sidebar_buttons.json`
+- `patches/options_keybinding_texts.json`
+- `patches/options_tooltip_completion.json`
+- `patches/options_tooltip_final_sweep.json`
+- Options 루트 제목, 탭 표시명, 하단 작업 버튼, Key Binding 보조 텍스트와 동작 이름 표시 매핑
+- System/Gameplay/Interface/Numeric Display/Misc/Remote API 주요 툴팁 설명문
+
+검증한 것:
+
+- 각 manifest는 dry-run을 먼저 통과한 뒤 `-Apply`로 적용했다.
+- 적용 후 재 dry-run에서 모든 operation이 `already-applied` 상태임을 확인했다.
+- 사용자 스크린샷에서 발견된 영어 잔여 문구는 실제 번들 literal count 기반으로 다시 잡아 보정했다.
+- Options 내부에서 확인된 `If this is set` 계열 잔여 설명문은 0회로 만들었다.
+- 남은 `If this is set` 3건은 Dark Web/Active Scripts 문맥으로 Options scope 밖이다.
+
+다음 확인:
+
+- 게임을 새로고침하고 Options 전 탭의 시각 검증 스크린샷을 추가한다.
+- Options 화면에서 길이가 과한 한국어 툴팁이 있으면 표현을 줄인다.
+- 이후 Phase 6 후보는 Active Scripts 또는 Faction 계열 라벨 소형 패치다.

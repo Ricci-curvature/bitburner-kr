@@ -510,3 +510,91 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - 실제 Options > System 화면을 다시 열어 한글 라벨 표시와 줄바꿈을 확인한다.
 - 적용 후 스크린샷이 추가되면 화면 검증 결과를 이어 쓴다.
+
+## 2026-06-29 - Options System 라벨 화면 검증
+
+검증 스크린샷:
+
+![Options System 성공](../screenshot/options_system_success.png)
+![최근 종료 스크립트 툴팁 성공](../screenshot/options_system_recent_tooltip_success.png)
+![파일 저장 툴팁 성공](../screenshot/options_system_save_file_tooltip_success.png)
+
+관찰:
+
+- Options 제목과 왼쪽 탭 일부가 한국어로 표시된다.
+- System 페이지의 주요 라벨이 한국어로 표시된다.
+- `최근 종료 스크립트 크기`, `파일 저장 시 게임 저장` 툴팁은 한국어로 정상 표시된다.
+- 사용자 스크린샷 기준 `자동 저장 비활성화 경고 숨기기` 툴팁은 영어로 남아 있어 후속 보정 대상으로 기록했다.
+
+판단:
+
+- System 라벨 1차 패치는 성공했지만, 설명문/툴팁은 별도 sweep이 필요했다.
+
+## 2026-06-29 - Options 라벨/버튼/Key Binding 확장 패치
+
+추가한 manifest:
+
+- `patches/options_remaining_texts.json`
+- `patches/options_sidebar_buttons.json`
+- `patches/options_keybinding_texts.json`
+
+적용 범위:
+
+- Options 루트 제목과 왼쪽 탭 표시명
+- Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding 페이지 제목/라벨 일부
+- 하단 작업 버튼: 저장, 삭제, 내보내기/가져오기, 강제 종료, 소프트 리셋, 파일 진단, 테마/스타일 편집, 크레딧, 버그 신고, 튜토리얼 초기화
+- Key Binding 보조 텍스트: 사용 방법, 공통 단축키, Bash 단축키, 충돌/초기화 관련 라벨
+
+사용자 검증 스크린샷:
+
+![Options Gameplay 적용 전/부분](../screenshot/options_gameplay_before.png)
+![Options Key Binding 부분 적용](../screenshot/options_keybinding_partial.png)
+![Options Misc Steam 툴팁 보정 전](../screenshot/options_misc_sync_tooltip_before.png)
+
+확인된 미완료:
+
+- Key Binding 표의 동작 이름(`Terminal`, `Script Editor`, `Active Scripts` 등)이 영어로 남았다.
+- Misc의 `Sync Steam achievements` 라벨과 툴팁이 영어로 남았다.
+- System의 `자동 저장 비활성화 경고 숨기기` 툴팁이 영어로 남았다.
+- Options의 설명문 계열은 라벨보다 source 형태가 다양해서 별도 보정 manifest가 필요했다.
+
+판단:
+
+- 라벨/버튼 확장은 성공했지만, Options 전체 완료로 보기에는 부족했다.
+- 이후 패치는 스크린샷 기반 잔여 문구를 실제 `main.bundle.js` literal count로 다시 잡는 방식으로 진행했다.
+
+## 2026-06-29 - Options 툴팁 보정 및 final sweep
+
+추가한 manifest:
+
+- `patches/options_tooltip_completion.json`
+- `patches/options_tooltip_final_sweep.json`
+
+보정한 주요 영역:
+
+- System: Autoexec 설명, Netscript 로그/포트 크기, 터미널 용량, Tail 렌더 간격, 자동 저장 토스트/비활성화 경고, 실행 중 스크립트 저장 제외 툴팁
+- Misc: 단축키 비활성화, Bash 단축키, 방향키 터미널 기록 검색, Vim 기본 편집기, Steam 도전 과제 동기화 라벨/툴팁
+- Gameplay: 스토리 메시지, Faction 초대, 여행 확인, Augmentation 구매 확인, 오류 모달, Bladeburner 팝업 설명문
+- Interface: ASCII 아트, 텍스트 효과, Overview 진행 바, 중간 시간 단위 표시, 타임스탬프 설명문
+- Numeric Display: 공학 표기, 지수 표기, 천 단위 구분, 소수 자릿수, 소수 끝 0, GiB/GB 설명문
+- Remote API: 호스트명, IPv6 안내, 포트, 재연결 지연, wss, 연결 버튼, 문서 버튼
+- Key Binding: 표의 동작 이름 표시를 렌더 시점 매핑으로 한국어화
+
+실패와 보정:
+
+- `options_tooltip_completion.json` 초안은 소스맵의 줄바꿈 포함 원문을 사용해 5개 operation이 `expectedCount=0`으로 실패했다.
+- 실제 minify된 `main.bundle.js`에서는 같은 설명문이 한 줄 문자열 또는 single quote 문자열로 존재했다.
+- 실패한 manifest는 실제 번들 literal count 기반으로 재작성했고, 26개 operation 모두 dry-run을 통과했다.
+- 이후 추가 잔여 검색에서 Gameplay/Interface/Numeric/Remote API 설명문 17개가 더 발견되어 `options_tooltip_final_sweep.json`으로 분리했다.
+
+검증:
+
+- `options_tooltip_completion.json`: dry-run 26개 통과, apply 성공, 재 dry-run에서 26개 모두 `already-applied` 확인
+- `options_tooltip_final_sweep.json`: dry-run 17개 통과, apply 성공, 재 dry-run에서 17개 모두 `already-applied` 확인
+- 문제로 확인된 원문들은 적용 후 모두 0회 확인했다.
+- `If this is set` 잔여 3건은 Options 창이 아니라 Dark Web/Active Scripts 문맥으로 확인되어 이번 scope에서 제외했다.
+
+남은 확인:
+
+- 실제 게임을 새로고침한 뒤 Options의 System, Gameplay, Interface, Numeric Display, Misc, Remote API, Key Binding 탭을 한 번씩 열어 시각 검증한다.
+- 새 성공 스크린샷이 추가되면 이 항목 아래에 연결한다.

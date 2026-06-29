@@ -1,0 +1,600 @@
+{
+  "patchId": "options_remaining_texts",
+  "description": "Translate remaining Options window labels, action buttons, and tooltip descriptions.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/GameOptions/ui/*"
+  ],
+  "scope": "Options window remaining visible labels, buttons, and tooltip descriptions",
+  "preserveTerms": [
+    "Autoexec",
+    "Netscript",
+    "Tail",
+    "Remote API",
+    "wss",
+    "Vim",
+    "TIX",
+    "Bladeburner",
+    "Augmentation",
+    "Faction",
+    "Terminal",
+    "home"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_root_title",
+      "source": "o.createElement(i.A,{variant:\"h4\"},\"Options\")",
+      "target": "o.createElement(i.A,{variant:\"h4\"},\"옵션\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_sidebar_tab_display",
+      "source": "v.createElement(h.A,null,e.tabName)",
+      "target": "v.createElement(h.A,null,{System:\"시스템\",Gameplay:\"게임플레이\",Interface:\"인터페이스\",\"Numeric Display\":\"숫자 표시\",Misc:\"기타\",\"Remote API\":\"Remote API\",\"Key Binding\":\"키 바인딩\"}[e.tabName]??e.tabName)",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_title_gameplay",
+      "source": "title:\"Gameplay\"",
+      "target": "title:\"게임플레이\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_title_interface",
+      "source": "title:\"Interface\"",
+      "target": "title:\"인터페이스\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_title_numeric",
+      "source": "title:\"Numeric Display\"",
+      "target": "title:\"숫자 표시\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_title_misc",
+      "source": "title:\"Misc\"",
+      "target": "title:\"기타\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "options_title_keybinding",
+      "source": "title:\"Key Binding\"",
+      "target": "title:\"키 바인딩\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_suppress_story",
+      "source": "text:\"Suppress story messages\"",
+      "target": "text:\"스토리 메시지 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_suppress_faction",
+      "source": "text:\"Suppress faction invites\"",
+      "target": "text:\"Faction 초대 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_suppress_travel",
+      "source": "text:\"Suppress travel confirmations\"",
+      "target": "text:\"여행 확인창 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_suppress_aug_confirm",
+      "source": "text:\"Suppress augmentations confirmation\"",
+      "target": "text:\"Augmentation 구매 확인창 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_suppress_tix",
+      "source": "text:\"Suppress TIX messages\"",
+      "target": "text:\"TIX 메시지 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_suppress_errors",
+      "source": "text:\"Suppress error modals\"",
+      "target": "text:\"오류 모달 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_suppress_bladeburner",
+      "source": "text:\"Suppress bladeburner popup\"",
+      "target": "text:\"Bladeburner 팝업 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_disable_ascii",
+      "source": "text:\"Disable ASCII art\"",
+      "target": "text:\"ASCII 아트 비활성화\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_disable_text_effects",
+      "source": "text:\"Disable text effects\"",
+      "target": "text:\"텍스트 효과 비활성화\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_disable_overview_progress",
+      "source": "text:\"Disable Overview Progress Bars\"",
+      "target": "text:\"Overview 진행 바 비활성화\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_show_intermediary_units",
+      "source": "text:\"Show all intermediary time units, even when null.\"",
+      "target": "text:\"값이 0이어도 모든 중간 시간 단위 표시\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "misc_disable_hotkeys",
+      "source": "text:\"Disable hotkeys\"",
+      "target": "text:\"단축키 비활성화\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "misc_enable_bash",
+      "source": "text:\"Enable bash hotkeys\"",
+      "target": "text:\"Bash 단축키 활성화\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "misc_enable_history_search",
+      "source": "text:\"Enable terminal history search with arrow keys\"",
+      "target": "text:\"방향키로 터미널 기록 검색 활성화\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "misc_enable_vim_default",
+      "source": "text:\"Enable Vim as default editor\"",
+      "target": "text:\"Vim을 기본 편집기로 사용\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_engineering_notation",
+      "source": "text:\"Use engineering notation instead of scientific notation for exponential form\"",
+      "target": "text:\"지수 표기에 과학적 표기 대신 공학 표기 사용\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_exponential_form",
+      "source": "text:\"Use exponential form instead of suffixed form\"",
+      "target": "text:\"접미사 표기 대신 지수 표기 사용\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_hide_separator",
+      "source": "text:\"Hide thousands separator\"",
+      "target": "text:\"천 단위 구분 기호 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_fractional_digits",
+      "source": "label:\"Fractional Digits\"",
+      "target": "label:\"소수 자릿수\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_hide_trailing_zeroes",
+      "source": "text:\"Hide trailing fractional zeroes for decimals\"",
+      "target": "text:\"소수 끝의 0 숨기기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_gib",
+      "source": "text:\"Use GiB instead of GB\"",
+      "target": "text:\"GB 대신 GiB 사용\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_currency_after",
+      "source": "text:\"Move the currency symbol to be after the value\"",
+      "target": "text:\"통화 기호를 값 뒤에 표시\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_currency_symbol",
+      "source": "\"Currency Symbol: \"",
+      "target": "\"통화 기호: \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_intro",
+      "source": "\"These settings control the Remote API for Bitburner. This is typically used to write scripts using an external text editor and then upload files to the home server.\"",
+      "target": "\"이 설정은 Bitburner의 Remote API를 제어합니다. 보통 외부 텍스트 편집기로 스크립트를 작성한 뒤 home 서버로 파일을 업로드할 때 사용합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_hostname_label",
+      "source": "\"Hostname: \"",
+      "target": "\"호스트명: \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_port_label",
+      "source": "\"Port: \"",
+      "target": "\"포트: \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_reconnect_label",
+      "source": "\"Reconnection delay: \"",
+      "target": "\"재연결 지연: \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_use_wss",
+      "source": "text:\"Use wss\"",
+      "target": "text:\"wss 사용\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_status_title",
+      "source": "\"Remote API status\"",
+      "target": "\"Remote API 상태\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_status_label",
+      "source": "\"Status: \"",
+      "target": "\"상태: \"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_delete_save",
+      "source": "\"Delete Save\"",
+      "target": "\"저장 삭제\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_export_game",
+      "source": "\"Export Game\"",
+      "target": "\"게임 내보내기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_import_game",
+      "source": "\"Import Game\"",
+      "target": "\"게임 가져오기\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_force_kill",
+      "source": "\"Force kill all active scripts\"",
+      "target": "\"실행 중인 모든 스크립트 강제 종료\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_diagnose",
+      "source": "\"Diagnose files\"",
+      "target": "\"파일 진단\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_report_bug",
+      "source": "\"Report Bug\"",
+      "target": "\"버그 신고\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_export_tip",
+      "source": "\"Export your game to a text file.\"",
+      "target": "\"게임을 텍스트 파일로 내보냅니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_import_tip_1",
+      "source": "\"Import your game from a text file.\"",
+      "target": "\"텍스트 파일에서 게임을 가져옵니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_import_tip_2",
+      "source": "\"This will \"",
+      "target": "\"이 작업은 \"",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_import_tip_3",
+      "source": "\" your current game. Back it up first!\"",
+      "target": "\" 현재 게임을. 먼저 백업하세요!\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_force_tip",
+      "source": "\"Forcefully kill all active running scripts, in case there is a bug or some unexpected issue with the game. After using this, save the game and then reload the page. This is different than normal kill in that normal kill will tell the script to shut down while force kill just removes the references to it (and it should crash on its own). This will not remove the files on your computer, just forcefully kill all running instances of all scripts.\"",
+      "target": "\"게임 버그나 예상치 못한 문제가 있을 때 실행 중인 모든 스크립트를 강제로 종료합니다. 사용 후 게임을 저장하고 페이지를 다시 로드하세요. 일반 kill은 스크립트에 종료를 요청하지만, 강제 종료는 참조만 제거합니다. 컴퓨터의 파일은 삭제하지 않고 실행 중인 모든 스크립트 인스턴스만 강제로 종료합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_diagnose_tip",
+      "source": "\"If your save file is extremely big you can use this button to view a map of all the files on every server. Be careful: there might be spoilers.\"",
+      "target": "\"저장 파일이 매우 크다면 이 버튼으로 모든 서버의 파일 지도를 볼 수 있습니다. 주의: 스포일러가 있을 수 있습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_theme_tip",
+      "source": "\"Head to the theme browser to see a collection of prebuilt themes.\"",
+      "target": "\"미리 만들어진 테마 모음을 보려면 테마 브라우저로 이동하세요.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_bug_tip",
+      "source": "\"Start a GitHub issue to help the devs find bugs!\"",
+      "target": "\"개발자가 버그를 찾을 수 있도록 GitHub 이슈를 작성합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_reset_confirm",
+      "source": "\"Restart the tutorial? Running scripts will be killed.\"",
+      "target": "\"튜토리얼을 다시 시작할까요? 실행 중인 스크립트는 종료됩니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_delete_tip",
+      "source": "\"This will permanently delete your local save game. Did you export it before?\"",
+      "target": "\"로컬 저장 게임을 영구 삭제합니다. 먼저 내보냈나요?\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "sidebar_delete_confirm",
+      "source": "\"Really delete your game? (It's permanent!)\"",
+      "target": "\"정말 게임을 삭제할까요? (되돌릴 수 없습니다!)\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "system_recent_tip",
+      "source": "\"The maximum number of recently killed scripts the game will keep.\"",
+      "target": "\"게임이 보관할 최근 종료 스크립트의 최대 개수입니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "system_autosave_tip",
+      "source": "\"The time (in seconds) between each autosave. Set to 0 to disable autosave.\"",
+      "target": "\"자동 저장 사이의 시간입니다(초). 0으로 설정하면 자동 저장을 비활성화합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "system_save_file_tip",
+      "source": "\"Save your game any time a file is saved in the script editor.\"",
+      "target": "\"스크립트 편집기에서 파일을 저장할 때마다 게임도 저장합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "contextLimited": true,
+    "generatedFrom": "GameOptions source map and bundle counts"
+  }
+}

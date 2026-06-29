@@ -1,0 +1,100 @@
+{
+  "patchId": "options_keybinding_texts",
+  "description": "Translate remaining Options Key Binding page and Autoexec helper texts.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/GameOptions/ui/KeyBindingPage.tsx",
+    "webpack:///./src/GameOptions/ui/AutoexecInput.tsx"
+  ],
+  "scope": "Options Key Binding visible modal texts and Autoexec empty helper tooltip",
+  "preserveTerms": [
+    "Autoexec",
+    "Bash"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "autoexec_no_script",
+      "source": "\"No script will be auto-launched\"",
+      "target": "\"자동 실행될 스크립트가 없습니다\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_press_key",
+      "source": "a.createElement(r.A,{style:{padding:\"10px 20px\"}},\"Press the key you would like to use\")",
+      "target": "a.createElement(r.A,{style:{padding:\"10px 20px\"}},\"사용할 키를 누르세요\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_conflicts_status",
+      "source": "0===d.size?\"No conflicts detected\":`Conflicts: ${[...d]}`",
+      "target": "0===d.size?\"충돌 없음\":`충돌: ${[...d]}`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_clear_button",
+      "source": "a.createElement(i.A,{style:{minWidth:\"100px\"},onClick:()=>{c(null),h(new Set)}},\"Clear\")",
+      "target": "a.createElement(i.A,{style:{minWidth:\"100px\"},onClick:()=>{c(null),h(new Set)}},\"지우기\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_default_button",
+      "source": "a.createElement(i.A,{style:{marginLeft:\"10px\",minWidth:\"100px\"},onClick:()=>{const e=(0,u.te)(u.tr,n,s);c(e),h(e?p(n,s,e):new Set)}},\"Default\")",
+      "target": "a.createElement(i.A,{style:{marginLeft:\"10px\",minWidth:\"100px\"},onClick:()=>{const e=(0,u.te)(u.tr,n,s);c(e),h(e?p(n,s,e):new Set)}},\"기본값\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_how_to_use",
+      "source": "},\"How to use\")",
+      "target": "},\"사용 방법\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_common_hotkeys",
+      "source": "\"Common hotkeys\"",
+      "target": "\"공통 단축키\"",
+      "expectedCount": 3,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "keybinding_bash_hotkeys",
+      "source": "\"Bash hotkeys\"",
+      "target": "\"Bash 단축키\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "contextLimited": true
+  }
+}

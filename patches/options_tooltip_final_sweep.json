@@ -1,0 +1,203 @@
+{
+  "patchId": "options_tooltip_final_sweep",
+  "description": "Translate remaining Options Gameplay, Interface, Numeric Display, and Remote API tooltip descriptions.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/GameOptions/ui/GameplayPage.tsx",
+    "webpack:///./src/GameOptions/ui/InterfacePage.tsx",
+    "webpack:///./src/GameOptions/ui/NumericDisplayPage.tsx",
+    "webpack:///./src/GameOptions/ui/RemoteAPIPage.tsx"
+  ],
+  "scope": "Final Options tooltip sweep for remaining English descriptions",
+  "preserveTerms": [
+    "Terminal",
+    "Faction",
+    "Factions",
+    "Augmentation",
+    "Bladeburner",
+    "Active Scripts",
+    "Overview",
+    "GiB",
+    "GB",
+    "IEC 60027-2",
+    "Remote API",
+    "Bitburner"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_story_tip",
+      "source": "\"If this is set, then any messages you receive will not appear as popups on the screen. They will still get sent to your home computer as '.msg' files and can be viewed with the 'cat' Terminal command.\"",
+      "target": "\"이 옵션을 켜면 받는 메시지가 화면 팝업으로 표시되지 않습니다. 메시지는 여전히 home 컴퓨터에 '.msg' 파일로 전송되며 Terminal의 'cat' 명령으로 볼 수 있습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_faction_invite_tip",
+      "source": "\"If this is set, then any faction invites you receive will not appear as popups on the screen. Your outstanding faction invites can be viewed in the 'Factions' page.\"",
+      "target": "\"이 옵션을 켜면 받은 Faction 초대가 화면 팝업으로 표시되지 않습니다. 남아 있는 Faction 초대는 'Factions' 페이지에서 확인할 수 있습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_travel_tip",
+      "source": "\"If this is set, the confirmation message before traveling will not show up. You will automatically be deducted the travel cost as soon as you click.\"",
+      "target": "\"이 옵션을 켜면 여행 전 확인 메시지가 표시되지 않습니다. 클릭하는 즉시 여행 비용이 자동으로 차감됩니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_augmentation_confirm_tip",
+      "source": "\"If this is set, the confirmation message before buying augmentation will not show up.\"",
+      "target": "\"이 옵션을 켜면 Augmentation 구매 전 확인 메시지가 표시되지 않습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_error_modals_tip",
+      "source": "'If this is set, script errors will never create any popups. The errors can still be seen on the \"Recent Errors\" tab in the Active Scripts page.'",
+      "target": "'이 옵션을 켜면 스크립트 오류가 팝업을 만들지 않습니다. 오류는 Active Scripts 페이지의 \"최근 오류\" 탭에서 계속 확인할 수 있습니다.'",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "gameplay_bladeburner_tip",
+      "source": "\"If this is set, then having your Bladeburner actions interrupted by being busy with something else will not display a popup message.\"",
+      "target": "\"이 옵션을 켜면 다른 일로 바빠 Bladeburner 행동이 중단되어도 팝업 메시지가 표시되지 않습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_ascii_tip",
+      "source": "\"If this is set, ASCII art for UI elements will be disabled. This setting does not affect ASCII art in the description of factions.\"",
+      "target": "\"이 옵션을 켜면 UI 요소의 ASCII 아트가 비활성화됩니다. Faction 설명의 ASCII 아트에는 영향을 주지 않습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_text_effects_tip",
+      "source": "\"If this is set, text effects will not be displayed. This can help if text is difficult to read in certain areas.\"",
+      "target": "\"이 옵션을 켜면 텍스트 효과가 표시되지 않습니다. 특정 영역에서 텍스트를 읽기 어려울 때 도움이 될 수 있습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "interface_overview_progress_tip",
+      "source": "\"If this is set, progress bars in the character overview will be hidden.\"",
+      "target": "\"이 옵션을 켜면 캐릭터 Overview의 진행 바가 숨겨집니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_engineering_tip",
+      "source": "\"If this is set, numbers displayed in exponential form will use engineering notation instead of scientific notation.\"",
+      "target": "\"이 옵션을 켜면 지수 표기 숫자가 과학적 표기 대신 공학 표기를 사용합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_exponential_tip",
+      "source": "\"If this is set, suffixed form will not be used, and numbers that would have been suffixed will be displayed with exponential form instead.\"",
+      "target": "\"이 옵션을 켜면 접미사 표기를 사용하지 않고, 접미사가 붙을 숫자를 지수 표기로 표시합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_separator_tip",
+      "source": "\"If this is set, thousands separators will not be displayed.\"",
+      "target": "\"이 옵션을 켜면 천 단위 구분 기호가 표시되지 않습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_fractional_digits_tip",
+      "source": "\"The default number of decimal places to display on small numbers. Default value: 3\"",
+      "target": "\"작은 숫자에 표시할 기본 소수 자릿수입니다. 기본값: 3\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_trailing_zeroes_tip",
+      "source": "\"If this is set, zeroes at the end of a fractional part of a decimal will not be displayed.\"",
+      "target": "\"이 옵션을 켜면 소수 부분 끝의 0이 표시되지 않습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "numeric_gib_tip",
+      "source": "\"If this is set all references to memory will use GiB instead of GB, in accordance with IEC 60027-2.\"",
+      "target": "\"이 옵션을 켜면 IEC 60027-2에 따라 메모리 표기를 GB 대신 GiB로 사용합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_reconnect_tip",
+      "source": "\"When the connection is closed, Bitburner will automatically reconnect after this delay.\"",
+      "target": "\"연결이 닫히면 Bitburner가 이 지연 시간 후 자동으로 다시 연결합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "remote_reconnect_value_tip",
+      "source": "\"The value must be in seconds. Set it to 0 to disable the feature.\"",
+      "target": "\"값은 초 단위여야 합니다. 0으로 설정하면 이 기능을 비활성화합니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "contextLimited": true,
+    "generatedFrom": "main.bundle.js residual English scan"
+  }
+}
