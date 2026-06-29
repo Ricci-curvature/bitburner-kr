@@ -137,3 +137,9 @@
 - Hacknet 요약 박스의 제목/금액/생산 속도 라벨과 Hacknet Node 구매 버튼을 번역했다.
 - 5개 source 모두 `expectedCount=1`로 제한했고, 적용 후 source 0회/target 1회 검증을 통과했다.
 - `Level:`, `RAM:`, `Cores:`처럼 전역 출현이 많은 라벨은 이번 패치에서 제외했다.
+
+## 2026-06-29 - Hacknet 요약 라벨 화면 검증
+
+- `hacknet_summary_success.png`를 추가했다.
+- Hacknet 요약 박스에서 제목, 사용한 돈, 벌어들인 돈, 생산 속도 라벨 표시를 확인했다.
+- 금액/초당 생산량 포맷과 NeoDunggeunmo 정렬이 유지되는 것을 확인했다.
