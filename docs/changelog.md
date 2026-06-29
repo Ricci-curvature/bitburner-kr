@@ -230,3 +230,14 @@
 - markdown 링크 경로, 코드 span, 명령어, 파일명, 서버명은 보존했다.
 - 같은 `main.bundle.js`를 수정하는 manifest는 병렬 적용 시 덮어쓰기 위험이 있어 순차 적용 원칙을 실험 로그에 기록했다.
 - `documentation_beginner_intro_first_steps_success.png`, `documentation_home_advanced_success.png`, `documentation_home_resources_success.png`를 추가하고 화면 검증 완료로 기록했다.
+
+## Documentation Beginner's guide 전체 번역 패치 적용
+
+- `patches/documentation_beginners_creating_first_script.json`, `patches/documentation_beginners_running_scripts.json`을 추가했다.
+- `patches/documentation_beginners_hacking_level_cloud_servers.json`, `patches/documentation_beginners_income_sources.json`, `patches/documentation_beginners_level50_cybersec_servers.json`, `patches/documentation_beginners_final_sections.json`을 추가했다.
+- Beginner's guide의 `Creating our First Script` 이후 마지막 `Random Tips`까지 전체 본문을 번역했다.
+- 코드 블록, 명령어, API명, 파일명, 서버명, markdown 링크 경로는 보존했다.
+- 후반부 대형 문서 패치에서 JS 문자열 quote escaping 누락으로 게임 첫 실행 검은화면 문제가 발생했고, `node --check`와 revert/apply 통제 실험으로 원인을 확인했다.
+- manifest target의 큰따옴표/작은따옴표 escaping을 보정한 뒤 후반부 4개 manifest를 순차 재적용했다.
+- 각 후반부 manifest 적용 직후 `node --check resources/app/dist/main.bundle.js`를 통과했고, 재 dry-run에서 모두 `already-applied targetCount=1`을 확인했다.
+- `documentation_beginner_creating_first_script_top_success.png`, `documentation_beginner_creating_first_script_code_success.png`, `documentation_beginner_final_next_steps_success.png`, `documentation_beginner_final_random_tips_success.png`를 추가하고 화면 검증 완료로 기록했다.

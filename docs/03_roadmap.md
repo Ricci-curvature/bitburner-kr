@@ -18,7 +18,7 @@
 - Dark Net 화면 라벨/상태/주요 툴팁
 - Faction work 라벨/메인 잔여/짧은 소개문
 - Faction Augmentations 구매 화면 라벨/설명문
-- Documentation 홈/목차와 Beginner's guide 상단/`First Steps` 섹션
+- Documentation 홈/목차와 Beginner's guide 전체 번역
 - 고유명사 유지 전략 검증
 - 번들 직접 치환 방식 검증
 - 패처 기반 dry-run -> apply -> 재 dry-run 검증 흐름 정착
@@ -27,7 +27,7 @@
 
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
-- Documentation 섹션 단위 확장
+- Documentation 섹션 단위 확장: Beginner's guide 완료, 다음 문서 후보 대기
 - Hacknet 관련 나머지 설명/툴팁
 - 공용 시간 단위 formatter
 - UI 폭/줄높이 장기 검증
@@ -645,3 +645,37 @@
 남은 것:
 
 - Beginner's guide의 `Creating our First Script` 섹션부터 이어서 섹션 단위로 확장한다.
+
+## Phase 12 완료 메모 - Documentation Beginner's guide 전체 번역
+
+구현된 것:
+
+- `patches/documentation_beginners_creating_first_script.json`
+- `patches/documentation_beginners_running_scripts.json`
+- `patches/documentation_beginners_hacking_level_cloud_servers.json`
+- `patches/documentation_beginners_income_sources.json`
+- `patches/documentation_beginners_level50_cybersec_servers.json`
+- `patches/documentation_beginners_final_sections.json`
+- Beginner's guide의 `Creating our First Script` 이후 마지막 `Random Tips`까지 전체 본문 번역
+- markdown 링크 경로, 코드 span, 함수/API명, 명령어, 파일명, 서버명, 코드 블록은 보존
+
+검증한 것:
+
+- 각 manifest는 dry-run, apply, 재 dry-run already-applied 확인을 통과했다.
+- 후반 4개 대형 manifest는 재적용 시 각 패치 직후 `node --check resources/app/dist/main.bundle.js`를 통과했다.
+- 대표 영어 섹션 `## Increasing Hacking Level`은 source 0회, `## 해킹 레벨 올리기`와 `## 무작위 팁`은 target 1회로 확인했다.
+- `documentation_beginner_creating_first_script_top_success.png`, `documentation_beginner_creating_first_script_code_success.png`, `documentation_beginner_final_next_steps_success.png`, `documentation_beginner_final_random_tips_success.png`에서 화면 렌더링을 확인했다.
+
+실패와 보정:
+
+- 후반부 대형 문서 패치를 처음 적용한 뒤 게임 첫 실행이 검은화면에서 멈췄다.
+- 원인은 번들 JS 문자열 안에 들어가는 문서 target에서 큰따옴표/작은따옴표 이스케이프가 부족했던 것이다.
+- `node --check`에서 `Unexpected identifier 'U'`를 확인했고, 문장 안의 `"U"`가 JS 문자열을 끊는 것을 원인으로 좁혔다.
+- 문제 패치를 revert한 뒤 manifest target의 quote escaping을 보정하고, 한 패치씩 apply 후 `node --check`를 넣는 방식으로 재적용했다.
+
+다음 후보:
+
+- Dark Net 인증/상세 모달 잔여
+- Faction 긴 lore/rumor 문구 sweep
+- 개별 Augmentation lore/Grafting 구매 화면
+

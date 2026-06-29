@@ -1,0 +1,58 @@
+{
+  "patchId": "documentation_beginners_creating_first_script",
+  "description": "Translate the Beginner's guide Creating our First Script prose while preserving code blocks, commands, filenames, and API names.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Documentation/doc/help/getting_started.md"
+  ],
+  "scope": "Beginner's guide Creating our First Script section prose only; code block comments are intentionally preserved for a later pass",
+  "preserveTerms": [
+    "Script",
+    "Scripts",
+    "Server",
+    "Terminal",
+    "early-hack-template.js",
+    "early hack template",
+    "EHT",
+    "n00dles",
+    "BruteSSH.exe",
+    "home",
+    "hack()",
+    "grow()",
+    "weaken()",
+    "getServerMaxMoney()",
+    "async",
+    "await",
+    "while (true)"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_beginner_create_script_intro",
+      "source": "## 첫 Script 만들기\\n\\nNow, we'll create a generic [hacking](../basic/hacking.md) [Script](../basic/scripts.md) that can be used early on in the game (or throughout the entire game, if you want). This script is usually called \\\"early hack template\\\" or EHT.\\n\\nBefore we write the [Script](../basic/scripts.md), here are some things you'll want to familiarize yourself with:\\n\\n- `hacking`\\n- `security`\\n- `hack`\\n- `grow`\\n- `weaken`\\n- `brutessh`\\n- `nuke`\\n\\nTo briefly summarize: Each [Server](../basic/servers.md) has a security level that affects how difficult it is to hack.\\nEach [Server](../basic/servers.md) also has a certain amount of money, as well as a maximum amount of money it can hold.\\n[Hacking](../basic/hacking.md) a [Server](../basic/servers.md) steals a percentage of that [Server](../basic/servers.md)'s money.\\nThe `hack()` function is used to hack a [Server](../basic/servers.md).\\nThe `grow()` function is used to increase the amount of money available on a [Server](../basic/servers.md).\\nThe `weaken()` function is used to decrease a [Server](../basic/servers.md)'s security level.\\n\\nNow let's move on to actually creating the [Script](../basic/scripts.md).\\nGo to your home computer and then create a [Script](../basic/scripts.md) called `early-hack-template.js` by going to [Terminal](../basic/terminal.md) and entering the following two commands:\\n\\n    $ home\\n    $ nano early-hack-template.js\\n\\nThis will take you to the [Script](../basic/scripts.md) editor, which you can use to code and create [Scripts](../basic/scripts.md).\\n\\nEnter the following code in the [Script](../basic/scripts.md) editor:",
+      "target": "## 첫 Script 만들기\\n\\n이제 게임 초반에 사용할 수 있는 범용 [hacking](../basic/hacking.md) [Script](../basic/scripts.md)를 만들어 보겠습니다. 원한다면 게임 전체를 진행하는 동안 계속 사용할 수도 있습니다. 이런 스크립트는 보통 \\\"early hack template\\\" 또는 EHT라고 부릅니다.\\n\\n[Script](../basic/scripts.md)를 작성하기 전에 먼저 익숙해지면 좋은 개념이 있습니다:\\n\\n- `hacking`\\n- `security`\\n- `hack`\\n- `grow`\\n- `weaken`\\n- `brutessh`\\n- `nuke`\\n\\n간단히 요약하면, 각 [Server](../basic/servers.md)에는 해킹 난이도에 영향을 주는 보안 레벨이 있습니다.\\n각 [Server](../basic/servers.md)는 일정량의 돈을 가지고 있으며, 보유할 수 있는 최대 금액도 정해져 있습니다.\\n[Server](../basic/servers.md)를 [Hacking](../basic/hacking.md)하면 그 [Server](../basic/servers.md)가 가진 돈의 일정 비율을 훔칩니다.\\n`hack()` 함수는 [Server](../basic/servers.md)를 해킹하는 데 사용합니다.\\n`grow()` 함수는 [Server](../basic/servers.md)에 있는 돈의 양을 늘리는 데 사용합니다.\\n`weaken()` 함수는 [Server](../basic/servers.md)의 보안 레벨을 낮추는 데 사용합니다.\\n\\n이제 실제로 [Script](../basic/scripts.md)를 만들어 보겠습니다.\\nhome 컴퓨터로 이동한 뒤, [Terminal](../basic/terminal.md)에서 아래 두 명령어를 입력해 `early-hack-template.js`라는 [Script](../basic/scripts.md)를 만듭니다:\\n\\n    $ home\\n    $ nano early-hack-template.js\\n\\n그러면 [Script](../basic/scripts.md) 에디터가 열립니다. 여기서 코드를 작성하고 [Scripts](../basic/scripts.md)를 만들 수 있습니다.\\n\\n[Script](../basic/scripts.md) 에디터에 다음 코드를 입력합니다:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_beginner_create_script_explanation",
+      "source": "The [Script](../basic/scripts.md) above contains comments that document what it does, but let's go through it step-by-step anyway.\\n\\n    const target = \\\"n00dles\\\";\\n\\nThis first command defines a string which contains our target [Server](../basic/servers.md).\\nThat's the [Server](../basic/servers.md) that we're going to [hack](../basic/hacking.md).\\nFor now, it's set to `\\\"n00dles\\\"` because that's the only [Server](../basic/servers.md) with a required hacking level of `1`.\\nIf you want to [hack](../basic/hacking.md) a different [Server](../basic/servers.md), simply change this variable to be the hostname of another [Server](../basic/servers.md).\\n\\n    const moneyThresh = ns.getServerMaxMoney(target);\\n\\nThis second command defines a numerical value representing the minimum amount of money that must be available on the target [Server](../basic/servers.md) in order for our [Script](../basic/scripts.md) to [hack](../basic/hacking.md) it.\\nIf the money available on the target [Server](../basic/servers.md) is less than this value, then our [Script](../basic/scripts.md) will `grow()` the [Server](../basic/servers.md) rather than [hacking](../basic/hacking.md) it.\\nIt is set to the maximum amount of money that can be available on the [Server](../basic/servers.md).\\nThe `getServerMaxMoney()` function is used to find this value\\n\\n    const securityThresh = ns.getServerMinSecurityLevel(target);\\n\\nThis third command defines a numerical value representing the minimum security level the target [Server](../basic/servers.md) can have.\\nIf the target [Server](../basic/servers.md)'s security level is higher than this value, then our [Script](../basic/scripts.md) will `weaken()` the server before doing anything else.\\n\\n    if (ns.fileExists(\\\"BruteSSH.exe\\\", \\\"home\\\")) {\\n        ns.brutessh(target);\\n    }\\n\\n    ns.nuke(target);\\n\\nThis section of code is used to gain root access on the target [Server](../basic/servers.md).\\nThis is necessary for [hacking](../basic/hacking.md).\\n\\n    while (true) {\\n        if (ns.getServerSecurityLevel(target) > securityThresh) {\\n            // If the server's security level is above our threshold, weaken it\\n            await ns.weaken(target);\\n        } else if (ns.getServerMoneyAvailable(target) < moneyThresh) {\\n            // Otherwise, if the server's money is less than our threshold, grow it\\n            await ns.grow(target);\\n        } else {\\n            // Otherwise, hack it\\n            await ns.hack(target);\\n        }\\n    }\\n\\nThis is the main section that drives our [Script](../basic/scripts.md).\\nIt dictates the [Script](../basic/scripts.md)'s logic and carries out the [hacking](../basic/hacking.md) operations.\\nThe `while (true)` creates an infinite loop that will continuously run the [hacking](../basic/hacking.md) logic until the the [Script](../basic/scripts.md) is killed.\\n\\nThe await keyword is needed for `hack()` / `grow()` / `weaken()` because these commands take time to execute, unlike the others.\\nIf you forget to await these commands, you will get an exception saying you tried to do multiple things at once, because your code will immediately finish the function call without waiting for the operation to be done.\\nAlso important is that await can only be used in functions marked `async` (note that `main()` is marked `async`).",
+      "target": "위 [Script](../basic/scripts.md)에는 어떤 일을 하는지 설명하는 주석이 들어 있지만, 그래도 단계별로 살펴보겠습니다.\\n\\n    const target = \\\"n00dles\\\";\\n\\n이 첫 번째 명령은 목표 [Server](../basic/servers.md)를 담는 문자열을 정의합니다.\\n이 [Server](../basic/servers.md)가 우리가 [hack](../basic/hacking.md)할 대상입니다.\\n지금은 필요 해킹 레벨이 `1`인 [Server](../basic/servers.md)가 `\\\"n00dles\\\"`뿐이므로 이 값으로 설정합니다.\\n다른 [Server](../basic/servers.md)를 [hack](../basic/hacking.md)하고 싶다면, 이 변수를 다른 [Server](../basic/servers.md)의 호스트명으로 바꾸면 됩니다.\\n\\n    const moneyThresh = ns.getServerMaxMoney(target);\\n\\n두 번째 명령은 목표 [Server](../basic/servers.md)를 [hack](../basic/hacking.md)하기 전에 그 [Server](../basic/servers.md)에 있어야 하는 최소 금액을 숫자로 정의합니다.\\n목표 [Server](../basic/servers.md)에 있는 돈이 이 값보다 적으면, 이 [Script](../basic/scripts.md)는 [hack](../basic/hacking.md)하는 대신 그 [Server](../basic/servers.md)에 `grow()`를 실행합니다.\\n여기서는 [Server](../basic/servers.md)가 보유할 수 있는 최대 금액으로 설정합니다.\\n이 값을 찾기 위해 `getServerMaxMoney()` 함수를 사용합니다.\\n\\n    const securityThresh = ns.getServerMinSecurityLevel(target);\\n\\n세 번째 명령은 목표 [Server](../basic/servers.md)가 가질 수 있는 최소 보안 레벨을 숫자로 정의합니다.\\n목표 [Server](../basic/servers.md)의 보안 레벨이 이 값보다 높으면, 이 [Script](../basic/scripts.md)는 다른 작업을 하기 전에 해당 서버에 `weaken()`을 실행합니다.\\n\\n    if (ns.fileExists(\\\"BruteSSH.exe\\\", \\\"home\\\")) {\\n        ns.brutessh(target);\\n    }\\n\\n    ns.nuke(target);\\n\\n이 코드 구간은 목표 [Server](../basic/servers.md)의 root 권한을 얻는 데 사용합니다.\\n[Hacking](../basic/hacking.md)을 하려면 이 과정이 필요합니다.\\n\\n    while (true) {\\n        if (ns.getServerSecurityLevel(target) > securityThresh) {\\n            // If the server's security level is above our threshold, weaken it\\n            await ns.weaken(target);\\n        } else if (ns.getServerMoneyAvailable(target) < moneyThresh) {\\n            // Otherwise, if the server's money is less than our threshold, grow it\\n            await ns.grow(target);\\n        } else {\\n            // Otherwise, hack it\\n            await ns.hack(target);\\n        }\\n    }\\n\\n이 부분이 [Script](../basic/scripts.md)를 실제로 움직이는 핵심 구간입니다.\\n[Script](../basic/scripts.md)의 로직을 결정하고 [hacking](../basic/hacking.md) 작업을 수행합니다.\\n`while (true)`는 무한 루프를 만들어, [Script](../basic/scripts.md)가 종료될 때까지 [hacking](../basic/hacking.md) 로직을 계속 실행합니다.\\n\\n`await` 키워드는 `hack()` / `grow()` / `weaken()`에 필요합니다. 이 명령들은 다른 명령과 달리 실행에 시간이 걸리기 때문입니다.\\n이 명령들에 `await`를 빼먹으면, 작업이 끝날 때까지 기다리지 않고 함수 호출이 즉시 끝나므로 여러 작업을 동시에 하려 했다는 예외가 발생합니다.\\n또한 `await`는 `async`로 표시된 함수 안에서만 사용할 수 있습니다. 여기서 `main()`도 `async`로 표시되어 있습니다.",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Beginner's guide Creating our First Script section prose should render in Korean while code blocks, commands, filenames, and API names remain unchanged.",
+    "knownRemaining": [
+      "Code block comments in the example remain English intentionally.",
+      "The Running our Scripts section and later sections are intentionally left for the next patch."
+    ]
+  }
+}

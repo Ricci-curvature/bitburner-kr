@@ -17,7 +17,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Dark Net 화면 라벨/상태/툴팁
 - Faction work 라벨/메인 잔여/짧은 소개문
 - Faction Augmentations 구매 화면
-- Documentation 홈/목차와 Beginner's guide 상단/`First Steps` 섹션
+- Documentation 홈/목차와 Beginner's guide 전체 번역
 
 진행 후보:
 
@@ -992,3 +992,105 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Documentation markdown은 모듈 단위 문자열로 들어 있어 섹션 단위 패치가 현실적이다.
 - 문서 영역은 텍스트량 대비 로직 영향이 낮고 체감이 커서, 이후 선별적 전체 한글화 확장의 주력 후보로 본다.
 - 다음 후보는 Beginner's guide의 `Creating our First Script` 섹션이다.
+
+## Documentation Beginner's guide `Creating our First Script`/`Running our Scripts` 패치
+
+목표:
+
+- 1차에서 남긴 `Creating our First Script` 이후 섹션을 이어서 번역한다.
+- 코드 블록과 코드 span은 학습용 그대로 보존한다.
+- `Script`, `Scripts`, `Server`, `Terminal`, `home`, `n00dles`, `early-hack-template.js` 같은 게임 용어/파일명/서버명은 보존한다.
+
+적용한 manifest:
+
+- `patches/documentation_beginners_creating_first_script.json`
+- `patches/documentation_beginners_running_scripts.json`
+
+적용한 내용:
+
+- `Creating our First Script` 섹션의 개념 설명, 명령어 입력 안내, 코드 조각 해설을 번역했다.
+- `Running our Scripts` 섹션의 실행 방법, `run`, `ps`, `tail`, `nano` 관련 설명을 번역했다.
+- 코드 블록 내부 코드는 원문 그대로 유지했다.
+- 코드 블록 내부 주석은 이번 범위에서는 보존했다. 실제 Script 예제가 깨지지 않는 것이 우선이기 때문이다.
+
+검증:
+
+- 각 manifest는 dry-run에서 expected count로 통과했다.
+- apply 후 재 dry-run에서 `already-applied`를 확인했다.
+- 화면에서 상단 설명, 코드 조각, 하단 설명이 정상 줄바꿈으로 렌더링되는 것을 확인했다.
+
+스크린샷:
+
+![Beginner's guide 첫 Script 상단 성공](../screenshot/documentation_beginner_creating_first_script_top_success.png)
+
+![Beginner's guide 첫 Script 코드 설명 성공](../screenshot/documentation_beginner_creating_first_script_code_success.png)
+
+판단:
+
+- 문서 영역은 섹션 단위 치환이 가능하고, 긴 설명문도 화면에서 안정적으로 표시된다.
+- 코드 블록을 보존하면 학습 문서의 실행 가능성을 해치지 않으면서 본문 이해도를 크게 높일 수 있다.
+
+## Documentation Beginner's guide 후반부 전체 번역과 부팅 오류 회고
+
+목표:
+
+- `Increasing Hacking Level`부터 마지막 `Random Tips`까지 Beginner's guide 나머지 전체를 번역한다.
+- 섹션을 지나치게 잘게 쪼개지 않고, 문서 모듈 기준으로 현실적인 크기의 manifest 4개로 나눈다.
+- 번역 후 게임 첫 실행이 정상인지 확인한다.
+
+적용한 manifest:
+
+- `patches/documentation_beginners_hacking_level_cloud_servers.json`
+- `patches/documentation_beginners_income_sources.json`
+- `patches/documentation_beginners_level50_cybersec_servers.json`
+- `patches/documentation_beginners_final_sections.json`
+
+적용한 내용:
+
+- 해킹 레벨 올리기, Hacking Script 수정, Cloud Server 구매/자동화, 추가 수입원, Hacknet Nodes, 범죄, 회사 근무, CyberSec 가입, 추가 서버 해킹, Script 복사, CyberSec 평판, 업그레이드와 Augmentation 구매, RAM 업그레이드, 첫 Augmentation 설치, 리셋/자동 시작/무작위 팁까지 번역했다.
+- `hack()`, `grow()`, `weaken()`, `brutessh()`, `nuke()`, `scp()`, `exec()`, `getServerMaxMoney()`, `getServerMinSecurityLevel()` 같은 함수명은 보존했다.
+- 서버명, 파일명, 명령어, 코드 블록, markdown 링크 경로는 보존했다.
+
+실패 지점:
+
+- 후반부 4개 대형 manifest를 처음 적용한 뒤 게임 첫 실행에서 검은화면이 나오고 다음 화면으로 넘어가지 않았다.
+- 화면 증상만 보면 렌더링 문제처럼 보였지만, 실제 원인은 `main.bundle.js` 문법 오류였다.
+- `node --check resources/app/dist/main.bundle.js`가 실패해 번들이 파싱되지 않는 것을 확인했다.
+
+원인:
+
+- Documentation markdown은 번들 안에서 JS 문자열 리터럴로 들어간다.
+- manifest target에 문서 본문용 큰따옴표와 작은따옴표가 그대로 들어가면, 번들 내부 문자열을 중간에서 끊을 수 있다.
+- 실제 에러는 `Unexpected identifier 'U'`였고, 문장 안의 `"U"`가 JS 문자열을 끊은 것이 핵심 단서였다.
+- 처음에는 작은따옴표만 의심했지만, 통제 실험으로 큰따옴표도 반드시 escaping해야 한다는 것을 확인했다.
+
+해결:
+
+- 후반부 4개 대형 manifest를 `revert-patch.ps1`로 되돌려 부팅 가능한 상태를 먼저 복구했다.
+- manifest target의 큰따옴표/작은따옴표 escaping을 보정했다.
+- 이후 4개 manifest를 한꺼번에 믿고 적용하지 않고, 한 패치씩 순차 적용했다.
+- 각 패치 직후 `node --check resources/app/dist/main.bundle.js`를 실행해 JS 문법이 깨지지 않는지 확인했다.
+- 네 패치 모두 `node --check`를 통과한 뒤 재 dry-run에서 `already-applied targetCount=1`을 확인했다.
+
+검증:
+
+- `# 초보 프로그래머를 위한 시작 가이드` target count 1
+- `## 해킹 레벨 올리기` target count 1
+- `## 무작위 팁` target count 1
+- `## Increasing Hacking Level` source count 0
+- 후반부 4개 manifest 모두 재 dry-run에서 `already-applied targetCount=1`
+- 최종 `node --check` 통과
+
+스크린샷:
+
+![Beginner's guide 다음 단계 성공](../screenshot/documentation_beginner_final_next_steps_success.png)
+
+![Beginner's guide 무작위 팁 성공](../screenshot/documentation_beginner_final_random_tips_success.png)
+
+판단:
+
+- Beginner's guide는 화면 확인 기준으로 마지막까지 전체 번역이 완료되었다.
+- 이번 검은화면은 번역 자체의 문제가 아니라 번들 문자열 escaping 문제였다.
+- 앞으로 Documentation처럼 긴 markdown 모듈을 패치할 때는 `dry-run -> apply -> node --check -> 재 dry-run -> 화면 확인` 순서를 필수로 둔다.
+- 특히 큰따옴표, 작은따옴표, 실제 줄바꿈과 literal `\n` 처리를 검증하지 않으면 부팅 실패로 이어질 수 있다.
+

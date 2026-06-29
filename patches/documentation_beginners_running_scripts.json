@@ -1,0 +1,74 @@
+{
+  "patchId": "documentation_beginners_running_scripts",
+  "description": "Translate the Beginner's guide Running our Scripts section while preserving terminal commands, server names, filenames, and API terms.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Documentation/doc/help/getting_started.md"
+  ],
+  "scope": "Beginner's guide Running our Scripts section prose; terminal command/output blocks and server names are intentionally preserved.",
+  "preserveTerms": [
+    "Script",
+    "Scripts",
+    "Server",
+    "Servers",
+    "Terminal",
+    "RAM",
+    "NUKE",
+    "NUKE.exe",
+    "home",
+    "scan-analyze 2",
+    "early-hack-template.js",
+    "scp",
+    "connect",
+    "run",
+    "Tab",
+    "-t 6",
+    "n00dles",
+    "sigma-cosmetics",
+    "joesguns",
+    "nectar-net",
+    "hong-fang-tea",
+    "harakiri-sushi",
+    "foodnstuff"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_beginner_running_scripts_intro",
+      "source": "## Running our Scripts\\n\\nNow we want to start running our [hacking](../basic/hacking.md) [Script](../basic/scripts.md) so that it can start earning us money and experience.\\nOur home computer only has 8GB of [RAM](../basic/ram.md), and we'll be using it for something else later.\\nInstead, we'll take advantage of the [RAM](../basic/ram.md) on other machines.\\n\\nGo to `Terminal` and enter the following command:\\n\\n    $ scan-analyze 2\\n\\nThis will show detailed information about some [Servers](../basic/servers.md) on the network.\\n\\n**_The network is randomized, so it will be different for every person._**\\n\\nHere's what mine showed at the time I made this:",
+      "target": "## Scripts 실행하기\\n\\n이제 [hacking](../basic/hacking.md) [Script](../basic/scripts.md)를 실행해서 돈과 경험치를 벌기 시작해 보겠습니다.\\nhome 컴퓨터에는 [RAM](../basic/ram.md)이 8GB뿐이고, 나중에 다른 용도로도 사용해야 합니다.\\n대신 다른 머신에 있는 [RAM](../basic/ram.md)을 활용하겠습니다.\\n\\n`Terminal`로 가서 다음 명령어를 입력합니다:\\n\\n    $ scan-analyze 2\\n\\n이 명령은 네트워크에 있는 일부 [Servers](../basic/servers.md)의 자세한 정보를 보여줍니다.\\n\\n**_네트워크는 무작위로 생성되므로 사람마다 다르게 보입니다._**\\n\\n이 글을 작성할 당시 제 화면에는 다음처럼 표시되었습니다:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_beginner_running_scripts_server_setup",
+      "source": "Take note of the following servers:\\n\\n- `sigma-cosmetics`\\n- `joesguns`\\n- `nectar-net`\\n- `hong-fang-tea`\\n- `harakiri-sushi`\\n- `foodnstuff`\\n\\nAll of these servers have 16GB of [RAM](../basic/ram.md).\\nFurthermore, all of these servers do not require any open ports in order to NUKE.\\nIn other words, we can gain root access to all of these servers and then run [Scripts](../basic/scripts.md) on them.\\n\\nFirst, let's determine how many threads of our [hacking](../basic/hacking.md) [Script](../basic/scripts.md) we can run.\\n(See the page on [scripts](../basic/scripts.md) for more information on multithreading.)\\n\\nThe [Script](../basic/scripts.md) we wrote uses 2.6GB of [RAM](../basic/ram.md).\\nYou can check this using the following `Terminal` command:\\n\\n    $ mem early-hack-template.js\\n\\nThis means we can run 6 threads on a 16GB server.\\nNow, to run our [Scripts](../basic/scripts.md) on all of these servers, we have to do the following:\\n\\n1. Use the `scp` command to copy our [Script](../basic/scripts.md) to each server.\\n2. Use the `connect` command to connect to a server.\\n3. Use the `run` command to run the `NUKE.exe` program and gain root access.\\n4. Use the `run` command again to run our [Script](../basic/scripts.md).\\n5. Repeat steps 2-4 for each server.\\n\\nHere's the sequence of `Terminal` commands I used in order to achieve this:",
+      "target": "다음 서버들을 기억해 둡니다:\\n\\n- `sigma-cosmetics`\\n- `joesguns`\\n- `nectar-net`\\n- `hong-fang-tea`\\n- `harakiri-sushi`\\n- `foodnstuff`\\n\\n이 서버들은 모두 [RAM](../basic/ram.md)이 16GB입니다.\\n또한 이 서버들은 모두 NUKE를 위해 열어야 하는 포트가 없습니다.\\n즉, 이 서버들에서 root 권한을 얻은 뒤 [Scripts](../basic/scripts.md)를 실행할 수 있습니다.\\n\\n먼저 [hacking](../basic/hacking.md) [Script](../basic/scripts.md)를 몇 스레드로 실행할 수 있는지 확인해 보겠습니다.\\n(멀티스레딩에 대한 자세한 내용은 [scripts](../basic/scripts.md) 페이지를 참고하세요.)\\n\\n우리가 작성한 [Script](../basic/scripts.md)는 [RAM](../basic/ram.md)을 2.6GB 사용합니다.\\n다음 `Terminal` 명령어로 확인할 수 있습니다:\\n\\n    $ mem early-hack-template.js\\n\\n따라서 16GB 서버에서는 6스레드로 실행할 수 있습니다.\\n이제 이 모든 서버에서 [Scripts](../basic/scripts.md)를 실행하려면 다음 작업을 해야 합니다:\\n\\n1. `scp` 명령으로 [Script](../basic/scripts.md)를 각 서버에 복사합니다.\\n2. `connect` 명령으로 서버에 접속합니다.\\n3. `run` 명령으로 `NUKE.exe` 프로그램을 실행해 root 권한을 얻습니다.\\n4. 다시 `run` 명령으로 [Script](../basic/scripts.md)를 실행합니다.\\n5. 각 서버마다 2-4단계를 반복합니다.\\n\\n이를 위해 제가 사용한 `Terminal` 명령어 순서는 다음과 같습니다:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_beginner_running_scripts_after_commands",
+      "source": "Pressing the `Tab` key in the middle of a Terminal command will attempt to auto-complete the command.\\nFor example, if you type in `scp ea` and then hit `Tab`, the rest of the [Script](../basic/scripts.md)'s name should automatically be filled in.\\nThis works for most commands in the game!\\n\\nThe `home` command is used to connect to the home computer. When running our [Scripts](../basic/scripts.md) with the `run early-hack-template.js -t 6` command, the `-t 6` specifies that the [Script](../basic/scripts.md) should be run with 6 threads.\\n\\nNote that the `nectar-net` [Server](../basic/servers.md) isn't in the home computer's immediate network.\\nThis means you can't directly connect to it from home. You will have to search for it inside the network.\\nThe results of the `scan-analyze 2` command we ran before will show where it is.\\nIn my case, I could connect to it by going from `n00dles` -> `nectar-net`.\\nHowever, this will probably be different for you.\\n\\nAfter running all of these `Terminal` commands, our [Scripts](../basic/scripts.md) are now up and running.\\nThese will earn money and hacking experience over time.\\nThese gains will be really slow right now, but they will increase once our hacking skill rises and we start running more [Scripts](../basic/scripts.md).",
+      "target": "`Terminal` 명령어를 입력하는 중간에 `Tab` 키를 누르면 명령어 자동 완성을 시도합니다.\\n예를 들어 `scp ea`를 입력한 뒤 `Tab`을 누르면 [Script](../basic/scripts.md) 이름의 나머지 부분이 자동으로 채워질 것입니다.\\n이 기능은 게임 안의 대부분 명령어에서 작동합니다!\\n\\n`home` 명령은 home 컴퓨터로 접속하는 데 사용합니다. `run early-hack-template.js -t 6` 명령으로 [Scripts](../basic/scripts.md)를 실행할 때, `-t 6`은 해당 [Script](../basic/scripts.md)를 6스레드로 실행하라는 뜻입니다.\\n\\n`nectar-net` [Server](../basic/servers.md)는 home 컴퓨터의 바로 옆 네트워크에 있지 않다는 점에 주의하세요.\\n즉, home에서 바로 접속할 수 없습니다. 네트워크 안에서 찾아야 합니다.\\n앞에서 실행한 `scan-analyze 2` 명령 결과를 보면 위치를 알 수 있습니다.\\n제 경우에는 `n00dles` -> `nectar-net` 순서로 이동해서 접속할 수 있었습니다.\\n하지만 여러분의 네트워크에서는 다를 가능성이 큽니다.\\n\\n이 모든 `Terminal` 명령어를 실행하면 [Scripts](../basic/scripts.md)가 실행 중인 상태가 됩니다.\\n이 [Scripts](../basic/scripts.md)는 시간이 지나면서 돈과 해킹 경험치를 벌어 줍니다.\\n지금은 수익과 경험치가 매우 느리게 오르겠지만, 해킹 스킬이 오르고 더 많은 [Scripts](../basic/scripts.md)를 실행하기 시작하면 점점 증가합니다.",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Beginner's guide Running our Scripts prose should render in Korean while terminal command/output blocks, commands, server names, filenames, and API terms remain unchanged.",
+    "knownRemaining": [
+      "The scan-analyze example output is preserved as terminal output.",
+      "The Increasing Hacking Level section and later sections are intentionally left for the next patch."
+    ]
+  }
+}

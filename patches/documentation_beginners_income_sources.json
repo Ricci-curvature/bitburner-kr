@@ -1,0 +1,52 @@
+{
+  "patchId": "documentation_beginners_income_sources",
+  "description": "Translate Beginner's guide Additional Sources of Income through After you Purchase your New Cloud Servers.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Documentation/doc/help/getting_started.md"
+  ],
+  "scope": "Beginner's guide income sources section: Hacknet Nodes, Crime, Company work, and using freed home RAM after cloud server purchases.",
+  "preserveTerms": [
+    "Script",
+    "Scripts",
+    "Server",
+    "Servers",
+    "Terminal",
+    "RAM",
+    "Hacknet Nodes",
+    "Hacknet Node",
+    "City",
+    "The Slums",
+    "Rob Store",
+    "Shoplift",
+    "Joe's Guns",
+    "Apply to be an Employee",
+    "Work",
+    "Carmichael Security",
+    "company",
+    "crime",
+    "crimes",
+    "reputation",
+    "early-hack-template.js",
+    "home"
+  ],
+  "operations": [
+    {
+      "id": "docs_beginner_income_sources",
+      "allowRemainingSource": false,
+      "type": "replace",
+      "source": "## Additional Sources of Income\\n\\nThere are other ways to gain money in this game besides [Scripts](../basic/scripts.md) & [hacking](../basic/hacking.md).\\n\\n## Hacknet Nodes\\n\\nIf you completed the introductory tutorial, you were already introduced to this method: [Hacknet Nodes](../basic/hacknet_nodes.md).\\nOnce you have enough money, you can start upgrading your [Hacknet Nodes](../basic/hacknet_nodes.md) in order to increase your passive income stream.\\nThis is completely optional.\\nSince each [Hacknet Node](../basic/hacknet_nodes.md) upgrade takes a certain amount of time to \\\"pay itself off\\\", it may not necessarily be in your best interest to use these.\\n\\nNonetheless, [Hacknet Nodes](../basic/hacknet_nodes.md) are a good source of income early in the game, although their effectiveness tapers off later on.\\nIf you do wind up purchasing and upgrading [Hacknet Nodes](../basic/hacknet_nodes.md), I would suggest only upgrading their levels for now.\\nI wouldn't bother with [RAM](../basic/ram.md) and Core upgrades until later on.\\n\\n## Crime\\n\\nThe best source of income right now is from [crimes](../basic/crimes.md).\\nThis is because it not only gives you a large amount of money, but it also raises your hacking level.\\nTo commit [crimes](../basic/crimes.md), go to the `City` tab (Alt + w).\\nThen, click on the link that says `The Slums`.\\n\\nIn the Slums, you can attempt to commit a variety of [crimes](../basic/crimes.md), each of which gives certain types of experience and money if successful.\\nSee [crimes](../basic/crimes.md) for more details.\\n\\nYou are not always successful when you attempt to commit a crime.\\nNothing bad happens if you fail a [crime](../basic/crimes.md), but you won't earn any money and the experience gained will be reduced.\\nRaising your stats improves your chance of successfully committing a [crime](../basic/crimes.md).\\n\\nRight now, the best option is the `Rob Store` [crime](../basic/crimes.md).\\nThis takes 60 seconds to attempt, gives \\\\$400k if successful, and gives hacking experience (which is very important right now).\\n\\nAlternatively, you can also use the `Shoplift` [crime](../basic/crimes.md).\\nThis takes 2 seconds to attempt and gives \\\\$15k if successful.\\nThis [crime](../basic/crimes.md) is slightly easier and more profitable than `Rob Store`, but doesn't give hacking experience.\\n\\n## Work for a Company\\n\\nIf you don't want to commit [crimes](../basic/crimes.md), there's another option - working for a [company](../basic/companies.md).\\nThis will not be nearly as profitable as [crimes](../basic/crimes.md), but will provide [company](../basic/companies.md) [reputation](../basic/reputation.md).\\n\\nGo to the `City` tab on the left-hand navigation menu and then go to `Joe's Guns`.\\nAt `Joe's Guns`, there will be an option that says `Apply to be an Employee`.\\nClick this to get the job.\\nThen, a new option will appear that simply says `Work`.\\nClick this to start working.\\nWorking at `Joe's Guns` earns \\\\$110 per second and also grants some experience for every stat except hacking.\\n\\nWorking for a [company](../basic/companies.md), like [crime](../basic/crimes.md), is completely passive.\\nYou can choose to focus on your work, do something else simultaneously, or switch between those two.\\nWhile you focus on work, you will not be able to do anything else in the game.\\nIf you do something else simultaneously, you will not gain [reputation](../basic/reputation.md) at the same speed.\\nYou can cancel working at any time.\\n\\nOnce your hacking hits level 75, you can visit `Carmichael Security` in the city and get a software job there.\\nThis job offers higher pay and also earns you hacking experience.\\n\\nThere are many more companies in the `City` tab that offer more pay and also more gameplay features.\\nFeel free to explore!\\n\\n## After you Purchase your New Cloud Servers\\n\\nAfter you've made a total of \\\\$11 million, your automatic cloud [Server](../basic/servers.md)-purchasing [Script](../basic/scripts.md) should finish running.\\nThis will free up some [RAM](../basic/ram.md) on your home computer.\\nWe don't want this [RAM](../basic/ram.md) to go to waste, so we'll make use of it.\\nGo to `Terminal` and enter the following commands:\\n\\n    $ home\\n    $ run early-hack-template.js -t 3\\n\\n",
+      "expectedCount": 1,
+      "allowExistingTarget": true,
+      "target": "## 추가 수입원\\n\\n이 게임에는 [Scripts](../basic/scripts.md)와 [hacking](../basic/hacking.md) 말고도 돈을 버는 방법이 있습니다.\\n\\n## Hacknet Nodes\\n\\n입문 튜토리얼을 완료했다면 이미 이 방법을 본 적이 있을 것입니다: [Hacknet Nodes](../basic/hacknet_nodes.md)입니다.\\n돈이 충분해지면 [Hacknet Nodes](../basic/hacknet_nodes.md)를 업그레이드해서 패시브 수입을 늘릴 수 있습니다.\\n이 방법은 완전히 선택 사항입니다.\\n각 [Hacknet Node](../basic/hacknet_nodes.md) 업그레이드는 투자금을 회수하는 데 일정 시간이 걸리므로, 항상 최선의 선택은 아닐 수 있습니다.\\n\\n그래도 [Hacknet Nodes](../basic/hacknet_nodes.md)는 게임 초반에 좋은 수입원입니다. 다만 후반으로 갈수록 효율은 점점 낮아집니다.\\n[Hacknet Nodes](../basic/hacknet_nodes.md)를 구매하고 업그레이드하기로 했다면, 지금은 레벨만 올리는 것을 추천합니다.\\n[RAM](../basic/ram.md)과 Core 업그레이드는 나중까지 미뤄도 됩니다.\\n\\n## 범죄\\n\\n지금 가장 좋은 수입원은 [crimes](../basic/crimes.md)입니다.\\n돈을 많이 줄 뿐 아니라 해킹 레벨도 올려 주기 때문입니다.\\n[crimes](../basic/crimes.md)를 저지르려면 `City` 탭(Alt + w)으로 이동합니다.\\n그런 다음 `The Slums`라고 적힌 링크를 클릭합니다.\\n\\nSlums에서는 여러 종류의 [crimes](../basic/crimes.md)를 시도할 수 있으며, 성공하면 각 범죄에 따라 특정 경험치와 돈을 얻습니다.\\n자세한 내용은 [crimes](../basic/crimes.md)를 참고하세요.\\n\\n범죄 시도는 항상 성공하는 것은 아닙니다.\\n[crime](../basic/crimes.md)에 실패해도 나쁜 일은 일어나지 않지만, 돈을 벌지 못하고 얻는 경험치도 줄어듭니다.\\n스탯을 올리면 [crime](../basic/crimes.md) 성공 확률이 높아집니다.\\n\\n지금 가장 좋은 선택지는 `Rob Store` [crime](../basic/crimes.md)입니다.\\n시도하는 데 60초가 걸리고, 성공하면 \\$400k를 주며, 지금 매우 중요한 해킹 경험치도 줍니다.\\n\\n대안으로 `Shoplift` [crime](../basic/crimes.md)도 사용할 수 있습니다.\\n시도하는 데 2초가 걸리고, 성공하면 \\$15k를 줍니다.\\n이 [crime](../basic/crimes.md)은 `Rob Store`보다 약간 쉽고 수익성도 좋지만, 해킹 경험치는 주지 않습니다.\\n\\n## 회사에서 일하기\\n\\n[crimes](../basic/crimes.md)를 저지르고 싶지 않다면 다른 선택지도 있습니다. [company](../basic/companies.md)에서 일하는 것입니다.\\n[crimes](../basic/crimes.md)만큼 수익성이 높지는 않지만, [company](../basic/companies.md) [reputation](../basic/reputation.md)을 얻을 수 있습니다.\\n\\n왼쪽 내비게이션 메뉴의 `City` 탭으로 이동한 뒤 `Joe\\'s Guns`로 갑니다.\\n`Joe\\'s Guns`에는 `Apply to be an Employee`라는 선택지가 있습니다.\\n이 버튼을 클릭하면 취업합니다.\\n그러면 `Work`라고 적힌 새 선택지가 나타납니다.\\n이 버튼을 클릭하면 일을 시작합니다.\\n`Joe\\'s Guns`에서 일하면 초당 \\$110을 벌고, 해킹을 제외한 모든 스탯 경험치를 조금씩 얻습니다.\\n\\n[company](../basic/companies.md)에서 일하는 것도 [crime](../basic/crimes.md)처럼 완전히 패시브입니다.\\n일에 집중하거나, 다른 일을 동시에 하거나, 두 모드 사이를 전환할 수 있습니다.\\n일에 집중하는 동안에는 게임에서 다른 일을 할 수 없습니다.\\n다른 일을 동시에 하면 [reputation](../basic/reputation.md)을 같은 속도로 얻지 못합니다.\\n일은 언제든지 취소할 수 있습니다.\\n\\n해킹 레벨이 75가 되면 도시의 `Carmichael Security`에 가서 소프트웨어 직종에 취업할 수 있습니다.\\n이 직업은 더 높은 급여를 주고 해킹 경험치도 줍니다.\\n\\n`City` 탭에는 더 많은 급여와 더 많은 게임플레이 기능을 제공하는 회사가 많이 있습니다.\\n자유롭게 둘러보세요!\\n\\n## 새 Cloud Server를 구매한 뒤\\n\\n총 \\$11 million을 벌고 나면, cloud [Server](../basic/servers.md)를 자동 구매하는 [Script](../basic/scripts.md)가 실행을 마쳤을 것입니다.\\n그러면 home 컴퓨터의 [RAM](../basic/ram.md)이 조금 비게 됩니다.\\n이 [RAM](../basic/ram.md)을 낭비하지 않도록 활용하겠습니다.\\n`Terminal`로 가서 다음 명령어를 입력합니다:\\n\\n    $ home\\n    $ run early-hack-template.js -t 3\\n",
+      "file": "resources/app/dist/main.bundle.js"
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Beginner's guide Additional Sources of Income through After you Purchase your New Cloud Servers should render in Korean while commands and proper nouns remain stable.",
+    "knownRemaining": [
+      "Reaching a Hacking Level of 50 and later Beginner's guide sections remain for the next patch."
+    ]
+  }
+}
