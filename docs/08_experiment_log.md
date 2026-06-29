@@ -80,3 +80,33 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - `index.html` force CSS는 실제 렌더링 변경에 성공했다.
 - Phase 1 패처는 문자열 치환과 폰트 패치를 별도 patchId로 분리해야 한다.
 - 폰트 패치는 전체 UI 적용을 기본값으로 두되, 에디터 예외 처리를 옵션으로 둔다.
+
+## 2026-06-29 - Augmentation 효과 라벨 소형 패치
+
+목표:
+
+- Augmentation 이름이나 내부 multiplier 키는 건드리지 않는다.
+- `src/Augmentation/Augmentation.ts`에서 생성되는 효과 설명 라벨만 번역한다.
+- 광범위한 `hacking skill` 치환 대신 minified bundle의 Augmentation 전용 조각만 치환한다.
+
+적용한 번역:
+
+- `Effects:` -> `효과:`
+- `all skills` -> `모든 스킬`
+- `hacking skill` -> `해킹 스킬`
+- `combat skills` -> `전투 스킬`
+- `exp for all skills` -> `모든 스킬 경험치`
+- `hacking exp` -> `해킹 경험치`
+- `combat exp` -> `전투 경험치`
+
+검증:
+
+- 각 source 조각은 적용 전 정확히 1회 매치되었다.
+- `scripts/apply-patch.ps1 -Patch patches/augmentation_effects_small.json -Apply`로 적용했다.
+- 적용 후 source 조각 7개는 모두 0회, target 조각 7개는 모두 1회 확인했다.
+- `patch-state.json`에 `augmentation_effects_small` applied entry 7개가 기록되었다.
+
+다음 확인:
+
+- Augmentation 상세/구매 모달에서 줄바꿈과 `%` 포맷이 유지되는지 확인한다.
+- `NeuroFlux Governor` 등 여러 효과가 있는 Augmentation에서 라벨 조합이 자연스러운지 확인한다.

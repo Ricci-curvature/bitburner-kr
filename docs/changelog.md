@@ -88,3 +88,10 @@
 - 폰트 패치 revert 후 font file 제거, HTML force CSS 제거, 번들 font stack 복구를 확인했다.
 - Hacknet 패치 revert 후 원문 복구와 한국어 문장 제거를 확인했다.
 - 테스트용 `patch-state.json`은 검증 후 삭제했다.
+
+## 2026-06-29 - Augmentation 효과 라벨 패치 적용
+
+- `patches/augmentation_effects_small.json`을 추가했다.
+- broad string 치환 대신 Augmentation 효과 생성 함수의 minified 조각만 대상으로 삼았다.
+- `apply-patch.ps1 -Apply`로 실제 적용했고, source 0회/target 1회 검증을 통과했다.
+- 이번 패치부터 수동 치환이 아니라 패처 기반 적용 흐름으로 진행했다.

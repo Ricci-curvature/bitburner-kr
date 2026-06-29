@@ -1,0 +1,89 @@
+{
+  "patchId": "augmentation_effects_small",
+  "description": "Translate small Augmentation effect labels without touching Augmentation names or multiplier keys.",
+  "gameVersion": "3.0.1",
+  "date": "2026-06-29",
+  "sourceMapOrigins": [
+    "webpack:///./src/Augmentation/Augmentation.ts"
+  ],
+  "scope": "Augmentation effect description labels only",
+  "preserveTerms": [
+    "Augmentation",
+    "Faction",
+    "hack()",
+    "grow()",
+    "weaken()"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effects_header",
+      "source": "let i=\"Effects:\"",
+      "target": "let i=\"효과:\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_all_skills",
+      "source": "r(e.hacking-1)} all skills`",
+      "target": "r(e.hacking-1)} 모든 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_hacking_skill",
+      "source": "r(e.hacking-1)} hacking skill`",
+      "target": "r(e.hacking-1)} 해킹 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_combat_skills",
+      "source": "r(e.strength-1)} combat skills`",
+      "target": "r(e.strength-1)} 전투 스킬`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_exp_all_skills",
+      "source": "r(e.hacking_exp-1)} exp for all skills`",
+      "target": "r(e.hacking_exp-1)} 모든 스킬 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_hacking_exp",
+      "source": "r(e.hacking_exp-1)} hacking exp`",
+      "target": "r(e.hacking_exp-1)} 해킹 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "augmentation_effect_combat_exp",
+      "source": "r(e.strength_exp-1)} combat exp`",
+      "target": "r(e.strength_exp-1)} 전투 경험치`",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ]
+}

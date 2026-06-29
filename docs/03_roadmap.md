@@ -275,3 +275,20 @@
 
 - 라이브 게임 파일에는 이미 수동 패치가 적용되어 있으므로 당장은 dry-run 검증만 유지
 - 다음 신규 번역 패치부터는 JSON 작성 후 패처로만 적용
+
+## Phase 3 진행 메모
+
+2026-06-29 기준 Augmentation 효과 라벨 소형 패치를 적용했다.
+
+구현된 것:
+
+- `patches/augmentation_effects_small.json`
+- `Effects:` / 스킬 / 경험치 라벨 7개 치환
+- 패처 기반 dry-run 및 `-Apply` 적용
+- 적용 후 source 0회, target 1회 검증
+
+다음 확인:
+
+- 게임 재시작 후 Augmentation 상세/구매 모달에서 화면 검증
+- 검증 스크린샷을 `screenshot/`에 추가
+- 문제가 없으면 Terminal analyze 라벨 패치로 이동
