@@ -1,0 +1,122 @@
+{
+  "patchId": "faction_main_residual_labels",
+  "description": "Translate remaining labels and descriptions on the Faction main page after the focused Faction work patch.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Faction/ui/FactionRoot.tsx",
+    "webpack:///./src/Faction/ui/Info.tsx",
+    "webpack:///./src/Faction/ui/GangCampaign.tsx",
+    "webpack:///./src/Faction/ui/DonateOption.tsx",
+    "webpack:///./src/ui/React/ReputationInfo.tsx",
+    "webpack:///./src/ui/React/FavorInfo.tsx"
+  ],
+  "scope": "Faction main page residual labels, donation unlock line, special campaign block, and shared Faction reputation/favor info labels",
+  "preserveTerms": [
+    "Faction",
+    "Augmentation",
+    "BitNode",
+    "Slum Snakes",
+    "NiteSec",
+    "Netburners"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_main_back_button",
+      "source": "r.createElement(c.A,{onClick:()=>s.I.toPage(l.Y.Factions)},\"Back\"),r.createElement(u.A,{variant:\"h4\",color:\"primary\"},e.name)",
+      "target": "r.createElement(c.A,{onClick:()=>s.I.toPage(l.Y.Factions)},\"뒤로\"),r.createElement(u.A,{variant:\"h4\",color:\"primary\"},e.name)",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_not_joined_back_button",
+      "source": "r.createElement(c.A,{onClick:()=>s.I.toPage(l.Y.Factions)},\"Back to Factions\")",
+      "target": "r.createElement(c.A,{onClick:()=>s.I.toPage(l.Y.Factions)},\"Faction 목록으로\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_special_campaign_heading_and_tooltip",
+      "source": "r.createElement(i.A,{variant:\"h5\",style:{display:\"flex\",alignItems:\"center\"}},r.createElement(c.A,{style:{fontSize:\"1.1em\",marginRight:\"10px\"}}),\"Special Campaign\",r.createElement(l.A,{title:r.createElement(r.Fragment,null,\"Some factions are developing special campaigns for researching breakthrough technology or executing initiatives. Some campaigns may be complete, while others remain unfinished. Explore them now, and return later if a campaign is not yet complete to see what unfolds.\")},r.createElement(m.A,{sx:{fontSize:\"0.8em\",marginLeft:\"10px\"}})))",
+      "target": "r.createElement(i.A,{variant:\"h5\",style:{display:\"flex\",alignItems:\"center\"}},r.createElement(c.A,{style:{fontSize:\"1.1em\",marginRight:\"10px\"}}),\"특수 캠페인\",r.createElement(l.A,{title:r.createElement(r.Fragment,null,\"일부 Faction은 돌파구가 될 기술 연구나 계획 실행을 위한 특수 캠페인을 진행하고 있습니다. 어떤 캠페인은 완료되어 있고, 어떤 캠페인은 아직 끝나지 않았습니다. 지금 확인해 보고, 아직 완료되지 않은 캠페인은 나중에 다시 돌아와 전개를 확인하세요.\")},r.createElement(m.A,{sx:{fontSize:\"0.8em\",marginLeft:\"10px\"}})))",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_special_campaign_none",
+      "source": "e.factionInfo.campaign?e.factionInfo.campaign():r.createElement(i.A,null,\"None\"),r.createElement(i.A,null,\"-------------------------\")",
+      "target": "e.factionInfo.campaign?e.factionInfo.campaign():r.createElement(i.A,null,\"없음\"),r.createElement(i.A,null,\"-------------------------\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_gang_incomplete_campaign_option",
+      "source": "buttonText:\"Execute the formation plan\",infoText:\"The tension between our faction and its rivals has been rising. The leader plans to form a specialized group under your command to strengthen our position by improving our standing and expanding our resources.\",onClick:",
+      "target": "buttonText:\"조직 결성 계획 실행\",infoText:\"우리 Faction과 경쟁 세력 사이의 긴장이 높아지고 있습니다. 리더는 우리의 입지를 강화하고 자원을 확장하기 위해 당신의 지휘 아래 특수 조직을 결성하려 합니다.\",onClick:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_purchase_augmentations_option",
+      "source": "r.createElement(o.c,{buttonText:\"Purchase Augmentations\",infoText:\"As your reputation with this faction rises, you will unlock augmentations, which you can purchase to enhance your abilities.\",onClick:n})",
+      "target": "r.createElement(o.c,{buttonText:\"Augmentation 구매\",infoText:\"이 Faction과의 평판이 오르면 능력을 강화하는 Augmentation이 해금되고, 이를 구매할 수 있습니다.\",onClick:n})",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_donation_unlock_line",
+      "source": "r.createElement(c.A,null,\"Unlock donations at \",r.createElement(o.n,{favor:t}),\" favor with \",e.name)",
+      "target": "r.createElement(c.A,null,e.name,\"에서 기부를 해금하려면 favor \",r.createElement(o.n,{favor:t}),\" 필요\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_reputation_info_tooltip_and_label",
+      "source": "r.createElement(o.A,null,\"You will have \",r.createElement(l.n,{favor:(0,s._3)(e,t)}),\" faction favor after installing an Augmentation.\"),r.createElement(o.A,{style:{fontSize:\"2rem\"}},\"r = Total faction reputation\"),r.createElement(u.k,{notation:c.pZ}))},r.createElement(o.A,{component:\"div\",sx:{display:\"flex\",alignItems:\"center\",whiteSpace:\"pre-wrap\"}},r.createElement(o.A,{sx:{fontWeight:n?\"bold\":\"normal\"}},\"Reputation: \"),r.createElement(m.E,{reputation:t})",
+      "target": "r.createElement(o.A,null,\"Augmentation 설치 후 Faction favor는 \",r.createElement(l.n,{favor:(0,s._3)(e,t)}),\"가 됩니다.\"),r.createElement(o.A,{style:{fontSize:\"2rem\"}},\"r = 총 Faction 평판\"),r.createElement(u.k,{notation:c.pZ}))},r.createElement(o.A,{component:\"div\",sx:{display:\"flex\",alignItems:\"center\",whiteSpace:\"pre-wrap\"}},r.createElement(o.A,{sx:{fontWeight:n?\"bold\":\"normal\"}},\"평판: \"),r.createElement(m.E,{reputation:t})",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_favor_info_tooltip_and_label",
+      "source": "r.createElement(o.A,null,\"Faction favor increases the rate at which you earn reputation for this faction by 1% per favor. Faction favor is gained whenever you install an Augmentation. The amount of favor you gain depends on the total amount of reputation you earned with this faction across all resets.\"),r.createElement(o.A,{style:{fontSize:\"2rem\"}},\"r = Reputation gain\"),r.createElement(m.k,{notation:l.q9}))},r.createElement(o.A,{component:\"div\",sx:{display:\"flex\",alignItems:\"center\",whiteSpace:\"pre-wrap\"}},r.createElement(o.A,{sx:{fontWeight:t?\"bold\":\"normal\"}},\"Favor: \"),r.createElement(s.n,{favor:e})",
+      "target": "r.createElement(o.A,null,\"Faction favor는 이 Faction에서 얻는 평판 획득 속도를 favor 1당 1%씩 높입니다. Faction favor는 Augmentation을 설치할 때 얻습니다. 얻는 favor 양은 모든 리셋 동안 이 Faction에서 얻은 총 평판량에 따라 달라집니다.\"),r.createElement(o.A,{style:{fontSize:\"2rem\"}},\"r = 평판 획득량\"),r.createElement(m.k,{notation:l.q9}))},r.createElement(o.A,{component:\"div\",sx:{display:\"flex\",alignItems:\"center\",whiteSpace:\"pre-wrap\"}},r.createElement(o.A,{sx:{fontWeight:t?\"bold\":\"normal\"}},\"Favor: \"),r.createElement(s.n,{favor:e})",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Faction main page residual labels such as Back, Special Campaign, donation unlock, Purchase Augmentations, Reputation, and Favor tooltips should render in Korean where appropriate.",
+    "knownRemaining": [
+      "Faction Augmentations purchase page sorting/filtering and buy-state labels are intentionally left for a separate Faction Augmentations page patch.",
+      "Faction names and gameplay terms Faction/Augmentation/BitNode are preserved."
+    ]
+  }
+}

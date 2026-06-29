@@ -15,10 +15,12 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Options 라벨/버튼/주요 툴팁
 - Active Scripts 라벨/설명문/생산 통계 텍스트
 - Dark Net 화면 라벨/상태/툴팁
+- Faction work 라벨/메인 잔여/짧은 소개문
 
 진행 후보:
 
-- Faction work 라벨
+- Faction Augmentations 구매 화면
+- Dark Net 인증/상세 모달 잔여
 
 검증 원칙:
 
@@ -42,6 +44,7 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Phase 1 패처 | `scripts/apply-patch.ps1`, `scripts/revert-patch.ps1` | clean GameRoot apply/revert CLI + 스크린샷 검증 완료 | `screenshot/patcher_01_clean_dry_run.png` ... `screenshot/patcher_06_revert_count_check.png` | 없음 |
 | Active Scripts 라벨/텍스트 | `patches/active_scripts_labels.json`, `patches/active_scripts_texts.json` | 1차 잔여 후 2차 보정, 화면 검증 완료 | `screenshot/active_scripts_success.png` | 공용 시간 단위 formatter 별도 후보 |
 | Dark Net 화면 라벨/툴팁 | `patches/darknet_tooltips.json` | dev-only 오판 후 revert, 실제 화면 manifest 재작성 및 화면 검증 완료 | `screenshot/darknet_success.png` | `Logs scraped via`, `Hint:` 2회 출현 문구 별도 후보 |
+| Faction work/메인/짧은 소개문 | `patches/faction_work_labels.json`, `patches/faction_main_residual_labels.json`, `patches/faction_info_descriptions_small.json` | 화면 검증 완료 | `screenshot/faction_sector12_info_success.png`, `screenshot/faction_slum_snakes_work_success.png`, `screenshot/faction_favor_tooltip_success.png` | 긴 Faction lore/rumor, Faction Augmentations 구매 화면 |
 
 ### Phase 1 패처 로컬 CLI 검증
 
@@ -847,4 +850,50 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 
 - Monaco 코드 에디터 예외 처리는 화면 확인 기준 완료했다.
 - 인게임 에디터 사용 빈도는 낮더라도, 긴 스크립트 편집 시 코드 가독성을 보존하는 안전장치로 유지한다.
-- 다음 후보는 Faction work 라벨이다.
+- 다음 단계로 Faction work 라벨과 Faction 메인 잔여 문구를 처리했다.
+
+## Faction work/메인 잔여/짧은 소개문 패치
+
+목표:
+
+- Faction 화면에서 실제로 자주 읽는 work 카드, 특수 캠페인, 기부 해금, 짧은 소개문을 처리한다.
+- Faction 이름, Augmentation, BitNode 같은 고유명사와 게임 용어는 유지한다.
+- Faction Augmentations 구매 화면과 긴 lore/rumor 텍스트는 별도 sweep으로 남긴다.
+
+적용한 manifest:
+
+- `patches/faction_work_labels.json`
+- `patches/faction_main_residual_labels.json`
+- `patches/faction_info_descriptions_small.json`
+
+적용한 내용:
+
+- Work 안내문과 작업 카드 3종을 번역했다.
+- `Hacking Contracts`, `Field Work`, `Security Work`를 각각 `해킹 계약`, `현장 임무`, `보안 업무`로 번역했다.
+- Faction 작업 진행 화면의 현재 작업, 현재 평판, 중단 버튼, 종료 결과 문구를 번역했다.
+- 메인 화면의 `Back`, `Special Campaign`, `None`, `Purchase Augmentations`, 기부 해금 안내, Reputation/Favor 툴팁을 보정했다.
+- Sector-12, Tetrads, Aevum, Chongqing, Ishima, New Tokyo, Volhaven, Tian Di Hui 등 짧은 Faction 소개문 일부를 번역했다.
+- `This faction is enemies with:`는 `적대 관계:`로 번역했다.
+
+통제 확인:
+
+- `faction_work_labels.json`은 10개 operation 모두 dry-run에서 `sourceCount=1`로 통과했다.
+- `faction_main_residual_labels.json`은 9개 operation 모두 dry-run에서 `sourceCount=1`로 통과했다.
+- `faction_info_descriptions_small.json`은 12개 operation 모두 dry-run에서 `sourceCount=1`로 통과했다.
+- 적용 후 재 dry-run에서 세 manifest 모두 `already-applied`로 확인했다.
+- `The City of the Future.`, `Following the mandate of Heaven and carrying out the way.`, `This faction is enemies with:`는 적용 후 source 0회, target 1회로 확인했다.
+- `Asia's World City.`, `Benefit, Honor, and Glory.`, `Obey Heaven and work righteously.`는 rumor 문맥에도 남아 있어 infoText 문맥만 좁혀 처리했다.
+
+스크린샷:
+
+![Faction Sector-12 소개문 성공](../screenshot/faction_sector12_info_success.png)
+
+![Faction Slum Snakes work 성공](../screenshot/faction_slum_snakes_work_success.png)
+
+![Faction favor 툴팁 성공](../screenshot/faction_favor_tooltip_success.png)
+
+판단:
+
+- Faction work 라벨, 메인 잔여 라벨, 짧은 소개문은 화면 확인 기준 완료했다.
+- 긴 Faction lore/rumor 문구와 Faction Augmentations 구매 화면은 별도 manifest로 분리하는 것이 안전하다.
+- 다음 후보는 Faction Augmentations 구매 화면 라벨/설명문이다.

@@ -1,0 +1,150 @@
+{
+  "patchId": "faction_info_descriptions_small",
+  "description": "Translate small visible Faction info descriptions and the enemy relationship sentence on Faction pages.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Faction/FactionInfo.tsx",
+    "webpack:///./src/Faction/ui/Info.tsx"
+  ],
+  "scope": "Small Faction infoText descriptions, especially city and early Faction pages, plus the visible enemy relationship sentence",
+  "preserveTerms": [
+    "Faction",
+    "Augmentation",
+    "BitNode",
+    "NiteSec",
+    "Netburners",
+    "Slum Snakes",
+    "Tetrads",
+    "Sector-12"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_enemy_relationship_sentence",
+      "source": "r.createElement(\"br\",null),\"This faction is enemies with: \",e.factionInfo.enemies.join(\", \"),\".\")",
+      "target": "r.createElement(\"br\",null),\"적대 관계: \",e.factionInfo.enemies.join(\", \"),\".\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_aevum",
+      "source": "\"The Silicon City.\"",
+      "target": "\"실리콘 도시.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_chongqing",
+      "source": "\"Serve the People.\"",
+      "target": "\"인민을 섬겨라.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_ishima",
+      "source": "\"The East Asian Order of the Future.\"",
+      "target": "\"미래의 동아시아 질서.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_new_tokyo",
+      "source": "infoText:r.createElement(r.Fragment,null,\"Asia's World City.\"),rumorText:r.createElement(r.Fragment,null,\"Wealthy residents of \",i.CityName.NewTokyo,\" may be invited to work for Asia's World City.\")",
+      "target": "infoText:r.createElement(r.Fragment,null,\"아시아의 세계 도시.\"),rumorText:r.createElement(r.Fragment,null,\"Wealthy residents of \",i.CityName.NewTokyo,\" may be invited to work for Asia's World City.\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_sector12",
+      "source": "\"The City of the Future.\"",
+      "target": "\"미래의 도시.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_volhaven",
+      "source": "infoText:r.createElement(r.Fragment,null,\"Benefit, Honor, and Glory.\"),rumorText:r.createElement(r.Fragment,null,\"Wealthy residents of \",i.CityName.Volhaven,\" may be invited to work for the city's Benefit, Honor, and Glory.\")",
+      "target": "infoText:r.createElement(r.Fragment,null,\"이익, 명예, 그리고 영광.\"),rumorText:r.createElement(r.Fragment,null,\"Wealthy residents of \",i.CityName.Volhaven,\" may be invited to work for the city's Benefit, Honor, and Glory.\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_tetrads",
+      "source": "\"Following the mandate of Heaven and carrying out the way.\"",
+      "target": "\"천명을 따르고 도를 행한다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_speakers_for_the_dead",
+      "source": "\"It is better to reign in Hell than to serve in Heaven.\"",
+      "target": "\"천국에서 섬기느니 지옥에서 군림하는 편이 낫다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_dark_army",
+      "source": "\"The World doesn't care about right or wrong. It only cares about power.\"",
+      "target": "\"세상은 옳고 그름에 관심이 없다. 오직 힘에만 관심이 있다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_the_syndicate",
+      "source": "\"Honor holds you back.\"",
+      "target": "\"명예는 너를 붙잡을 뿐이다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_info_tian_di_hui",
+      "source": "infoText:r.createElement(r.Fragment,null,\"Obey Heaven and work righteously.\"),rumorText:r.createElement(r.Fragment,null,\"A Chinese honor society with the motto: “Obey Heaven and work righteously.”\")",
+      "target": "infoText:r.createElement(r.Fragment,null,\"하늘에 따르고 의롭게 일하라.\"),rumorText:r.createElement(r.Fragment,null,\"A Chinese honor society with the motto: “Obey Heaven and work righteously.”\")",
+      "expectedCount": 1,
+      "allowRemainingSource": true,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Faction page top descriptions for city and early Factions should render in Korean. Enemy relationship text should use a Korean label while Faction names remain unchanged.",
+    "knownRemaining": [
+      "Longer Faction lore descriptions and rumor/invitation text are intentionally left for later Faction lore sweeps.",
+      "Faction names and gameplay terms Faction/Augmentation/BitNode are preserved."
+    ]
+  }
+}

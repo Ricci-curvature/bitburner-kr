@@ -1,0 +1,125 @@
+{
+  "patchId": "faction_work_labels",
+  "description": "Translate focused Faction work option labels, descriptions, and the Faction work-in-progress labels.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Faction/ui/FactionRoot.tsx",
+    "webpack:///./src/ui/WorkInProgressRoot.tsx",
+    "webpack:///./src/Work/FactionWork.tsx"
+  ],
+  "scope": "Faction page work option cards and Faction work progress labels only",
+  "preserveTerms": [
+    "Faction",
+    "Augmentation",
+    "BitNode"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_work_intro",
+      "source": "r.createElement(u.A,null,\"Perform work/carry out assignments for your faction to help further its cause! By doing so, you will earn reputation for your faction. You will also gain reputation passively over time, although at a very slow rate. \",(0,g.Pi)()&&r.createElement(r.Fragment,null,\"Note that the passive reputation gain is disabled in some BitNodes. \"),\"Earning reputation will allow you to purchase augmentations through this faction, which are powerful upgrades that enhance your abilities.\")",
+      "target": "r.createElement(u.A,null,\"Faction을 위해 작업하거나 임무를 수행해 세력을 돕습니다. 이를 통해 Faction 평판을 얻습니다. 시간이 지나면서 아주 느린 속도로 평판도 자동으로 얻습니다. \",(0,g.Pi)()&&r.createElement(r.Fragment,null,\"일부 BitNode에서는 자동 평판 획득이 비활성화됩니다. \"),\"평판을 쌓으면 이 Faction을 통해 능력을 강화하는 강력한 업그레이드인 Augmentation을 구매할 수 있습니다.\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_hacking_contracts_option",
+      "source": "buttonText:\"Hacking Contracts\",infoText:\"Complete hacking contracts for your faction. Your effectiveness, which determines how much reputation you gain for this faction, is based completely on your hacking skill. You will gain hacking exp.\",onClick:",
+      "target": "buttonText:\"해킹 계약\",infoText:\"Faction을 위해 해킹 계약을 수행합니다. 이 Faction에서 얻는 평판량을 결정하는 효율은 전적으로 해킹 스킬에 기반합니다. 해킹 경험치를 얻습니다.\",onClick:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_field_work_option",
+      "source": "buttonText:\"Field Work\",infoText:\"Carry out field missions for your faction. Your effectiveness, which determines how much reputation you gain for this faction, is based on all of your stats equally. You will gain exp for all stats.\",onClick:",
+      "target": "buttonText:\"현장 임무\",infoText:\"Faction을 위해 현장 임무를 수행합니다. 이 Faction에서 얻는 평판량을 결정하는 효율은 모든 스탯에 동일하게 기반합니다. 모든 스탯 경험치를 얻습니다.\",onClick:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_security_work_option",
+      "source": "buttonText:\"Security Work\",infoText:\"Serve in a security detail for your faction. Your effectiveness, which determines how much reputation you gain for this faction, is based on your combat stats and your hacking skill. You will gain exp for all combat stats and hacking.\",onClick:",
+      "target": "buttonText:\"보안 업무\",infoText:\"Faction의 보안 업무를 수행합니다. 이 Faction에서 얻는 평판량을 결정하는 효율은 전투 스탯과 해킹 스킬에 기반합니다. 모든 전투 스탯과 해킹 경험치를 얻습니다.\",onClick:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_work_progress_type_labels",
+      "source": "const n={[h.FactionWorkType.hacking]:\"carrying out hacking contracts\",[h.FactionWorkType.field]:\"carrying out field missions\",[h.FactionWorkType.security]:\"performing security detail\"},i=d.ai.currentWork.getExpRates();",
+      "target": "const n={[h.FactionWorkType.hacking]:\"해킹 계약 수행\",[h.FactionWorkType.field]:\"현장 임무 수행\",[h.FactionWorkType.security]:\"보안 업무 수행\"},i=d.ai.currentWork.getExpRates();",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_work_progress_title",
+      "source": "title:r.createElement(r.Fragment,null,\"You are currently \",n[d.ai.currentWork.factionWorkType],\" for \",r.createElement(\"b\",null,t.name)),description:",
+      "target": "title:r.createElement(r.Fragment,null,r.createElement(\"b\",null,t.name),\"에서 \",n[d.ai.currentWork.factionWorkType],\" 중입니다\"),description:",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_work_current_reputation",
+      "source": "description:r.createElement(r.Fragment,null,\"Current Faction Reputation: \",r.createElement(b.E,{reputation:t.playerReputation}),\" (\",r.createElement(y._,{reputation:d.ai.currentWork.getReputationRate()*F}),\")\")",
+      "target": "description:r.createElement(r.Fragment,null,\"현재 Faction 평판: \",r.createElement(b.E,{reputation:t.playerReputation}),\" (\",r.createElement(y._,{reputation:d.ai.currentWork.getReputationRate()*F}),\")\")",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_work_stop_button",
+      "source": "stopText:\"Stop Faction work\"",
+      "target": "stopText:\"Faction 작업 중단\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_work_finish_dialog_worked_for",
+      "source": "\"You worked for \",this.getFaction().name,\".\"",
+      "target": "this.getFaction().name,\"에서 작업했습니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "faction_work_finish_dialog_total_reputation",
+      "source": "\"They now have a total of \",r.createElement(u.E,{reputation:this.getFaction().playerReputation}),\" reputation.\"",
+      "target": "\"현재 총 평판은 \",r.createElement(u.E,{reputation:this.getFaction().playerReputation}),\"입니다.\"",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "Faction page work option cards and the Faction work progress screen should render Korean labels/descriptions while faction names remain unchanged.",
+    "knownRemaining": [
+      "Shared Work screen labels such as elapsed/remaining/done and the generic simultaneous-work button are intentionally left for a later Work/Class sweep."
+    ]
+  }
+}
