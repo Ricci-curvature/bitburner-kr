@@ -48,3 +48,15 @@
 - 사용자 스크린샷 기준 1차 font stack 치환은 실제 화면 폰트 변경으로 이어지지 않았다.
 - TTF 내부 family 이름은 `NeoDunggeunmo`로 확인했다.
 - `index.html`에 `#root` 하위 텍스트와 입력/코드/Monaco 계열에 대한 `!important` font-family 강제 CSS를 추가했다.
+
+## 2026-06-29 - NeoDunggeunmo fallback 순서 조정
+
+- force CSS 적용 결과 게임 전체 영문/숫자/UI까지 네오둥근모로 바뀌는 것을 확인했다.
+- 목적을 한글 glyph 보강으로 좁히기 위해 font stack을 `JetBrainsMono, NeoDunggeunmo, "Courier New", monospace` 순서로 변경했다.
+- 이제 영문/숫자는 기존 JetBrainsMono, 한글은 NeoDunggeunmo fallback을 기대한다.
+
+## 2026-06-29 - 폰트 변경 스크린샷 추가
+
+- `screenshot/폰트변경.png`를 추가했다.
+- README와 폰트 실험 문서에 force CSS 성공 화면을 연결했다.
+- 이 스크린샷은 NeoDunggeunmo가 실제 렌더링에 적용되었지만 전체 UI 폰트까지 바뀐 상태를 기록한다.

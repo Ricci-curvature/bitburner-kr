@@ -28,7 +28,9 @@ Bitburner 스팀판에 대한 한국어 표시 패치를 작은 범위부터 검
 
 ### NeoDunggeunmo 폰트 적용 실험
 
-앱 리소스에 `dist/fonts/neodgm.ttf`를 배치하고, `index.html`에 `@font-face`를 추가했다. 번들 내부 기본 font stack 4곳은 `NeoDunggeunmo, JetBrainsMono, "Courier New", monospace` 순서로 바꿨다.
+앱 리소스에 `dist/fonts/neodgm.ttf`를 배치하고, `index.html`에 `@font-face`와 force CSS를 추가했다. force CSS는 실제 렌더링 변경에 성공했지만, 한글뿐 아니라 게임 전체 영문/숫자 UI까지 NeoDunggeunmo로 바뀌었다. 이후 패치 방향은 `JetBrainsMono, NeoDunggeunmo, "Courier New", monospace` 순서로 두어 영문/숫자는 기존 폰트, 한글은 NeoDunggeunmo fallback을 쓰는 것이다.
+
+![폰트 변경](screenshot/%ED%8F%B0%ED%8A%B8%EB%B3%80%EA%B2%BD.png)
 
 ## 문서
 

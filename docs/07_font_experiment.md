@@ -80,3 +80,26 @@ Phase 1 패처에서는 폰트 적용을 문자열 번역 패치와 별도 patch
 - `input`, `textarea`, `button`, `pre`, `code`, `.monaco-editor`에도 같은 font family를 강제한다.
 
 이 실험은 렌더링 여부를 확인하기 위한 강한 패치다. 성공하면 Phase 1 패처에서는 사용자 설정을 보존하는 더 좁은 selector로 줄이는 것을 검토한다.
+
+## 2026-06-29 추가 실험: fallback order 조정
+
+force CSS 실험은 성공했지만, `NeoDunggeunmo`를 font stack 맨 앞에 두면 한글뿐 아니라 영문/숫자/기존 UI 전체가 네오둥근모로 렌더링된다.
+
+![폰트 변경](../screenshot/%ED%8F%B0%ED%8A%B8%EB%B3%80%EA%B2%BD.png)
+
+패치 목적이 "한글 표시 품질 개선"이라면 전체 UI 폰트 교체보다 다음 순서가 더 현실적이다.
+
+- `JetBrainsMono, NeoDunggeunmo, "Courier New", monospace`
+
+이 순서는 영문/숫자/기존 ASCII UI는 JetBrainsMono를 우선 사용하고, JetBrainsMono가 지원하지 않는 한글 글리프만 NeoDunggeunmo fallback으로 렌더링하게 만든다.
+
+적용 결과:
+
+- `main.bundle.js`의 `NeoDunggeunmo, JetBrainsMono, ...` 4곳을 `JetBrainsMono, NeoDunggeunmo, ...`로 변경했다.
+- `index.html`의 `--bb-kr-font-family`도 같은 fallback 순서로 변경했다.
+
+다음 확인 포인트:
+
+- `Hacknet Nodes`, `Hacknet Node`, 숫자, 스크립트 출력이 기존 JetBrainsMono에 가깝게 돌아오는지
+- 한글 설명문만 NeoDunggeunmo 자형으로 표시되는지
+- 한글/영문 혼합 줄에서 baseline이나 글자 폭이 크게 어긋나지 않는지
