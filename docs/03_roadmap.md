@@ -237,3 +237,33 @@
 4. `allowRemainingSource`: 치환 후 원문 잔존 허용 여부를 항목별로 제어
 
 세부 설계는 `docs/06_patcher_design.md`에 정리했다.
+
+## Phase 1 진행 메모
+
+2026-06-29 기준 패처 초안을 작성했다.
+
+구현된 것:
+
+- `scripts/apply-patch.ps1`
+- `scripts/revert-patch.ps1`
+- dry-run 기본값
+- `-Apply` 명시 적용
+- `expectedCount` 검사
+- `allowExistingTarget` 기반 이미 적용된 패치 감지
+- `allowRemainingSource` 검사
+- 백업 생성 설계
+- `patch-state.json` 기록 설계
+- 단일 patchId 최신 기록 기반 revert 설계
+- 기존 `target/replacements` 형식과 신규 `operations` 형식 동시 지원
+
+검증한 것:
+
+- 이미 적용된 Hacknet 패치는 dry-run에서 `already-applied`로 감지된다.
+- 이미 적용된 폰트 패치는 dry-run에서 `already-applied`로 감지된다.
+- 임시 clean GameRoot에서는 폰트 패치가 `will-copy`, `will-insert`, `will-replace`로 감지된다.
+
+다음 확인:
+
+- 실제 Steam 업데이트 또는 원본 복구 상태에서 `-Apply` 적용 테스트
+- `patch-state.json` 기록 확인
+- `revert-patch.ps1 -Apply` 복구 테스트

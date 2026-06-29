@@ -33,13 +33,14 @@
       "source": "JetBrainsMono, \"Courier New\", monospace",
       "target": "NeoDunggeunmo, JetBrainsMono, \"Courier New\", monospace",
       "expectedCount": 4,
-      "allowRemainingSource": false,
+      "allowRemainingSource": true,
       "allowExistingTarget": true
     }
   ],
   "notes": [
     "v1 bundle default font stack replacement did not visibly affect the UI in user screenshot.",
     "v2 adds index.html force CSS override for rendered UI verification.",
-    "v3 keeps NeoDunggeunmo first as the default full-UI font strategy; Monaco-only exception remains a future option."
+    "v3 keeps NeoDunggeunmo first as the default full-UI font strategy; Monaco-only exception remains a future option.",
+    "v4 sets allowRemainingSource=true for the font stack replace because the target string intentionally contains the source font stack as fallback."
   ]
 }

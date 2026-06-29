@@ -73,3 +73,10 @@
 - `font_neodgm_experiment.json`의 기본 target을 `NeoDunggeunmo, JetBrainsMono, "Courier New", monospace`로 되돌렸다.
 - 실제 게임 파일도 전체 UI NeoDunggeunmo 우선 순서로 다시 맞췄다.
 - Monaco 코드 에디터만 예외 처리할지는 추후 긴 스크립트 편집 화면을 보고 판단한다.
+
+## 2026-06-29 - Phase 1 패처 초안 작성
+
+- `scripts/apply-patch.ps1`와 `scripts/revert-patch.ps1`를 추가했다.
+- apply 패처는 dry-run 기본값, `-Apply`, `expectedCount`, `allowRemainingSource`, 이미 적용된 상태 감지를 지원한다.
+- 기존 Hacknet manifest와 신규 operations manifest를 모두 읽을 수 있게 했다.
+- 라이브 게임 파일 dry-run과 임시 clean GameRoot dry-run을 통과했다.
