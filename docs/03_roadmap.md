@@ -19,6 +19,7 @@
 - Faction work 라벨/메인 잔여/짧은 소개문
 - Faction Augmentations 구매 화면 라벨/설명문
 - Documentation 홈/목차, Beginner's guide 전체, 기본 메커니즘 문서 번역
+- Documentation 고급 메커니즘 화면 확인 가능 문서 번역
 - 고유명사 유지 전략 검증
 - 번들 직접 치환 방식 검증
 - 패처 기반 dry-run -> apply -> 재 dry-run 검증 흐름 정착
@@ -27,7 +28,7 @@
 
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
-- Documentation 섹션 단위 확장: Beginner's guide와 기본 메커니즘 문서 완료, 고급/자료 문서 후보 대기
+- Documentation 섹션 단위 확장: Beginner's guide, 기본 메커니즘, 화면 확인 가능한 고급 메커니즘 문서 완료; 진행도 잠금 고급 문서와 자료/마이그레이션 문서 후보 대기
 - Hacknet 관련 나머지 설명/툴팁
 - 공용 시간 단위 formatter
 - UI 폭/줄높이 장기 검증
@@ -165,14 +166,15 @@
 
 후보 순서:
 
-1. Documentation `Creating our First Script` 섹션 단위 확장
-2. Dark Net 인증/상세 모달 잔여
-3. Faction 긴 lore/rumor 문구 sweep
-4. Hacknet 관련 나머지 설명/툴팁
-5. 공용 시간 단위 formatter
-6. Gang 설명/툴팁
-7. Work/Class 결과 문구
-8. Tutorial 설명문
+1. Documentation 진행도 잠금 고급 문서 해금 후 번역
+2. Documentation 자료/마이그레이션 문서 확장
+3. Dark Net 인증/상세 모달 잔여
+4. Faction 긴 lore/rumor 문구 sweep
+5. Hacknet 관련 나머지 설명/툴팁
+6. 공용 시간 단위 formatter
+7. Gang 설명/툴팁
+8. Work/Class 결과 문구
+9. Tutorial 설명문
 
 선정 기준:
 
@@ -236,7 +238,7 @@
 - 전체 UI 일괄 번역
 - Faction/Augmentation 이름 번역
 - API 함수명 번역
-- Documentation 전체 번역(기본 메커니즘 완료 후 고급/자료 문서로 확장)
+- Documentation 전체 번역(홈/Beginner/기본 메커니즘/화면 확인 가능한 고급 메커니즘 완료, 진행도 잠금 고급 문서와 자료 문서로 확장)
 - DOM 후처리 번역
 - 소스 전체 포크 빌드
 
@@ -619,7 +621,7 @@
 남은 것:
 
 - 개별 Augmentation lore 설명문과 Grafting 구매 화면은 별도 manifest로 분리한다.
-- 다음 후보는 Documentation 섹션 단위 확장, Dark Net 인증/상세 모달 잔여, Faction 긴 lore/rumor 문구 sweep이다.
+- 다음 후보는 Documentation 진행도 잠금 고급 문서/자료 문서, Dark Net 인증/상세 모달 잔여, Faction 긴 lore/rumor 문구 sweep이다.
 
 ## Phase 11 완료 메모 - Documentation 홈/Beginner's guide 1차
 
@@ -706,8 +708,37 @@
 
 다음 후보:
 
-- Documentation 고급 메커니즘 문서
+- Documentation 진행도 잠금 고급 문서 해금 후 번역
 - Documentation 자료/마이그레이션 문서
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
 
+
+## Phase 14 완료 메모 - Documentation 고급 메커니즘 화면 확인 가능 문서
+
+구현된 것:
+
+- `patches/documentation_advanced_visible_programming.json`
+- 현재 화면에서 접근 가능한 고급 메커니즘 문서인 Hacking algorithms, Offline scripts and Bonus Time, IPvGO, Darkweb Network 번역
+- API명, 코드 블록, 파일명, 서버명, Faction명, markdown 링크 경로는 보존
+- 진행도 잠금 문서는 본문 확인이 불가능하므로 해금 후 별도 처리로 보류
+
+검증한 것:
+
+- manifest 11개 op를 순차 적용했다.
+- 각 chunk 적용 후 `node --check resources/app/dist/main.bundle.js`를 통과했다.
+- 최종 재 dry-run에서 모든 op가 `already-applied targetCount=1` 상태임을 확인했다.
+- `documentation_advanced_darkweb_auth_success.png`, `documentation_advanced_ipvgo_move_options_success.png`에서 화면 렌더링을 확인했다.
+
+운영 메모:
+
+- Documentation 고급 문서는 quote escaping 위험이 Beginner's guide와 동일하게 존재한다.
+- 특히 Darkweb/IPvGO 문서는 번들 내부 문자열 quote 스타일이 섞여 있으므로 source 단위로 실제 리터럴 형태를 확인한 뒤 target을 작성한다.
+- 긴 markdown 문서 패치는 앞으로도 `dry-run -> apply -> node --check -> 재 dry-run -> 화면 확인` 순서를 고정한다.
+
+다음 후보:
+
+- Documentation 진행도 잠금 고급 문서 해금 후 번역
+- Documentation 자료/마이그레이션 문서
+- Dark Net 인증/상세 모달 잔여
+- Faction 긴 lore/rumor 문구 sweep

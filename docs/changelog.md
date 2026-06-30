@@ -252,3 +252,13 @@
 - `documentation_basic_mechanics_stockmarket.json`을 추가해 Stock Market 문서를 번역했다.
 - 모든 신규 Documentation 기본 메커니즘 패치는 dry-run, apply, `node --check`, 재 dry-run 검증을 통과했다.
 - `documentation_basic_stats_success.png`, `documentation_basic_codingcontracts_success.png`, `documentation_basic_autocomplete_success.png`를 추가했다.
+
+## Documentation 고급 메커니즘 화면 확인 가능 문서 번역 적용
+
+- `patches/documentation_advanced_visible_programming.json`을 추가했다.
+- 화면에서 접근 가능한 고급 메커니즘 문서인 Hacking algorithms, Offline scripts and Bonus Time, IPvGO, Darkweb Network를 번역했다.
+- API명, 코드 블록, 파일명, 서버명, Faction명, markdown 링크 경로는 보존했다.
+- 11개 op 모두 dry-run, apply, `node --check`, 재 dry-run 검증을 통과했다.
+- Beginner's guide에서 확인한 검은화면 원인을 반영해 quote escaping과 literal newline 처리를 적용 전후로 점검했다.
+- `documentation_advanced_darkweb_auth_success.png`, `documentation_advanced_ipvgo_move_options_success.png`를 추가했다.
+- 진행도 잠금 고급 문서는 해금 후 실제 화면 확인 기준으로 별도 처리한다.

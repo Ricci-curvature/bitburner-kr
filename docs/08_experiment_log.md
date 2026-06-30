@@ -18,12 +18,15 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Faction work 라벨/메인 잔여/짧은 소개문
 - Faction Augmentations 구매 화면
 - Documentation 홈/목차와 Beginner's guide 전체 번역
+- Documentation 기본 메커니즘 문서 번역
+- Documentation 고급 메커니즘 화면 확인 가능 문서 번역
 
 진행 후보:
 
+- Documentation 진행도 잠금 고급 문서 해금 후 번역
+- Documentation 자료/마이그레이션 문서
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
-- Documentation `Creating our First Script` 섹션 단위 확장
 
 검증 원칙:
 
@@ -50,6 +53,9 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 | Faction work/메인/짧은 소개문 | `patches/faction_work_labels.json`, `patches/faction_main_residual_labels.json`, `patches/faction_info_descriptions_small.json` | 화면 검증 완료 | `screenshot/faction_sector12_info_success.png`, `screenshot/faction_slum_snakes_work_success.png`, `screenshot/faction_favor_tooltip_success.png` | 긴 Faction lore/rumor |
 | Faction Augmentations 구매 화면 | `patches/faction_augmentations_purchase_labels.json` | 화면 검증 완료 | `screenshot/faction_augmentations_purchase_success.png`, `screenshot/faction_augmentations_prereq_tooltip_success.png` | 개별 Augmentation lore 설명문, Grafting 구매 화면 |
 | Documentation 홈/Beginner's guide 1차 | `patches/documentation_home_toc.json`, `patches/documentation_beginners_intro_first_steps.json` | 화면 검증 완료 | `screenshot/documentation_beginner_intro_first_steps_success.png`, `screenshot/documentation_home_advanced_success.png`, `screenshot/documentation_home_resources_success.png` | Beginner's guide `Creating our First Script` 이후 섹션 |
+| Documentation Beginner's guide 전체 | `patches/documentation_beginners_creating_first_script.json`, `patches/documentation_beginners_running_scripts.json`, `patches/documentation_beginners_hacking_level_cloud_servers.json`, `patches/documentation_beginners_income_sources.json`, `patches/documentation_beginners_level50_cybersec_servers.json`, `patches/documentation_beginners_final_sections.json` | 화면 검증 완료 | `screenshot/documentation_beginner_creating_first_script_top_success.png`, `screenshot/documentation_beginner_final_next_steps_success.png`, `screenshot/documentation_beginner_final_random_tips_success.png` | 완료 |
+| Documentation 기본 메커니즘 문서 | `patches/documentation_basic_stats.json`, `patches/documentation_basic_mechanics_short_pages.json`, `patches/documentation_basic_mechanics_terminal_programs_infiltration.json`, `patches/documentation_basic_mechanics_scripts_autocomplete.json`, `patches/documentation_basic_mechanics_codingcontracts.json`, `patches/documentation_basic_mechanics_stockmarket.json` | 화면 검증 완료 | `screenshot/documentation_basic_stats_success.png`, `screenshot/documentation_basic_codingcontracts_success.png`, `screenshot/documentation_basic_autocomplete_success.png` | 완료 |
+| Documentation 고급 메커니즘 화면 확인 가능 문서 | `patches/documentation_advanced_visible_programming.json` | 화면 검증 완료 | `screenshot/documentation_advanced_darkweb_auth_success.png`, `screenshot/documentation_advanced_ipvgo_move_options_success.png` | 진행도 잠금 문서는 해금 후 별도 처리 |
 
 ### Phase 1 패처 로컬 CLI 검증
 
@@ -1141,5 +1147,47 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - Documentation 기본 메커니즘 묶음은 화면 확인 기준으로 완료했다.
 - 문서 영역은 고유명사/API/코드 보존 원칙만 지키면 완전 한글화 가능성이 높다.
 - 다만 markdown 문서가 JS 문자열 리터럴로 번들링되므로, 긴 문서일수록 quote escaping과 `node --check`가 필수 안전장치다.
-- 다음 Documentation 후보는 고급 메커니즘 또는 자료/마이그레이션 문서다.
+- 다음 Documentation 후보는 고급 메커니즘 중 화면에서 접근 가능한 문서다.
 
+
+## Documentation 고급 메커니즘 화면 확인 가능 문서 번역
+
+목표:
+
+- Documentation 탭의 고급 메커니즘 중 현재 화면에서 접근 가능한 문서를 번역한다.
+- Hacking algorithms, Offline scripts and Bonus Time, IPvGO, Darkweb Network를 우선 처리한다.
+- 진행도 잠금 문서는 본문을 화면에서 확인할 수 없으므로 해금 후 별도 manifest로 처리한다.
+- API명, 코드 블록, 파일명, 서버명, Faction명, markdown 링크 경로는 보존한다.
+
+적용한 manifest:
+
+- `patches/documentation_advanced_visible_programming.json`
+
+적용한 내용:
+
+- Hacking algorithms 문서 전체를 번역했다.
+- Offline scripts and Bonus Time 문서 전체를 번역했다.
+- IPvGO 문서의 소개, 자동화 개요, move 선택지, network 확장, capture/defense 전략, 후반 전략 설명까지 화면에서 확인 가능한 범위를 번역했다.
+- Darkweb Network 문서의 소개, API 요약, 용어집, script 설계 고려사항, `dnet.probe`, 인증/heartbleed, `scp`/`exec` 관련 설명까지 화면에서 확인 가능한 범위를 번역했다.
+
+검증:
+
+- manifest는 총 11개 op로 구성했다.
+- 신규 chunk 적용 전 dry-run에서 각 source가 1회 발견되는지 확인했다.
+- 적용 직후 `node --check resources/app/dist/main.bundle.js`를 통과했다.
+- 최종 재 dry-run에서 11개 op 모두 `already-applied targetCount=1` 상태임을 확인했다.
+- 화면에서 접근 가능한 고급 메커니즘 문서의 한글 렌더링을 확인했다.
+
+스크린샷:
+
+![Documentation 고급 Darkweb 인증 성공](../screenshot/documentation_advanced_darkweb_auth_success.png)
+
+![Documentation 고급 IPvGO 수 선택지 성공](../screenshot/documentation_advanced_ipvgo_move_options_success.png)
+
+판단:
+
+- 고급 메커니즘 중 화면에서 접근 가능한 문서는 번역 완료로 본다.
+- 긴 markdown 문서 번역 자체는 가능하지만, quote escaping과 literal newline 처리가 가장 큰 위험 지점이다.
+- 특히 Darkweb/IPvGO 문서는 번들 내부 문자열 quote 스타일이 섞여 있어 source 단위로 실제 리터럴 형태를 확인해야 한다.
+- 앞으로도 긴 Documentation 문서는 `dry-run -> apply -> node --check -> 재 dry-run -> 화면 확인` 순서를 필수로 둔다.
+- 진행도 잠금 문서는 본문 추측 번역보다 해금 후 실제 화면 검증을 우선한다.
