@@ -262,3 +262,13 @@
 - Beginner's guide에서 확인한 검은화면 원인을 반영해 quote escaping과 literal newline 처리를 적용 전후로 점검했다.
 - `documentation_advanced_darkweb_auth_success.png`, `documentation_advanced_ipvgo_move_options_success.png`를 추가했다.
 - 진행도 잠금 고급 문서는 해금 후 실제 화면 확인 기준으로 별도 처리한다.
+## NS/API 문서 트리 1차 패치 적용
+
+- `patches/documentation_api_ns_overview.json`을 추가해 NS 개요 문서의 제목, 설명, 비고, 예제 주석을 번역했다.
+- `patches/documentation_api_ns_args_scriptarg.json`을 추가해 `NS.args property`와 `ScriptArg type` 상세 문서를 번역했다.
+- `patches/documentation_api_common_structure.json`을 추가해 API 문서 생성기가 반복 출력하는 package/interface/type/property/method suffix와 공통 라벨을 번역했다.
+- `patches/documentation_api_package_visible_descriptions.json`을 추가해 `bitburner package` 인덱스에서 화면에 보이는 대표 설명문을 번역했다.
+- `scripts/apply-patch.ps1`에 `regexReplace` operation을 추가해 반복 구조를 expected count와 target pattern 기반으로 통제할 수 있게 했다.
+- API 문서 트리는 분량과 하위 링크 구조가 커서 `docs/09_api_documentation_tree.md`로 별도 분리했다.
+- `documentation_api_ns_overview_success.png`, `documentation_api_package_visible_descriptions_success.png`와 API 공통 구조 확인 스크린샷 4개를 추가했다.
+- 모든 API 문서 manifest는 dry-run, apply, `node --check`, 재 dry-run 검증을 통과했다.

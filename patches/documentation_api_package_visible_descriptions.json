@@ -1,0 +1,126 @@
+{
+  "patchId": "documentation_api_package_visible_descriptions",
+  "description": "Translate visible API package/interface description text while preserving API identifiers and generated documentation structure.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "generated nsDoc/bitburner.md module",
+    "generated nsDoc/bitburner.activefragment.md modules",
+    "generated nsDoc/bitburner.augmentpair.md modules",
+    "generated nsDoc/bitburner.basichgwoptions.md module"
+  ],
+  "scope": "Documentation > API package index and representative interface/property description text",
+  "preserveTerms": [
+    "ActiveFragment",
+    "AugmentPair",
+    "AutocompleteData",
+    "BackdoorRequirement",
+    "BaseTask",
+    "BasicHGWOptions",
+    "Fragment",
+    "getSleevePurchasableAugs",
+    "hack",
+    "grow",
+    "weaken",
+    "hacknet_node_money",
+    "hacknet_node_purchase_cost",
+    "UI",
+    "booster"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "Return value of [getSleevePurchasableAugs](./bitburner.sleeve.getsleevepurchasableaugs.md)",
+      "target": "[getSleevePurchasableAugs](./bitburner.sleeve.getsleevepurchasableaugs.md)의 반환값",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "Used for autocompletion",
+      "target": "자동완성에 사용됩니다.",
+      "expectedCount": 3,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "Player must have installed a backdoor on this server.",
+      "target": "플레이어가 이 서버에 백도어를 설치해야 합니다.",
+      "expectedCount": 3,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "Base interface of all tasks.",
+      "target": "모든 작업의 기본 인터페이스입니다.",
+      "expectedCount": 3,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "Options to affect the behavior of [hack](./bitburner.ns.hack.md)\\x3c!-- --\\x3e, [grow](./bitburner.ns.grow.md)\\x3c!-- --\\x3e, and [weaken](./bitburner.ns.weaken.md)\\x3c!-- --\\x3e.",
+      "target": "[hack](./bitburner.ns.hack.md)<!-- -->, [grow](./bitburner.ns.grow.md)<!-- -->, [weaken](./bitburner.ns.weaken.md)<!-- -->의 동작에 영향을 주는 옵션입니다.",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "This is the raw value of the modifier used to calculate the effect on your multipliers. It may not be a multiplier.",
+      "target": "승수 효과를 계산하는 데 사용되는 modifier의 원시값입니다. 이 값 자체가 항상 승수인 것은 아닙니다.",
+      "expectedCount": 3,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "With fragments that increase a multiplier, this value is a multiplier. For example, with \"+x% hacknet production\" fragment, a value of 1.25 will multiply the \"hacknet\\\\_node\\\\_money\" multiplier by 1.25. The UI will show \"+25% hacknet production\".",
+      "target": "승수를 증가시키는 Fragment에서는 이 값이 승수로 쓰입니다. 예를 들어 \"+x% hacknet production\" Fragment에서 값이 1.25라면 \"hacknet\\\\_node\\\\_money\" 승수에 1.25가 곱해집니다. UI에는 \"+25% hacknet production\"으로 표시됩니다.",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "With fragments that decrease a multiplier, you need to invert this value. For example, with \"-x% cheaper hacknet costs\" fragment, a value of 1.25 means the \"hacknet\\\\_node\\\\_purchase\\\\_cost\" (and other relevant cost multipliers) will be multiplied by 0.8 (1 / 1.25). The UI will show \"20% cheaper hacknet costs\".",
+      "target": "승수를 감소시키는 Fragment에서는 이 값을 역수로 적용해야 합니다. 예를 들어 \"-x% cheaper hacknet costs\" Fragment에서 값이 1.25라면 \"hacknet\\\\_node\\\\_purchase\\\\_cost\"와 관련 비용 승수에는 0.8(1 / 1.25)이 곱해집니다. UI에는 \"20% cheaper hacknet costs\"로 표시됩니다.",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "With booster fragments, this value is always 1. Booster fragments only boost non-booster fragments. They don\\'t directly boost your multipliers.",
+      "target": "booster Fragment에서는 이 값이 항상 1입니다. booster Fragment는 booster가 아닌 Fragment만 강화하며, 승수를 직접 강화하지는 않습니다.",
+      "expectedCount": 2,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "source": "augmentation cost",
+      "target": "Augmentation 비용",
+      "expectedCount": 4,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "dryRun": "scripts/apply-patch.ps1 reports expected replacements or already-applied target counts.",
+    "staticCheck": "node --check resources/app/dist/main.bundle.js passes.",
+    "screenshot": "Verify Documentation > API package index, ActiveFragment, Fragment, and AugmentPair pages render Korean description text while preserving API identifiers."
+  }
+}

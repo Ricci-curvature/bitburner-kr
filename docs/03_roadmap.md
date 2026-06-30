@@ -20,15 +20,18 @@
 - Faction Augmentations 구매 화면 라벨/설명문
 - Documentation 홈/목차, Beginner's guide 전체, 기본 메커니즘 문서 번역
 - Documentation 고급 메커니즘 화면 확인 가능 문서 번역
+- NS/API 문서 트리의 NS 개요, NS.args/ScriptArg, API 공통 구조, package 대표 설명문 번역
+- API 문서 반복 구조 대응용 `regexReplace` 패처 확장
 - 고유명사 유지 전략 검증
 - 번들 직접 치환 방식 검증
 - 패처 기반 dry-run -> apply -> 재 dry-run 검증 흐름 정착
 
 남은 주요 후보:
 
+- NS/API 하위 문서 설명문 확장: package 표, 고빈도 NS 메서드, namespace 문서
+- Documentation 섹션 단위 확장: Beginner's guide, 기본 메커니즘, 화면 확인 가능한 고급 메커니즘 문서 완료; 진행도 잠금 고급 문서와 자료/마이그레이션 문서 후보 대기
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
-- Documentation 섹션 단위 확장: Beginner's guide, 기본 메커니즘, 화면 확인 가능한 고급 메커니즘 문서 완료; 진행도 잠금 고급 문서와 자료/마이그레이션 문서 후보 대기
 - Hacknet 관련 나머지 설명/툴팁
 - 공용 시간 단위 formatter
 - UI 폭/줄높이 장기 검증
@@ -166,12 +169,13 @@
 
 후보 순서:
 
-1. Documentation 진행도 잠금 고급 문서 해금 후 번역
-2. Documentation 자료/마이그레이션 문서 확장
-3. Dark Net 인증/상세 모달 잔여
-4. Faction 긴 lore/rumor 문구 sweep
-5. Hacknet 관련 나머지 설명/툴팁
-6. 공용 시간 단위 formatter
+1. NS/API 하위 문서 설명문 확장
+2. Documentation 진행도 잠금 고급 문서 해금 후 번역
+3. Documentation 자료/마이그레이션 문서 확장
+4. Dark Net 인증/상세 모달 잔여
+5. Faction 긴 lore/rumor 문구 sweep
+6. Hacknet 관련 나머지 설명/툴팁
+7. 공용 시간 단위 formatter
 7. Gang 설명/툴팁
 8. Work/Class 결과 문구
 9. Tutorial 설명문
@@ -238,7 +242,7 @@
 - 전체 UI 일괄 번역
 - Faction/Augmentation 이름 번역
 - API 함수명 번역
-- Documentation 전체 번역(홈/Beginner/기본 메커니즘/화면 확인 가능한 고급 메커니즘 완료, 진행도 잠금 고급 문서와 자료 문서로 확장)
+- Documentation/API 전체 번역(홈/Beginner/기본 메커니즘/화면 확인 가능한 고급 메커니즘, NS/API 일부 완료; 진행도 잠금 문서, 자료 문서, API 하위 문서로 확장)
 - DOM 후처리 번역
 - 소스 전체 포크 빌드
 
@@ -742,3 +746,39 @@
 - Documentation 자료/마이그레이션 문서
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
+## Phase 15 완료 메모 - NS/API 문서 트리 1차
+
+구현된 것:
+
+- `patches/documentation_api_ns_overview.json`
+- `patches/documentation_api_ns_args_scriptarg.json`
+- `patches/documentation_api_common_structure.json`
+- `patches/documentation_api_package_visible_descriptions.json`
+- `scripts/apply-patch.ps1`의 `regexReplace` operation
+- `docs/09_api_documentation_tree.md`
+
+처리 범위:
+
+- NS 개요 페이지의 제목, 설명, 비고, 예제 주석
+- `NS.args property`와 `ScriptArg type` 상세 문서
+- API 문서 공통 구조의 package/interface/type/property/method suffix, 시그니처, 속성, 메서드, 예제, 비고, 매개변수, 반환값, 설명 표 라벨
+- `bitburner package` 인덱스에서 화면에 보이는 대표 설명문
+
+검증한 것:
+
+- 각 manifest는 dry-run, apply, `node --check`, 재 dry-run 검증을 통과했다.
+- 재 dry-run에서 이미 적용된 문자열은 `already-applied`와 target count로 확인했다.
+- `documentation_api_ns_overview_success.png`, `documentation_api_package_visible_descriptions_success.png`에서 실제 화면 렌더링을 확인했다.
+- API 공통 구조는 `documentation_api_package_common_structure_success.png`, `documentation_api_activefragment_common_structure_success.png`, `documentation_api_fragment_common_structure_success.png`, `documentation_api_fragment_effect_common_structure_success.png`에서 확인했다.
+
+운영 메모:
+
+- API 문서는 하위 페이지가 매우 많아 기존 실험 로그가 아니라 `docs/09_api_documentation_tree.md`로 분리했다.
+- 반복 구조는 `regexReplace`로 처리하되, `expectedCount`와 `targetPattern`을 함께 둔다.
+- API 식별자, 타입명, 함수명, 코드 블록은 번역하지 않는다.
+
+다음 후보:
+
+- package 인덱스의 대표 설명문 추가 번역
+- 고빈도 NS 메서드 상세 문서
+- namespace 단위 API 문서

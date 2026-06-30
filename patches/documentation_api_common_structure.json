@@ -1,0 +1,291 @@
+{
+  "patchId": "documentation_api_common_structure",
+  "description": "Translate common structure and generated title suffixes across Bitburner API documentation pages while preserving identifiers, links, signatures, and code snippets.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "generated API Documenter markdown embedded in main.bundle.js"
+  ],
+  "scope": "Documentation > Resources > NS/API generated documentation common headings, breadcrumbs, table headers, and page title suffixes",
+  "preserveTerms": [
+    "bitburner",
+    "NS",
+    "API",
+    "Scripts",
+    "RAM",
+    "PID",
+    "BitNode",
+    "Faction",
+    "Augmentation",
+    "Netscript",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "method/property/interface/type identifiers",
+    "function names",
+    "file names",
+    "code snippets"
+  ],
+  "operations": [
+    {
+      "type": "regexReplace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_title_property_suffix",
+      "pattern": "## ([^\\\\]+?) property\\\\n\\\\n",
+      "replacement": "## $1 속성\\n\\n",
+      "targetPattern": "## ([^\\\\]+?) 속성\\\\n\\\\n",
+      "expectedCount": 705,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "regexReplace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_title_type_suffix",
+      "pattern": "## ([^\\\\]+?) type\\\\n\\\\n",
+      "replacement": "## $1 타입\\n\\n",
+      "targetPattern": "## ([^\\\\]+?) 타입\\\\n\\\\n",
+      "expectedCount": 80,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "regexReplace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_title_interface_suffix",
+      "pattern": "## ([^\\\\]+?) interface\\\\n\\\\n",
+      "replacement": "## $1 인터페이스\\n\\n",
+      "targetPattern": "## ([^\\\\]+?) 인터페이스\\\\n\\\\n",
+      "expectedCount": 140,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "regexReplace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_title_method_suffix",
+      "pattern": "## ([^\\\\]+?) method\\\\n\\\\n",
+      "replacement": "## $1 메서드\\n\\n",
+      "targetPattern": "## ([^\\\\]+?) 메서드\\\\n\\\\n",
+      "expectedCount": 536,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_breadcrumb_home",
+      "source": "[Home](./index.md)",
+      "target": "[홈](./index.md)",
+      "expectedCount": 1533,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_package_title",
+      "source": "## bitburner package",
+      "target": "## bitburner 패키지",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_interfaces_heading",
+      "source": "## Interfaces",
+      "target": "## 인터페이스",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_type_aliases_heading",
+      "source": "## Type Aliases",
+      "target": "## 타입 별칭",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_properties_heading",
+      "source": "## Properties",
+      "target": "## 속성",
+      "expectedCount": 111,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_methods_heading",
+      "source": "## Methods",
+      "target": "## 메서드",
+      "expectedCount": 32,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_parameters_heading",
+      "source": "## Parameters",
+      "target": "## 매개변수",
+      "expectedCount": 392,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_remarks_heading",
+      "source": "## Remarks",
+      "target": "## 비고",
+      "expectedCount": 502,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_example_heading",
+      "source": "## Example",
+      "target": "## 예시",
+      "expectedCount": 76,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_signature_label",
+      "source": "**Signature:**",
+      "target": "**시그니처:**",
+      "expectedCount": 1531,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_returns_label",
+      "source": "**Returns:**",
+      "target": "**반환값:**",
+      "expectedCount": 535,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_optional_label",
+      "source": "_(Optional)_",
+      "target": "_(선택)_",
+      "expectedCount": 242,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_ram_cost_label",
+      "source": "RAM cost:",
+      "target": "RAM 비용:",
+      "expectedCount": 965,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_interface_header",
+      "source": "Interface\\n\\n\\n</th><th>",
+      "target": "인터페이스\\n\\n\\n</th><th>",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_type_alias_header",
+      "source": "Type Alias\\n\\n\\n</th><th>",
+      "target": "타입 별칭\\n\\n\\n</th><th>",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_property_header",
+      "source": "Property\\n\\n\\n</th><th>",
+      "target": "속성\\n\\n\\n</th><th>",
+      "expectedCount": 111,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_method_header",
+      "source": "Method\\n\\n\\n</th><th>",
+      "target": "메서드\\n\\n\\n</th><th>",
+      "expectedCount": 32,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_parameter_header",
+      "source": "Parameter\\n\\n\\n</th><th>",
+      "target": "매개변수\\n\\n\\n</th><th>",
+      "expectedCount": 392,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_modifiers_header",
+      "source": "Modifiers\\n\\n\\n</th><th>",
+      "target": "수정자\\n\\n\\n</th><th>",
+      "expectedCount": 111,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_type_header",
+      "source": "Type\\n\\n\\n</th><th>",
+      "target": "타입\\n\\n\\n</th><th>",
+      "expectedCount": 503,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    },
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "api_table_description_header",
+      "source": "Description\\n\\n\\n</th></tr>",
+      "target": "설명\\n\\n\\n</th></tr>",
+      "expectedCount": 538,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "API documentation package/index and generated subpages should show Korean structural labels such as 홈, 인터페이스, 속성, 타입, 메서드, 시그니처, 매개변수, 반환값, 비고, 예시, and table headers.",
+    "knownRemaining": [
+      "Individual API descriptions are still translated in focused follow-up manifests; this patch only handles generated documentation structure."
+    ]
+  }
+}

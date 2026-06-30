@@ -40,6 +40,11 @@ function Count-Literal([string]$Text, [string]$Needle) {
   return [regex]::Matches($Text, [regex]::Escape($Needle)).Count
 }
 
+function Count-Regex([string]$Text, [string]$Pattern) {
+  if ([string]::IsNullOrEmpty($Pattern)) { throw "Cannot count an empty regex pattern." }
+  return [regex]::Matches($Text, $Pattern).Count
+}
+
 function Read-Utf8([string]$Path) {
   return [IO.File]::ReadAllText($Path)
 }
@@ -154,6 +159,36 @@ foreach ($op in $operations) {
       $contentByPath[$path] = $newText
       $planned += [pscustomobject]@{ type=$type; path=$path; status="will-insert"; beforeHash=$hashBeforeByPath[$path]; afterHash=$null; existedBefore=$true }
       Write-Host "[will-insert] $path anchor matches: $count"
+    }
+    "regexReplace" {
+      $path = Resolve-GamePath ([string]$op.file)
+      Assert-UnderRoot $path $GameRoot "Target"
+      if (-not (Test-Path -LiteralPath $path)) { $failures += "Target file missing: $path"; continue }
+      if (-not $contentByPath.ContainsKey($path)) {
+        $contentByPath[$path] = Read-Utf8 $path
+        $hashBeforeByPath[$path] = Get-Sha256 $path
+      }
+      $text = [string]$contentByPath[$path]
+      $pattern = [string]$op.pattern
+      $replacement = [string]$op.replacement
+      $targetPattern = if ($op.PSObject.Properties.Name -contains "targetPattern") { [string]$op.targetPattern } else { $null }
+      $expected = if ($op.PSObject.Properties.Name -contains "expectedCount") { [int]$op.expectedCount } else { 1 }
+      $allowExisting = ($op.PSObject.Properties.Name -contains "allowExistingTarget") -and [bool]$op.allowExistingTarget
+      $sourceCount = Count-Regex $text $pattern
+      $targetCount = if ($targetPattern) { Count-Regex $text $targetPattern } else { 0 }
+      if ($allowExisting -and $targetPattern -and $targetCount -gt 0 -and $sourceCount -eq 0) {
+        $planned += [pscustomobject]@{ type=$type; path=$path; status="already-applied"; sourceCount=$sourceCount; targetCount=$targetCount; beforeHash=$hashBeforeByPath[$path]; afterHash=$hashBeforeByPath[$path]; existedBefore=$true }
+        Write-Host "[already-applied] regexReplace $path targetCount=$targetCount"
+        continue
+      }
+      if ($sourceCount -ne $expected) { $failures += "regexReplace expectedCount mismatch for $path. Expected $expected, found $sourceCount."; continue }
+      $newText = [regex]::Replace($text, $pattern, $replacement)
+      $allowRemaining = ($op.PSObject.Properties.Name -contains "allowRemainingSource") -and [bool]$op.allowRemainingSource
+      if (-not $allowRemaining -and (Count-Regex $newText $pattern) -gt 0) { $failures += "regexReplace would leave source pattern in $path while allowRemainingSource=false."; continue }
+      if ($targetPattern -and (Count-Regex $newText $targetPattern) -lt 1) { $failures += "regexReplace target pattern not found after replacement in $path."; continue }
+      $contentByPath[$path] = $newText
+      $planned += [pscustomobject]@{ type=$type; path=$path; status="will-regex-replace"; sourceCount=$sourceCount; targetCount=$targetCount; beforeHash=$hashBeforeByPath[$path]; afterHash=$null; existedBefore=$true }
+      Write-Host "[will-regex-replace] $path sourceCount=$sourceCount"
     }
     "replace" {
       $path = Resolve-GamePath ([string]$op.file)
