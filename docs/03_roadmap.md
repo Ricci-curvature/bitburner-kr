@@ -18,7 +18,7 @@
 - Dark Net 화면 라벨/상태/주요 툴팁
 - Faction work 라벨/메인 잔여/짧은 소개문
 - Faction Augmentations 구매 화면 라벨/설명문
-- Documentation 홈/목차와 Beginner's guide 전체 번역
+- Documentation 홈/목차, Beginner's guide 전체, 기본 메커니즘 문서 번역
 - 고유명사 유지 전략 검증
 - 번들 직접 치환 방식 검증
 - 패처 기반 dry-run -> apply -> 재 dry-run 검증 흐름 정착
@@ -27,7 +27,7 @@
 
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
-- Documentation 섹션 단위 확장: Beginner's guide 완료, 다음 문서 후보 대기
+- Documentation 섹션 단위 확장: Beginner's guide와 기본 메커니즘 문서 완료, 고급/자료 문서 후보 대기
 - Hacknet 관련 나머지 설명/툴팁
 - 공용 시간 단위 formatter
 - UI 폭/줄높이 장기 검증
@@ -236,7 +236,7 @@
 - 전체 UI 일괄 번역
 - Faction/Augmentation 이름 번역
 - API 함수명 번역
-- Documentation 전체 번역
+- Documentation 전체 번역(기본 메커니즘 완료 후 고급/자료 문서로 확장)
 - DOM 후처리 번역
 - 소스 전체 포크 빌드
 
@@ -678,4 +678,36 @@
 - Dark Net 인증/상세 모달 잔여
 - Faction 긴 lore/rumor 문구 sweep
 - 개별 Augmentation lore/Grafting 구매 화면
+
+## Phase 13 완료 메모 - Documentation 기본 메커니즘 문서
+
+구현된 것:
+
+- `patches/documentation_basic_stats.json`
+- `patches/documentation_basic_mechanics_short_pages.json`
+- `patches/documentation_basic_mechanics_terminal_programs_infiltration.json`
+- `patches/documentation_basic_mechanics_scripts_autocomplete.json`
+- `patches/documentation_basic_mechanics_codingcontracts.json`
+- `patches/documentation_basic_mechanics_stockmarket.json`
+- Documentation 기본 메커니즘의 Stats, Terminal, Hacking, Scripts, Servers, RAM, Hacknet Node, Augmentation, Companies, Factions, Crimes, Programs, Reputation, Stock Market, World, Coding Contracts, Autocomplete 문서 번역
+
+검증한 것:
+
+- 각 manifest는 dry-run에서 `sourceCount=1` 또는 의도한 expected count로 통과했다.
+- 각 적용 후 `node --check resources/app/dist/main.bundle.js`를 통과했다.
+- 재 dry-run에서 적용 항목이 `already-applied targetCount=1` 상태임을 확인했다.
+- `documentation_basic_stats_success.png`, `documentation_basic_codingcontracts_success.png`, `documentation_basic_autocomplete_success.png`에서 화면 렌더링을 확인했다.
+
+운영 메모:
+
+- Stats 문서는 기존 UI 번역 기준에 맞춰 Strength/Defense/Dexterity/Agility/Charisma를 힘/방어/민첩/기동/매력으로 통일했다.
+- Coding Contracts처럼 따옴표/배열 예제가 많은 문서는 문장 번역보다 문자열 escaping 검증이 더 중요하다.
+- Stock Market 문서는 큰따옴표 delimiter 모듈이어서 target의 큰따옴표를 escape한 뒤 적용했다.
+
+다음 후보:
+
+- Documentation 고급 메커니즘 문서
+- Documentation 자료/마이그레이션 문서
+- Dark Net 인증/상세 모달 잔여
+- Faction 긴 lore/rumor 문구 sweep
 

@@ -1094,3 +1094,52 @@ Bitburner KR 패치의 실제 실험 결과와 스크린샷을 모아 두는 문
 - 앞으로 Documentation처럼 긴 markdown 모듈을 패치할 때는 `dry-run -> apply -> node --check -> 재 dry-run -> 화면 확인` 순서를 필수로 둔다.
 - 특히 큰따옴표, 작은따옴표, 실제 줄바꿈과 literal `\n` 처리를 검증하지 않으면 부팅 실패로 이어질 수 있다.
 
+## Documentation 기본 메커니즘 문서 연속 번역
+
+목표:
+
+- Documentation 탭의 기본 메커니즘 문서를 Beginner's guide 이후 흐름으로 이어서 번역한다.
+- UI에서 이미 정착한 용어와 맞춰 Stats 계열은 힘/방어/민첩/기동/매력으로 통일한다.
+- 코드 블록, API명, 명령어, 서버명, 파일명, markdown 링크 경로는 보존한다.
+- 긴 markdown 모듈도 `dry-run -> apply -> node --check -> 재 dry-run -> 화면 확인` 순서로 통제한다.
+
+적용한 manifest:
+
+- `patches/documentation_basic_stats.json`
+- `patches/documentation_basic_mechanics_short_pages.json`
+- `patches/documentation_basic_mechanics_terminal_programs_infiltration.json`
+- `patches/documentation_basic_mechanics_scripts_autocomplete.json`
+- `patches/documentation_basic_mechanics_codingcontracts.json`
+- `patches/documentation_basic_mechanics_stockmarket.json`
+
+적용한 내용:
+
+- Stats 문서의 주요 스탯 설명을 번역하고, 전투 스탯 명칭을 기존 Augmentation 효과 라벨과 같은 용어로 맞췄다.
+- Hacking, Servers, RAM, Hacknet Node, Augmentation, Companies, Factions, Crimes, Reputation, World 같은 짧은 기본 메커니즘 문서를 묶어서 번역했다.
+- Terminal, Infiltration, Programs 문서는 문서 모듈 단위로 번역했다.
+- Scripts와 Autocomplete 문서는 예제 코드와 API명을 보존하고 설명문/제목을 번역했다.
+- Coding Contracts 문서는 해답 제출 형식, 문자열 변환, 보상, API 사용 설명을 번역했다.
+- Stock Market 문서는 Long/Short, Forecast, Spread, 주문 유형, 플레이어 행동 영향, 오프라인 진행 설명을 번역했다.
+
+검증:
+
+- 모든 manifest는 쓰기 전 dry-run에서 source count 검사를 통과했다.
+- 각 manifest 적용 직후 `node --check resources/app/dist/main.bundle.js`를 실행해 번들 문법 오류가 없음을 확인했다.
+- 각 manifest 적용 후 재 dry-run에서 `already-applied targetCount=1`을 확인했다.
+- 화면에서 기본 메커니즘 문서 전체 한글 렌더링을 확인했다.
+
+스크린샷:
+
+![Documentation 기본 Stats 성공](../screenshot/documentation_basic_stats_success.png)
+
+![Documentation 기본 Coding Contracts 성공](../screenshot/documentation_basic_codingcontracts_success.png)
+
+![Documentation 기본 Autocomplete 성공](../screenshot/documentation_basic_autocomplete_success.png)
+
+판단:
+
+- Documentation 기본 메커니즘 묶음은 화면 확인 기준으로 완료했다.
+- 문서 영역은 고유명사/API/코드 보존 원칙만 지키면 완전 한글화 가능성이 높다.
+- 다만 markdown 문서가 JS 문자열 리터럴로 번들링되므로, 긴 문서일수록 quote escaping과 `node --check`가 필수 안전장치다.
+- 다음 Documentation 후보는 고급 메커니즘 또는 자료/마이그레이션 문서다.
+

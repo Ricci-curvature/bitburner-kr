@@ -241,3 +241,14 @@
 - manifest target의 큰따옴표/작은따옴표 escaping을 보정한 뒤 후반부 4개 manifest를 순차 재적용했다.
 - 각 후반부 manifest 적용 직후 `node --check resources/app/dist/main.bundle.js`를 통과했고, 재 dry-run에서 모두 `already-applied targetCount=1`을 확인했다.
 - `documentation_beginner_creating_first_script_top_success.png`, `documentation_beginner_creating_first_script_code_success.png`, `documentation_beginner_final_next_steps_success.png`, `documentation_beginner_final_random_tips_success.png`를 추가하고 화면 검증 완료로 기록했다.
+
+## Documentation 기본 메커니즘 문서 번역 적용
+
+- `documentation_basic_stats.json`을 추가해 Stats 문서를 번역했다.
+- `documentation_basic_mechanics_short_pages.json`을 추가해 Hacking, Servers, RAM, Hacknet Node, Augmentation, Companies, Factions, Crimes, Reputation, World 문서를 번역했다.
+- `documentation_basic_mechanics_terminal_programs_infiltration.json`을 추가해 Terminal, Infiltration, Programs 문서를 번역했다.
+- `documentation_basic_mechanics_scripts_autocomplete.json`을 추가해 Scripts와 Autocomplete 문서를 번역했다.
+- `documentation_basic_mechanics_codingcontracts.json`을 추가해 Coding Contracts 문서를 번역했다.
+- `documentation_basic_mechanics_stockmarket.json`을 추가해 Stock Market 문서를 번역했다.
+- 모든 신규 Documentation 기본 메커니즘 패치는 dry-run, apply, `node --check`, 재 dry-run 검증을 통과했다.
+- `documentation_basic_stats_success.png`, `documentation_basic_codingcontracts_success.png`, `documentation_basic_autocomplete_success.png`를 추가했다.

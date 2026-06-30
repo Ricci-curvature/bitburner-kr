@@ -1,0 +1,50 @@
+{
+  "patchId": "documentation_basic_stats",
+  "description": "Translate the basic mechanics Stats documentation page while preserving API names and markdown link targets, and matching Korean stat terminology used elsewhere in the UI.",
+  "gameVersion": "3.0.1",
+  "sourceMapOrigins": [
+    "webpack:///./src/Documentation/doc/basic/stats.md"
+  ],
+  "scope": "Documentation basic Stats page prose and headings",
+  "preserveTerms": [
+    "Bitburner",
+    "Overview",
+    "Stats",
+    "API",
+    "ns.getPlayer()",
+    "hack",
+    "grow",
+    "weaken",
+    "ns.hack()",
+    "ns.grow()",
+    "ns.weaken()",
+    "Program",
+    "Faction",
+    "Factions",
+    "Reputation",
+    "Company",
+    "Augmentation",
+    "Augmentations",
+    "HP",
+    "Infiltration"
+  ],
+  "operations": [
+    {
+      "type": "replace",
+      "file": "resources/app/dist/main.bundle.js",
+      "id": "docs_basic_stats_full_page",
+      "source": "Below are some of the stats that will increase with play and reset during augmentation installs as you progress through the game.\\nYour stats can be found in the Overview panel, the Stats subpage of the side menu, or with API methods like `ns.getPlayer()`.\\n\\n## Hack Skill\\n\\nFor many aspects of Bitburner, increasing your Hack skill will be an important goal. Primarily affected by the efficiency of your hacking strategies, you will also be offered [Augmentations](augmentations.md) that greatly enhance your Hack Skill level and how effective its results are.\\n\\nAffects:\\n\\n- Time needed to execute `hack`, `grow`, or `weaken` and similar methods\\n- Your chance to successfully hack a server\\n- Percent of a server's money stolen when hacking it\\n- Success rate of certain [crimes](crimes.md)\\n- Time needed to create a [Program](programs.md)\\n- [Faction](factions.md) [Reputation](reputation.md) gain when carrying out Hacking Contracts or Field Work\\n- [Company](companies.md) [Reputation](reputation.md) gain for certain jobs\\n\\nGain Hack experience by:\\n\\n- Manually hacking servers through the [Terminal](terminal.md)\\n- Using `ns.hack()`, `ns.grow()`, or `ns.weaken()` through scripts\\n- Committing certain [crimes](crimes.md)\\n- Carrying out Hacking Contracts or doing Field work for [Factions](factions.md)\\n- Some [Company](companies.md) jobs and other types of work\\n- Studying at a university\\n\\n## Combat Skills\\n\\n### Strength, Defense, Dexterity, and Agility\\n\\nThese represent your physical skill and attributes, including your ability to sneak, inflict or endure damage, and pull off high precision tasks. Similar to your Hack skill, you will be offered [Faction](factions.md) [Augmentations](augmentations.md) to multiplicatively enhance your Combat Skills and exp gain.\\n\\nAffects:\\n\\n- HP scales with Defense. Infiltration and some jobs may cause you to take damage.\\n- Success rate of certain [crimes](crimes.md)\\n- [Faction](factions.md) [Reputation](reputation.md) gain for Security and Field Work\\n- [Company](companies.md) [Reputation](reputation.md) gain for certain jobs\\n\\nGain experience by:\\n\\n- Working out at a gym\\n- Committing certain [crimes](crimes.md)\\n- Doing Security or Field Work for a [Faction](factions.md)\\n- Working certain jobs at a [Company](companies.md)\\n\\n## Charisma\\n\\nRarely as useful as Hacking and Physical skills, Charisma can help get a company job, gain trust, or calm chaos in social situations.\\n\\nCharisma can also be enhanced with [Augmentations](augmentations.md).\\n\\nAffects:\\n\\n- Success rate of certain [crimes](crimes.md)\\n- [Faction](factions.md) [Reputation](reputation.md) gain for Field Work\\n- [Company](companies.md) [Reputation](reputation.md) gain for most jobs\\n\\nGain experience by:\\n\\n- Committing certain [crimes](crimes.md)\\n- Studying at a university\\n- Working certain jobs at a [Company](companies.md)\\n- Doing Field work for a [Faction](factions.md)\\n\\n### Other Stats and abilities are available in later stages of the game.",
+      "target": "아래는 게임을 진행하면서 플레이를 통해 증가하고, Augmentation 설치 시 초기화되는 주요 스탯입니다.\\n현재 스탯은 Overview 패널, 사이드 메뉴의 Stats 하위 페이지, 또는 `ns.getPlayer()` 같은 API 메서드로 확인할 수 있습니다.\\n\\n## 해킹 스킬\\n\\nBitburner의 많은 요소에서 해킹 스킬을 올리는 것은 중요한 목표입니다. 해킹 스킬은 주로 해킹 전략의 효율에 영향을 받으며, 해킹 스킬 레벨과 그 결과의 효과를 크게 강화하는 [Augmentations](augmentations.md)도 얻을 수 있습니다.\\n\\n영향:\\n\\n- `hack`, `grow`, `weaken` 및 비슷한 메서드를 실행하는 데 필요한 시간\\n- 서버 해킹 성공 확률\\n- 해킹 시 서버에서 훔치는 돈의 비율\\n- 특정 [범죄](crimes.md)의 성공률\\n- [Program](programs.md)을 만드는 데 필요한 시간\\n- 해킹 계약 또는 현장 임무 수행 시 [Faction](factions.md) [Reputation](reputation.md) 획득량\\n- 특정 직업의 [Company](companies.md) [Reputation](reputation.md) 획득량\\n\\n해킹 경험치 획득 방법:\\n\\n- [Terminal](terminal.md)을 통해 서버를 직접 해킹\\n- 스크립트에서 `ns.hack()`, `ns.grow()`, `ns.weaken()` 사용\\n- 특정 [범죄](crimes.md) 수행\\n- 해킹 계약 수행 또는 [Factions](factions.md)의 현장 임무 수행\\n- 일부 [Company](companies.md) 직업 및 다른 종류의 작업 수행\\n- 대학교에서 공부\\n\\n## 전투 스킬\\n\\n### 힘, 방어, 민첩, 기동\\n\\n이 스탯들은 은신, 피해를 주거나 견디는 능력, 고정밀 작업 수행 능력 등 신체 능력과 속성을 나타냅니다. 해킹 스킬과 마찬가지로, 전투 스킬과 경험치 획득량을 배율로 강화하는 [Faction](factions.md) [Augmentations](augmentations.md)을 얻을 수 있습니다.\\n\\n영향:\\n\\n- HP는 방어에 따라 증가합니다. Infiltration과 일부 직업에서는 피해를 받을 수 있습니다.\\n- 특정 [범죄](crimes.md)의 성공률\\n- 보안 업무와 현장 임무 수행 시 [Faction](factions.md) [Reputation](reputation.md) 획득량\\n- 특정 직업의 [Company](companies.md) [Reputation](reputation.md) 획득량\\n\\n경험치 획득 방법:\\n\\n- 체육관에서 운동\\n- 특정 [범죄](crimes.md) 수행\\n- [Faction](factions.md)의 보안 업무 또는 현장 임무 수행\\n- [Company](companies.md)의 특정 직업 수행\\n\\n## 매력\\n\\n매력은 해킹 스킬이나 신체 스킬만큼 자주 유용하지는 않지만, 회사 취업, 신뢰 획득, 사회적 상황에서의 혼란 완화에 도움을 줄 수 있습니다.\\n\\n매력도 [Augmentations](augmentations.md)으로 강화할 수 있습니다.\\n\\n영향:\\n\\n- 특정 [범죄](crimes.md)의 성공률\\n- 현장 임무 수행 시 [Faction](factions.md) [Reputation](reputation.md) 획득량\\n- 대부분의 직업에서 [Company](companies.md) [Reputation](reputation.md) 획득량\\n\\n경험치 획득 방법:\\n\\n- 특정 [범죄](crimes.md) 수행\\n- 대학교에서 공부\\n- [Company](companies.md)의 특정 직업 수행\\n- [Faction](factions.md)의 현장 임무 수행\\n\\n### 그 밖의 스탯과 능력은 게임 후반부에 사용할 수 있습니다.",
+      "expectedCount": 1,
+      "allowRemainingSource": false,
+      "allowExistingTarget": true
+    }
+  ],
+  "verification": {
+    "needsScreenshot": true,
+    "expectedVisualChange": "The Documentation > Basic Mechanics > Stats page should render Korean prose/headings while API names and markdown links remain intact.",
+    "knownRemaining": [
+      "Stats navigation labels outside this page are handled by documentation_home_toc.json."
+    ]
+  }
+}
